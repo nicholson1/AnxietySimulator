@@ -10,11 +10,11 @@ NavMeshProjectSettings:
   - name: Not Walkable
     cost: 1
   - name: Jump
+    cost: 1
+  - name: Drive Only
+    cost: 3
+  - name: WalkDrive
     cost: 2
-  - name: 
-    cost: 1
-  - name: 
-    cost: 1
   - name: 
     cost: 1
   - name: 

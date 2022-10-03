@@ -53,7 +53,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8694393418557108839
@@ -127,6 +127,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1cc82430ef42c0b4dbc40b2fd46bb159, type: 2}
+    - target: {fileID: 13735940, guid: 841e8e4f1a54c754396b7559d1cc6fad, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41f8cc9142b96d44da87f5e4debde131, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841e8e4f1a54c754396b7559d1cc6fad, type: 3}
 --- !u!4 &8694393417992306919 stripped

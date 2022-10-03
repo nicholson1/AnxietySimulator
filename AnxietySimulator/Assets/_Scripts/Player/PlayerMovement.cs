@@ -8,8 +8,11 @@ public class PlayerMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Animator animator;
+    private Vector3 targetPos;
+
 
     private bool is_walking = false;
+    private bool is_idle ;
 
     private void Start()
     {
@@ -19,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+       
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit click;
@@ -26,25 +30,42 @@ public class PlayerMovement : MonoBehaviour
             if (Physics.Raycast(ray, out click, Mathf.Infinity))
             {
                 agent.SetDestination(click.point);
+                targetPos = click.point;
                 //Debug.Log(is_walking);
-                if (is_walking == false)
+                if (!is_walking)
                 {
-                    //Debug.Log("iran");
-                    animator.SetBool("Walking", true);
+                    
+                    animator.SetTrigger("Move");
                     is_walking = true;
+                    is_idle = false;
 
                 }
             }
         }
-
-        if (Vector3.Distance(agent.destination , transform.position) < .1f)
+        
+        if  (Vector3.Distance(targetPos, this.transform.position) < 1f )
         {
-            animator.SetBool("Walking", false);
-            is_walking = false;
-
+            if (!is_idle)
+            {
+                is_walking = false;
+                is_idle = true;
+                animator.SetTrigger("Idle");
+            }
         }
         
         
         
     }
-}
+    
+   
+
+   
+
+   
+
+   
+        
+        
+        
+    }
+
