@@ -11,7 +11,7 @@ public class Car : MonoBehaviour
     [SerializeField] private MeshRenderer[] Skins;
     [SerializeField] private NavMeshAgent navAgent;
 
-    [SerializeField] private Transform Path;
+    public Transform Path;
 
     private List<Vector3> Waypoints = new List<Vector3>();
 
@@ -21,8 +21,14 @@ public class Car : MonoBehaviour
     
     public static event Action<GameObject, Transform> Honk;
     
-    private void Randomize()
+    public void Initialize()
     {
+        foreach (Transform point in Path.GetComponentsInChildren<Transform>())
+        {
+            Waypoints.Add(point.position);
+        }
+        currentTarget = 0;
+        navAgent.SetDestination(Waypoints[currentTarget]);
         // disable all models
         // enable random 1
         // assign material to random 1
@@ -39,6 +45,7 @@ public class Car : MonoBehaviour
 
         moveSpeed = Random.Range(3, 7);
         navAgent.speed = moveSpeed;
+        
 
     }
 
@@ -46,21 +53,24 @@ public class Car : MonoBehaviour
 
     private void Start()
     {
-        Randomize();
-        foreach (Transform point in Path.GetComponentsInChildren<Transform>())
-        {
-            Waypoints.Add(point.position);
-        }
-
-        navAgent.SetDestination(Waypoints[currentTarget]);
+        Initialize();
+        
 
     }
 
+    private int honkAtCarCounter = 0;
+    private GameObject Honktarget;
+    private float movingTime;
     private void LateUpdate()
     {
 
         if (Moving)
         {
+            movingTime += Time.deltaTime;
+            if (movingTime > .5f)
+            {
+                Honktarget = null;
+            }
             RaycastHit hit;
 
             Vector3 p1 = transform.position;
@@ -68,7 +78,7 @@ public class Car : MonoBehaviour
 
             // Cast a sphere wrapping character controller 10 meters forward
             // to see if it is about to hit anything.
-            if (Physics.SphereCast(p1, 3, transform.forward, out hit, 3))
+            if (Physics.SphereCast(p1, 2f, transform.forward, out hit, 3))
             {
                 if (hit.transform.CompareTag("NPC") || hit.transform.CompareTag("Player") || hit.transform.CompareTag("Car"))
                 {
@@ -78,7 +88,28 @@ public class Car : MonoBehaviour
                     {
                         Honk(hit.transform.gameObject, this.transform);
                     }
-                    StartCoroutine(StopHonkAndWait());
+
+                    if (honkAtCarCounter < 2)
+                    {
+                        StartCoroutine(StopHonkAndWait());
+                    }
+                    
+
+                    if (hit.transform.CompareTag("Car"))
+                    {
+                        if (hit.transform.gameObject != Honktarget)
+                        {
+                            Honktarget = hit.transform.gameObject;
+                        }
+                        else
+                        {
+                            honkAtCarCounter += 1;
+                        }
+                    }
+                    else
+                    {
+                        honkAtCarCounter = 0;
+                    }
                     
 
 
@@ -87,8 +118,9 @@ public class Car : MonoBehaviour
         
         
 
-            if (navAgent.remainingDistance < 1)
+            if (Vector3.Distance(this.transform.position,Waypoints[currentTarget] ) < 1)
             {
+                Debug.Log("Go to next point");
                 currentTarget += 1;
                 if (currentTarget > Waypoints.Count - 1)
                 {
@@ -113,5 +145,6 @@ public class Car : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(2, 4));
         Moving = true;
         navAgent.isStopped = false;
+        movingTime = 0;
     }
 }
