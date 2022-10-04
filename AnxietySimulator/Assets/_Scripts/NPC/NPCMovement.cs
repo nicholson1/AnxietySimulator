@@ -29,10 +29,15 @@ public class NPCMovement : MonoBehaviour
     private void Start()
     {
        
-        
+        Car.Honk += HonkedAt;
         //nextLocation = this.transform.position;
 
         StartCoroutine(PauseDuringWander());
+    }
+
+    private void OnDestroy()
+    {
+        Car.Honk -= HonkedAt;
     }
 
     private void LateUpdate()
@@ -100,6 +105,39 @@ public class NPCMovement : MonoBehaviour
         navAgent.isStopped = false;
         NpcController.SetWalk();
         NPCInteract = null;
+        //walk
+
+    }
+
+    private void HonkedAt(GameObject me, Transform car)
+    {
+        if (me == this.gameObject && canBeHonkedAt)
+        {
+            this.transform.LookAt(car.position);
+            StartCoroutine(HonkedAtDuringWander());
+        }
+    }
+
+    private bool canBeHonkedAt = true;
+    public IEnumerator HonkedAtDuringWander()
+    {
+        //Debug.Log("Start Interaction");
+        canBeHonkedAt = false;
+        MoveState = CurrentState.interacting;
+        
+        float time = Random.Range(2, 4);
+        navAgent.isStopped = true;
+        NpcController.SetWave();
+        //wave
+        yield return new WaitForSeconds(time);
+        navAgent.isStopped = false;
+        NpcController.SetWalk();
+        MoveState = CurrentState.wander;
+        NPCInteract = null;
+        yield return new WaitForSeconds(5);
+        canBeHonkedAt = true;
+
+
         //walk
 
     }

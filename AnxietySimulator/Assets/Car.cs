@@ -18,6 +18,9 @@ public class Car : MonoBehaviour
     private bool Moving = true;
 
     private float moveSpeed;
+    
+    public static event Action<GameObject, Transform> Honk;
+    
     private void Randomize()
     {
         // disable all models
@@ -69,7 +72,15 @@ public class Car : MonoBehaviour
             {
                 if (hit.transform.CompareTag("NPC") || hit.transform.CompareTag("Player") || hit.transform.CompareTag("Car"))
                 {
+                    
+                    //Debug.Log(hit.transform.name);
+                    if (Honk != null)
+                    {
+                        Honk(hit.transform.gameObject, this.transform);
+                    }
                     StartCoroutine(StopHonkAndWait());
+                    
+
 
                 }
             }
