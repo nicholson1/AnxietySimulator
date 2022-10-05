@@ -1,0 +1,251 @@
+﻿title: DarkSelfConfrontation
+tags:
+---
+<<if $globalAnxiety <= 25>>
+Cali: It's a beautiful day, and I feel…surprisingly fine.
+Dark Self: You're probably forgetting something.
+Dark Self: The groceries, for example.
+Cali: I just ate lunch, I'm not even hungry.
+Dark Self: Oh, yes, let's talk about lunch.
+Dark Self: Specifically how weird you were.
+<<set $globalAnxiety += 5>>
+	->"I wasn't weird."
+	    <<jump LunchPostMortem>>
+	->"I don't want to…"
+	    <<jump LunchPostMortem>>
+<<endif>>
+<<if $globalAnxiety > 25>>
+	<<if $globalAnxiety < 75>>
+	Cali: It's a beautiful day, I guess…
+	Dark Self: You guess? You're equivocating about how nice the day is?
+	Dark Self: How are you ever going to decide what to do with, I don't know, the rest of your life?
+	<<set $globalAnxiety += 5>>
+		->"I don't have to yet…"
+		    <<jump CareerAnxiety>>
+		->"I don't know!"
+		    <<jump CareerAnxiety>>
+	<<endif>>
+	<<if $globalAnxiety > 74>>
+	    Cali: This day fucking sucks.
+	    Dark Self: When was the last good day anyway?
+	    Dark Self: Last week?
+	    Dark Self: Last year?
+	    <<set $globalAnxiety += 5>>
+		->"It's gonna be better once I can get settled in."
+		    <<jump RelationshipAnxiety>>
+		->"It's gonna be better once Val gets here."
+		    <<jump RelationshipAnxiety>>
+		->"Fuck."
+		    <<jump RelationshipAnxiety>>
+	<<endif>>
+<<endif>>
+===
+
+title: LunchPostMortem
+---
+Cali: I thought lunch went fine…
+Dark Self: You were so embarrassing.
+Dark Self: Next to Victoria you're such a disaster.
+Cali: She seemed happy to hang out…
+Dark Self: Did she?
+Dark Self: You were all over the place today. You hardly let her talk at all.
+Dark Self: She was definitely getting annoyed.
+	->"You don't know that."
+	    Cali: Victoria would tell me if I were annoying her.
+	    Cali: Not everyone has secret motivations and, like, evil thoughts.
+	    Dark Self: Oh, okay, so it's just you.
+	    Cali: You suck, you know that?
+	    Dark Self: I'm literally you.
+	    <<jump DarkSelfShowdown>>
+	->"Maybe I did talk too much."
+	    Cali: I don't always know.
+	    Dark Self: Which you think you would at this point.
+	    Dark Self: Considering you're, what, twenty-four now?
+	    Cali: Twenty-five.
+	    Cali: You don't even know how old I am.
+	    Dark Self: Too old for this shit.
+	    <<jump DarkSelfWins>>
+===
+
+title: CareerAnxiety
+---
+Cali: I'm still in school, I don't have to decide yet.
+Dark Self: Don't you?
+Dark Self: You committed to grad school, so you're definitely in for psychology.
+Dark Self: But you don't want to be a therapist, so what's the point of you?
+Dark Self: What are you going to do that's useful with a psych master's and no ability to actually help people?
+	->"Therapy's not the only worthwhile contribution I can make."
+	    Cali: I don't have to be a therapist to help people.
+	    Cali: God, you sound like Mom.
+	    Dark Self: We agree on a lot of things.
+	    Cali: You're also wrong about a lot of things.
+	    <<jump DarkSelfShowdown>>
+	->"There's a lot I can do."
+	    Cali: There's psych research, there's teaching, there's a million other things worth doing.
+	    Dark Self: Yeah, and you're going to make it there somehow?
+	    <<if $gotWrench is false>>
+	    Dark Self: You can't even buy a wrench.
+	    <<else>>
+	    Dark Self: You can hardly handle your daily errands.
+	    <<endif>>
+		->"I'm more than the bad days."
+		    <<jump DarkSelfShowdown>>
+		->"Yeah…"
+		    <<jump DarkSelfWins>>
+	->"Maybe this was all a mistake."
+	    Cali: I shouldn't have done this.
+	    Dark Self: Done what?
+	    Dark Self: Gone to grad school?
+	    Dark Self: Moved across the country?
+	    Dark Self: Left your girlfriend behind?
+	    Dark Self: Where did the mistakes start, exactly?
+	    <<jump DarkSelfWins>>
+===
+
+title: RelationshipAnxiety
+---
+Dark Self: You literally left Val behind.
+Dark Self: How do you think she feels about that?
+Cali: She said she's fine with it…
+Cali: She's going to be here soon…
+Dark Self: Is she?
+Dark Self: She hardly responds to your messages, but she's definitely going to move in with you any day now.
+	->"I don't have any reason to disbelieve her."
+	    Cali: Val has trouble with texting, but that doesn't mean she doesn't care about me.
+	    Cali: She's always been there for me when I really needed her.
+	    Dark Self: Really?
+	    Cali: Yeah. Really.
+	    <<jump DarkSelfShowdown>>
+	->"Maybe you're right."
+	    Cali: She really doesn't respond a lot…
+	    Cali: And she's so far away.
+	    Dark Self: She's got better things to do than talk to you.
+	    Dark Self: Especially after you left her.
+	    Cali: I messed up.
+	    <<jump DarkSelfWins>>
+===
+
+title: DarkSelfWins
+---
+Dark Self: Let's lay it all out here:
+Dark Self: You moved to a new city on spec.
+Dark Self: You left your girlfriend behind and now she hardly talks to you.
+Dark Self: You've made one friend so far, and you can't even tell if she likes you.
+Dark Self: You haven't set up your apartment, and in fact you lost one of your tools trying to build a desk.
+<<if $gotWrench is false>>
+Dark Self: You couldn't even get it together enough to get a new wrench!
+<<endif>>
+Dark Self: You're twenty-five years old already, and you're starting your life over again.
+Dark Self: And not well.
+Dark Self: What's the point of you?
+<<set $globalAnxiety += 15>>
+	->"I'm the point of me."
+	    Cali: I don't have to earn the right to exist.
+	    Cali: I'm here, and I'm going to make the best of it.
+	    Dark Self: Oh really? How's that?
+	    <<jump DarkSelfShowdown>>
+	->"I don't know…"
+	    Cali: I guess I've just been muddling through.
+	    Cali: Not knowing what I was doing.
+	    Dark Self: And now you're alone.
+	    Dark Self: And scared.
+	    Dark Self: And you've got nothing going for you.
+	    Dark Self: Admit it: you don't belong here.
+	    <<set $globalAnxiety += 5>>
+	    Dark Self: You're not a good girlfriend.
+	    Dark Self: You're not a good friend.
+	    <<set $globalAnxiety += 5>>
+	    Dark Self: You're not a good student.
+	    Dark Self: You're not a good person.
+	    <<set $globalAnxiety += 5>>
+	    ->"You're right."
+		    Cali: I messed it all up.
+		    Dark Self: Say it.
+		    Dark Self: You don't belong here.
+		    Cali: I…
+		    Dark Self: I don't belong here.
+		    Cali: I don't belong here.
+		    Dark Self: I'm not good enough.
+		    Cali: I'm not good enough.
+		    Dark Self: There. You were finally honest with yourself. 
+            Dark Self: Doesn't that feel better?
+		    Cali: Not really.
+		    Dark Self: You'll feel it soon.
+		    Dark Self: I promise.
+		    <<set $globalAnxiety += 10>>
+		    <<jump ConfrontationDone>>
+		->"No…"
+		    Cali: I am a good person.
+		    Dark Self: You're what?
+		    Cali: I am a good person, and I don't need to prove that I have the right to exist!
+		    Cali: I'm here, and I'm going to make the best of it.
+		    Dark Self: How can you possibly do that?
+		    <<jump DarkSelfShowdown>>
+===
+
+title: DarkSelfShowdown
+---
+Cali: You're always saying I'm the problem, or Val's the problem, or Victoria's the problem.
+Cali: But you're the problem.
+Dark Self: I'm just being honest.
+Dark Self: I'm the only one who's telling it like it is.
+Cali: You're telling it like it's the worst it could be.
+Cali: But it usually isn't.
+<<if $gotWrench is false>>
+Cali: It's fine if I get a new wrench or whatever tomorrow instead of today.
+Cali: It's literally no big deal.
+Cali: But you always make it one.
+<<else>>
+Cali: I actually did a lot today.
+Cali: But no matter what I do, you make it seem small and stupid.
+Cali: And it isn't.
+<<endif>>
+<<set $globalAnxiety -= 10>>
+Cali: I'm tired of listening to you.
+Cali: I'm tired of your complaining and your needling and your mean jokes.
+Cali: You're actually not me, because you're not even a nice person.
+Dark Self: You're not a nice person either.
+Cali: Shut up! 
+Cali: Shut! Up!
+Cali: I know you're not going anywhere, but the least you could do is stop talking so much.
+Cali: I'm trying to live here.
+Dark Self: But-
+Cali: No!
+Dark Self: If-
+Cali: Stop!
+Cali: No more. Not today.
+Dark Self: Well-
+	->"I'm going to get so much therapy you're going to end up the size of a pea."
+		Cali: And I will step on you.
+		Dark Self: No!
+		Cali: Then keep it quiet.
+		Cali: Let's go.
+		<<set $darkSelfRebuked to true>>
+		<<set $globalAnxiety -= 25>>
+		<<jump ConfrontationDone>>
+	->"I'm going to make so many friends I can't even hear you."
+		Cali: And then I'm going to forget about you entirely.
+		Dark Self: You can't!
+		Cali: Well, we'll see, won't we?
+		Cali: Time to go.
+		<<set $darkSelfRebuked to true>>
+		<<set $globalAnxiety -= 25>>
+		<<jump ConfrontationDone>>
+	->"I'm going to have such a good life that you're going to fucking explode."
+		Cali: You're going to pop like a soap bubble and I'm not even going to remember you.
+		Dark Self: You'll never forget me!
+		Cali: I'm already doing it!
+		Dark Self: I'm part of you forever.
+		Cali: Who's that? I can't hear you…You're fading…
+		Dark Self: I am not!
+		Cali: Well, I'd better go. Too bad there's nobody to follow me around creepily…
+		Dark Self: I'm coming, I'm coming!
+		<<set $darkSelfRebuked to true>>
+		<<set $globalAnxiety -= 25>>
+        <<jump ConfrontationDone>>
+===
+
+title: ConfrontationDone
+---
+Confrontation done.
+===

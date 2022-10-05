@@ -1,0 +1,114 @@
+﻿title: GroceryStore
+---
+
+<<declare $gotGroceries to false>>
+You enter the grocery store. Like most grocery stores, it's loud, bright, and full of people who are stressed, hungry, or both.
+
+<<set $globalAnxiety += 5>>
+
+You slowly fill your cart with the necessary supplies, until you reach the peanut butter aisle.
+
+There's no crunchy peanut butter. There's NO crunchy peanut butter.
+
+Dark Self: They stopped making crunchy because they found out you like it.
+
+<<if $darkSelfRebuked is true>>
+Cali: Who's they? Big Peanut Butter?
+<<endif>>
+
+<<set $globalAnxiety += 5>>
+
+->Buy (ugh) creamy peanut butter instead.
+	Cali: It has to happen. I need the protein.
+	Dark Self: You're gonna hate it the whole time.
+	Cali: I'll get a can of peanuts, and I'll crunchetize it myself.
+	Dark Self: It'll cost extra money.
+	<<set $globalAnxiety += 5>>
+	<<jump CheckOut>>
+//<<if $globalAnxiety < 75>>
+->Make a new plan for breakfasts this week.
+	Cali: Okay, I've already got some bread, butter…how about eggs?
+	Dark Self: You suck at eggs. Remember the 2017 Eggsplosion?
+	Cali: That's why I'm getting the pre-boiled ones.
+	Dark Self: Lazy.
+	<<jump CheckOut>>
+//<<else>>
+->Flee the store.
+	<<jump FleeStore>>
+//<<endif>>
+===
+
+title: CheckOut
+---
+You head for the checkout area. There's a busy self-checkout section across from a forlorn-looking cashier forgotten at his register.
+->Head for the self-checkout.
+	<<jump SelfCheckout>>
+->Head for the cashier.
+    <<jump ElijahConvo>>
+===
+
+title: ElijahConvo
+---
+You approach the cashier. Close up, he appears to be…fourteen? Is that legal? It's hard to tell as he's hidden behind a huge pair of glasses and a lot of hair. His nametag reads Elijah.
+Elijah: Hello, and welcome to Mega…um…Mega…
+Cali: Mega-Shoppers? The name of the store?
+Elijah: Aw geez, sorry. I knew that. I mean, I work here. Obviously I knew that.
+    ->"Don't worry about it, I've been having a weird day too."
+		Eljiah: Thanks. It's my first real day of work. I don't know if I can handle it.
+		<<if $darkSelfRebuked is true>>
+		    Cali: It'll get easier, eventually.
+		    Elijah: Hopefully.
+		<<endif>>
+		Elijah scans your items, and packs them with genuine skill.
+		Elijah: Thanks again for being chill. I think I'll get it right on the next customer.
+		Cali: I believe in you!
+		<<set $globalAnxiety -= 5>>
+		You take your groceries and depart the store.
+		Cali: Groceries done!
+		Dark Self: Except the peanut butter…
+		Cali: We figured that out.
+		Dark Self: Now you have to get home with all this stuff. Figure that one out.
+		<<set $globalAnxiety -= 20>>
+		<<set $gotGroceries to true>>
+        <<jump GroceryDone>>
+	->"Yep."
+		Elijah scans your items, and soon you've escaped the store.
+		Cali: Groceries done!
+		Dark Self: Except the peanut butter…
+		Cali: We figured that out.
+		Dark Self: Now you have to get home with all this stuff. Figure that one out.
+		<<set $globalAnxiety -= 20>>
+		<<set $gotGroceries to true>>   
+        <<jump GroceryDone>>
+===
+
+title: SelfCheckout
+---
+You scan your items, pay, and navigate the gauntlet of carts out of the store, sustaining only one minor collision with another shopper.
+Cali: Groceries done!
+Dark Self: Except the peanut butter…
+Cali: We figured that out.
+Dark Self: Now you have to get home with all this stuff. Figure that one out.
+<<set $globalAnxiety -= 20>>
+<<set $gotGroceries to true>>
+<<jump GroceryDone>>
+===
+
+title: FleeStore
+---
+
+Dark Self: You've got no breakfast. You'll be useless this week.
+Cali: I'll come back another day. When they've restocked.
+Dark Self: What are you going to do with this whole cart? Just leave it?
+Cali: Someone will put it away. It's not that much stuff.
+Dark Self: Lazy. Now lazy and hungry too… What are you going to do this week with no food?
+Cali: I have…rice.
+Dark Self: mmm another rice week. Healthy.
+<<set $globalAnxiety += 5>>
+<<jump GroceryDone>>
+===
+
+title: GroceryDone
+---
+Grocery store over.
+===

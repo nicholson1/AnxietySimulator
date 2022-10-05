@@ -1,0 +1,126 @@
+﻿title: HardwareStore
+---
+<<declare $cashierAssist to false>>
+
+You enter the hardware store. 
+It's not too busy, with quiet music humming in the background. 
+The aisles are packed closely together and the shelves overflow with esoteric DIY devices. 
+Somewhere in here is a replacement for the ⅜" allen wrench you knocked into the air vent.
+
+->Look for the allen wrench section.
+	<<jump SearchAisles>>
+->Ask the cashier where to find allen wrenches.
+<<set $globalAnxiety += 5>>
+<<jump CashierAssist>>
+===
+
+title: SearchAisles
+---
+You wander the aisles, inspecting the paint chips, admiring the hammers, and pretending to be a normal person who knows where they're going.
+
+->Continue the search for allen wrenches.
+	<<set $globalAnxiety += 5>>
+	You continue the hunt, passing cleaning supplies, trash bags, and the funny little sponges with faces on them. No allen wrenches, though.
+		->Continue the search.
+			<<set $globalAnxiety += 5>>
+			<<if $globalAnxiety>= 75>>
+				<<jump FleeHStore>>
+			<<else>>
+				<<jump WrenchesFound>>
+			<<endif>>
+		->Ask the cashier for help.
+			<<set $globalAnxiety += 5>>
+			<<jump CashierAssist>>
+->Ask the cashier for help.
+	<<set $globalAnxiety += 5>>
+	<<jump CashierAssist>>
+===
+
+title: CashierAssist
+---
+You approach the casher.
+She is an unbelievably cool-looking person who is not only tall and buff, but also has the sickest tattoo you've ever seen of a skeleton with a flaming skull wielding a battleaxe. 
+She's reading a magazine and doesn't notice you standing awkwardly three-quarters into her peripheral vision. 
+Her nametag says "Beatrix".
+
+<<set $cashierAssist to true>>
+
+->Try to get her attention.
+	Cali: Excuse me?
+	Beatrix: Huh?
+	Dark Self: Look at that, you've interrupted her reading. Classic Cali.
+	Beatrix: Do you need something?
+		->"I'm looking for a ⅜" allen wrench."
+		->"That's a really cool tattoo."
+			Beatrix: Oh, thanks. It's of Wilbur, the mascot of Flaming Death Freaks.
+			Beatrix: That's my metal band.
+			->"Wow, sick."
+				Beatrix: Yep.
+				Beatrix: Did you, uh, need something else?
+				Dark Self: Have you forgotten why we're here already?
+				Cali: Actually I was wondering where the allen wrenches are?
+				Beatrix: Wrench aisle.
+				She points to a sign you hadn't noticed before.
+				It's labelled "Wrenches."
+				Dark Self: Fucking duh.
+				Cali: Thank you!
+				<<set $globalAnxiety += 5>>
+				<<jump WrenchesFound>>
+			->"Do you know where the allen wrenches are?"
+				Beatrix seems a little startled by the change in topic.
+				Dark Self: You're so awkward it's physically painful.
+                Beatrix: Wrench aisle.
+				She points to a sign you hadn't noticed before.
+				It's labelled "Wrenches."
+				Dark Self: Fucking duh.
+				Cali: Thank you!
+				<<set $globalAnxiety += 5>>
+				<<jump WrenchesFound>>
+->Retreat.
+	<<jump SearchAisles>>
+===
+
+title: WrenchesFound
+---
+
+The wrenches are in the wrench aisle. Who could have foreseen this?
+
+You find the ⅜" allen wrench with a minute or two of searching. It looks just like the one you lost, so it's surely the right one.
+
+<<set $globalAnxiety -= 5>>
+<<set $gotWrench to true>>
+
+<<jump CheckOutWrench>>
+===
+
+title: CheckOutWrench
+---
+<<if $cashierAssist is true>>
+You return to Beatrix's station to check out.
+<<else>>
+You approach the cashier's station. 
+The cashier is an unbelievably cool-looking person who is not only tall and buff, but also has the sickest tattoo you've ever seen of a skeleton with a flaming skull wielding a battleaxe. 
+Her nametag says "Beatrix".
+<<endif>>
+Beatrix waves you up to the register, and you check out without a hitch. Mission accomplished!
+Cali: One task down, four to go!
+Dark Self: If you make it that far.
+<<set $globalAnxiety -= 15>>
+<<jump HardwareDone>>
+===
+
+title: FleeHStore
+---
+Dark Self: You're never going to find it. You're probably the only person who's ever needed a ⅜" allen wrench. You're definitely the only person who's ever lost one.
+Cali: I'm going to find it.
+Dark Self: Where? You looked everywhere, just give up already.
+Cali: I'll come back tomorrow. Try again. It's not an emergency.
+Dark Self: Sure, it's not like you need a desk with legs on it anyway.
+<<set $globalAnxiety -= 5>>
+<<jump HardwareDone>>
+===
+
+title: HardwareDone
+---
+Hardware store over.
+===

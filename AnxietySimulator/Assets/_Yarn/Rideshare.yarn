@@ -1,0 +1,202 @@
+﻿title: Rideshare
+---
+Tony: Calypso?
+Cali: That's me.
+Tony: Welcome aboard! 5578 First Avenue is our destination?
+Cali: Yep, back to the ole apartment.
+Dark Self: New apartment.
+<<if $darkSelfRebuked is false>>
+Cali: New apartment.
+Tony: Just moved in? Exciting!
+	->"Yeah! It's a big change."
+	    Tony: So you're from out of town? Welcome to the city!
+	    Cali: Thanks.
+	    <<jump MovingChatter>>
+	->"Pretty stressful, to be honest."
+	    Tony: True, nothing like a big move to make you regret all your stuff.
+	    Tony: But once you're there, it's a fresh start!
+	    <<jump MovingChatter>>	
+<<else>>
+Tony: Nothing like heading home at the end of the day.
+Tony: I'm not getting off shift until eight tonight.
+Tony: But that means Steve has to make dinner tonight, so it's not *all* bad!
+	->"Is Steve your boyfriend?"
+	    Tony: Husband actually! Since June!
+	    Cali: Wow, congrats!
+	    Tony: Thank you, thank you. I would say it's no big deal, but it is, obviously.
+	    <<jump RelationshipChatter>>
+	->"Nothing like a night where you don't have to make dinner."
+	    Tony: Right? Give me delivery, pizza, instant noodles, whatever, but *please* don't make me cook!
+	    Tony: Luckily Steve loves cooking, so now that we're married he's in charge of provisions.
+	    Tony: I'm not saying it's why I married him buuuuut…
+	    Tony: That's a joke.
+	    Cali: Yeah, don't worry, I didn't think you married your husband for, like, his mom's spaghetti recipe or anything.
+	    Tony: Now that you mention it, though, he does have a way with ragouts.
+	    <<jump RelationshipChatter>>
+<<endif>>
+===
+
+title: MovingChatter
+---
+Tony: Are you happy with your new place?
+Dark Self: Yeah, are you?
+<<set $globalAnxiety += 5>>
+
+->"Yeah, totally."
+	Tony: That's great! It's so fun to get a new place set up.
+	Tony: Well, not the assembling furniture part, but the imagining part.
+	<<if $gotWrench is true>>
+	Cali: Yeah, I had to go get a new wrench at the hardware store today.
+	Cali: My desk still has no legs.
+	<<else>>
+	Cali: Yeah, I still need to get a new wrench from the hardware store.
+	Dark Self: Which you should have done today.
+	<<set $globalAnxiety += 5>>
+	<<endif>>
+	Tony: Did you forget to bring one? You've gotta have some tools for moving!
+	Cali: Well…
+	Dark Self: Oh, tell him about the vent! That was one of your all-time fuck-ups!
+	->"I dropped my wrench down the air vent."
+		Tony: You dropped your wrench into an air vent?
+		Cali: Well, it was an allen wrench. So it was small.
+		Tony: Okay.
+		Cali: And I was trying to put the legs on my desk.
+		Tony: Uh huh.
+		Cali: And it was hard to do, and I was putting a lot of force on it.
+		Cali: And it slipped out of the screw, bounced off the edge of the desk, flew out of my hand, hit the wall, the bookshelf, and the windowsill. And fell into the vent.
+		Tony: Oof.
+		Cali: Oof is right.
+		Dark Self: It was embarrassing to watch.
+		<<jump DropOff>>
+	->[LIE] "Yeah, you're right. I should have packed better."
+		Tony: Oh well. Lesson learned, I guess.
+		Cali: Yup.
+		Dark Self: As if.
+		<<jump DropOff>>
+->"It would help if I'd actually gotten my furniture set up already."
+	Tony: Oof, that's the worst part.
+	Tony: Other than the heavy lifting.
+	Cali: That part wasn't great either.
+	Dark Self: It would get easier if you worked out more.
+	Tony: When I moved into my first apartment here, I didn't finish setting up until about three months before I moved out.
+	Tony: I had two posters I never even put up!
+	Cali: Really?
+	Tony: Really! Don't worry, I put them up in my next apartment.
+	Tony: Every new place is a new opportunity to decide how you're going to be.
+	Tony: Have fun with it! Even if it's been a bumpy start.
+	Cali: Thanks.
+	<<set $globalAnxiety -= 5>>
+	<<jump DropOff>>
+===
+
+title: RelationshipChatter
+---
+
+Tony: Are you here by yourself?
+Dark Self: Ooh good one!
+
+<<set $globalAnxiety += 5>>
+
+->"For now."
+	Tony: That's the worst part of getting settled in a new place.
+	Tony: It's so hard to meet people these days.
+	Cali: Yeah…
+	Cali: How did you start getting to know people around here?
+	Tony: Oh, I'm a clubs and events kind of person.
+	Tony: The art museum actually has a great architecture appreciation group, if you're interested in that kind of thing!
+	Cali: Uh, I'll check it out.
+	Tony: It's okay. This pitch hasn't worked on anyone so far.
+	Tony: It's hard to generate interest for the group, especially this close to Brutalism Week.
+	Cali: My girlfriend's an artist, maybe she'll be interested?
+	Tony: I hope. Anything to bring the median age above 78.
+	Tony: Not that we don't all love Florence, Gloria, and Miss Louise.
+	Tony: But we need to refresh the membership pool.
+	<<jump DropOff>>
+->"My girlfriend's supposed to move here soon, but it's taking a bit."
+	Tony: Ah, that must be tough.
+	Tony: I've never done the long-distance thing personally.
+	Tony: Is it as hard as it seems?
+		->"It's not as good as being together in-person, obviously."
+			Tony: I can only imagine.
+			Tony: Do you do, like, Zoom dates or something?
+			Cali: Yeah, and we call. Text sometimes, but she's not super great with texting. Play a lot of games together.
+			Tony: Do you ever play Death Race 2029?
+			Tony: I'm actually the top-rated amateur circuit player in the Eastern Seaboard region.
+			Cali: Oh…Wow?
+			Tony: So you're not that kind of gamer.
+			Cali: No. We're more the cute farming sim kind of people.
+			Cali: You know, like Winsome Dale, with the little pixel animals and stuff.
+			Tony: Cute!
+			Tony: Personally I just need a little more murder at the end of a long day.
+			Tony: Virtual murder.
+			Tony: Obviously.
+			Cali: Obviously.
+			<<jump DropOff>>
+		->"We're still…working it out."
+			Tony: That bad, huh?
+			Cali: Not bad…exactly.
+			Cali: Just…different.
+			Cali: Every time I want to turn around and tell her something, I have to text her instead.
+			Cali: Every time I send her a joke I have to imagine her smiling at it, instead of seeing her right there in front of me.
+			Cali: Sorry. Basically I miss her.
+			Tony: Maybe that's a good sign. If you miss her this much, you'll be that amount of happy once she gets here.
+			Cali: I hope so.
+			<<if $darkSelfRebuked is false>>
+			    Dark Self: *If* she actually gets here. If she actually likes it here. If, if, if…
+			    <<set $globalAnxiety += 5>>
+			    <<jump DropOff>>
+			<<endif>>
+		//<<if $globalAnxiety <= 35>>
+		->"We're doing okay actually!"
+            <<jump LowAnxietyRelationship>>
+        //<<endif>>
+===
+
+title: LowAnxietyRelationship
+---
+Tony: Nice!
+Tony: So you've got a lot to look forward to when she gets here!
+Cali: Yeah, actually. It's gonna be really fun.
+Cali: We used to love going out together, especially to the park.
+	<<if $darkSelfRebuked is true>>
+		Cali: I'm going to take her to the park near here.
+		Cali: I really like it there.
+		Tony: I'm sure she will too.
+		<<set $globalAnxiety -= 15>>
+	    <<jump DropOff>>
+	<<endif>>
+    Cali: I want to find a park like the one we used to visit back home.
+	Cali: Big trees, lots of people. Maybe a pool or a basketball court.
+	Cali: Somewhere people like to hang out.
+	Tony: You've got lots of options then.
+	Tony: This is a great city for parks.
+	Tony: Hopefully it'll be a great city for you and her too!
+	Cali: Yeah!
+	<<set $globalAnxiety -= 10>>
+	<<jump DropOff>>
+===
+
+title: DropOff
+---
+
+Tony: Okay, here we are!
+<<if $globalAnxiety <= 75>>
+Cali: Thanks for the ride. It was nice talking to you!
+Tony: Same here!
+<<else>>
+Cali: Thanks for the ride.
+Tony: It's my job!
+<<endif>>
+Tony: If you ever need a pickup, you know who to call!
+Tony: Well, I can't promise it'll be me specifically that gets your request, but it might be.
+Tony: And don't forget that 5-star rating!
+<<if $globalAnxiety <= 75>>
+Cali: Will do!
+<<endif>>
+<<jump RideDone>>
+===
+
+title: RideDone
+---
+Rideshare over.
+===
