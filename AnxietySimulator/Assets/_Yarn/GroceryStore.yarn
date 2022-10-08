@@ -18,6 +18,8 @@ Cali: Who's they? Big Peanut Butter?
 
 <<set $globalAnxiety += 5>>
 
+//need to test this if statement for proper display
+<<if $globalAnxiety < 75>>
 ->Buy (ugh) creamy peanut butter instead.
 	Cali: It has to happen. I need the protein.
 	Dark Self: You're gonna hate it the whole time.
@@ -25,22 +27,31 @@ Cali: Who's they? Big Peanut Butter?
 	Dark Self: It'll cost extra money.
 	<<set $globalAnxiety += 5>>
 	<<jump CheckOut>>
-//<<if $globalAnxiety < 75>>
 ->Make a new plan for breakfasts this week.
 	Cali: Okay, I've already got some bread, butter…how about eggs?
 	Dark Self: You suck at eggs. Remember the 2017 Eggsplosion?
 	Cali: That's why I'm getting the pre-boiled ones.
 	Dark Self: Lazy.
 	<<jump CheckOut>>
-//<<else>>
+<<else>>
+->Buy (ugh) creamy peanut butter instead.
+	Cali: It has to happen. I need the protein.
+	Dark Self: You're gonna hate it the whole time.
+	Cali: I'll get a can of peanuts, and I'll crunchetize it myself.
+	Dark Self: It'll cost extra money.
+	<<set $globalAnxiety += 5>>
+	<<jump CheckOut>>
 ->Flee the store.
 	<<jump FleeStore>>
-//<<endif>>
+<<endif>>
 ===
 
 title: CheckOut
 ---
 You head for the checkout area. There's a busy self-checkout section across from a forlorn-looking cashier forgotten at his register.
+
+//this scene wouldn't display and wouldn't display, and finally worked when I split out the long chunks of dialogue into two nodes
+//lesson learned: many short nodes are actually easier to wrangle than one long dialogue
 ->Head for the self-checkout.
 	<<jump SelfCheckout>>
 ->Head for the cashier.
@@ -110,5 +121,5 @@ Dark Self: mmm another rice week. Healthy.
 
 title: GroceryDone
 ---
-Grocery store over.
+Cali: I'm so ready to get home.
 ===

@@ -1,6 +1,8 @@
 ﻿title: Start
 tags:
 ---
+//I commented out this whole scene just because I've been using it as the start node in the Yarn Project every time
+//and don't need to see it every time since it all works already
 <<declare $globalAnxiety to 15>>
 <<declare $darkSelfRebuked to false>>
 <<declare $gotWrench to false>>
@@ -21,6 +23,10 @@ tags:
 // Three: Get groceries!
 // Four: Call mom
 // Five: Maybe go to the park? Treat yourselfffff
+
+//I've been putting a jump to whatever scene I was testing here
+//But if I understand what the final version will be like, we won't need a jump here at all
+//it will just drop off and then pick up wherever we've set the next unity event to fire
 
 //<<jump GroceryStore>>
 //<<jump HardwareStore>>

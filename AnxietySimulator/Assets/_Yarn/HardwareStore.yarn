@@ -1,17 +1,28 @@
 ﻿title: HardwareStore
 ---
+//gotta declare all variables up at the top
+//if it's going to be something that's going to be relevant to multiple scenes, I propose putting it in the start.yarn
+//so there's somewhere we can jump back to easily
 <<declare $cashierAssist to false>>
 
+//Every line gets displayed separately
+//blank lines are skipped
+//since screen space is variable and text box size will probably be responsive to that
+//I recommend splitting long paragraphs into multiple lines for better readability
+//also easier for player to control the rate of text display and not get overwhelmed
 You enter the hardware store. 
 It's not too busy, with quiet music humming in the background. 
 The aisles are packed closely together and the shelves overflow with esoteric DIY devices. 
 Somewhere in here is a replacement for the ⅜" allen wrench you knocked into the air vent.
 
+//arrows at the same indent will display as a set of options
+//but ALL other text after them must be INDENTED FURTHER
+//otherwise it will interfere with the correct display of the options
 ->Look for the allen wrench section.
 	<<jump SearchAisles>>
 ->Ask the cashier where to find allen wrenches.
-<<set $globalAnxiety += 5>>
-<<jump CashierAssist>>
+	<<set $globalAnxiety += 5>>
+	<<jump CashierAssist>>
 ===
 
 title: SearchAisles
@@ -22,7 +33,14 @@ You wander the aisles, inspecting the paint chips, admiring the hammers, and pre
 	<<set $globalAnxiety += 5>>
 	You continue the hunt, passing cleaning supplies, trash bags, and the funny little sponges with faces on them. No allen wrenches, though.
 		->Continue the search.
+			//lines get processed in a literal cascade, so this section will increment anxiety
+			//check for anxiety level
+			//and then as soon as it hits the <<jump>> command it will break and move to the next node
 			<<set $globalAnxiety += 5>>
+			//this if-else works nicely because it jumps directly to a new node based on the conditional
+			//I've had some trouble with wrapping dialogue choice lines in if-elses
+			//so if that can be avoided or the scene can be lightly restructured to rework that, go for it
+			//at least until we discover the secrets of exactly what yarnspinner is thinking line-by-line
 			<<if $globalAnxiety>= 75>>
 				<<jump FleeHStore>>
 			<<else>>
@@ -43,6 +61,9 @@ She is an unbelievably cool-looking person who is not only tall and buff, but al
 She's reading a magazine and doesn't notice you standing awkwardly three-quarters into her peripheral vision. 
 Her nametag says "Beatrix".
 
+//I don't think it matters if this particular variable is before or after the text description
+//but if we hypothetically needed it to process before the description, like if it were anxiety-raising and the description changed based on anxiety
+//it would presumably need to come right after the title
 <<set $cashierAssist to true>>
 
 ->Try to get her attention.
@@ -51,6 +72,7 @@ Her nametag says "Beatrix".
 	Dark Self: Look at that, you've interrupted her reading. Classic Cali.
 	Beatrix: Do you need something?
 		->"I'm looking for a ⅜" allen wrench."
+			<<jump WrenchQuestion>>
 		->"That's a really cool tattoo."
 			Beatrix: Oh, thanks. It's of Wilbur, the mascot of Flaming Death Freaks.
 			Beatrix: That's my metal band.
@@ -59,25 +81,26 @@ Her nametag says "Beatrix".
 				Beatrix: Did you, uh, need something else?
 				Dark Self: Have you forgotten why we're here already?
 				Cali: Actually I was wondering where the allen wrenches are?
-				Beatrix: Wrench aisle.
-				She points to a sign you hadn't noticed before.
-				It's labelled "Wrenches."
-				Dark Self: Fucking duh.
-				Cali: Thank you!
-				<<set $globalAnxiety += 5>>
-				<<jump WrenchesFound>>
+				<<jump WrenchQuestion>>
 			->"Do you know where the allen wrenches are?"
 				Beatrix seems a little startled by the change in topic.
 				Dark Self: You're so awkward it's physically painful.
-                Beatrix: Wrench aisle.
-				She points to a sign you hadn't noticed before.
-				It's labelled "Wrenches."
-				Dark Self: Fucking duh.
-				Cali: Thank you!
-				<<set $globalAnxiety += 5>>
-				<<jump WrenchesFound>>
+				<<jump WrenchesQuestion>>
 ->Retreat.
 	<<jump SearchAisles>>
+===
+title: WrenchQuestion
+---
+//because I repeated Beatrix's answer three times during the cashier assist node
+//I moved that dialogue to this node so those lines only need to appear once
+//efficiency mode activated, avoiding repeating variables and jumps, etc. and introducing more opportunities for me to create errors and forget shit
+Beatrix: Wrench aisle.
+She points to a sign you hadn't noticed before.
+It's labelled "Wrenches."
+Dark Self: Fucking duh.
+Cali: Thank you!
+<<set $globalAnxiety += 5>>
+<<jump WrenchesFound>>
 ===
 
 title: WrenchesFound
@@ -95,16 +118,24 @@ You find the ⅜" allen wrench with a minute or two of searching. It looks just 
 
 title: CheckOutWrench
 ---
+//in my testing so far this has successfully displayed the correct Beatrix description
+//and then moved on to showing the same text afterwards
+//but I haven't tested how that would work for, say, three dialogue options that are followed by some unique dialogue, but then all eventually continue on to the same lines
+//So far I've just been putting that in a node that serves as a gather point, like <<WrenchQuestion>> above
 <<if $cashierAssist is true>>
-You return to Beatrix's station to check out.
+	You return to Beatrix's station to check out.
 <<else>>
-You approach the cashier's station. 
-The cashier is an unbelievably cool-looking person who is not only tall and buff, but also has the sickest tattoo you've ever seen of a skeleton with a flaming skull wielding a battleaxe. 
-Her nametag says "Beatrix".
+	You approach the cashier's station. 
+	The cashier is an unbelievably cool-looking person who is not only tall and buff, but also has the sickest tattoo you've ever seen of a skeleton with a flaming skull wielding a battleaxe. 
+	Her nametag says "Beatrix".
 <<endif>>
 Beatrix waves you up to the register, and you check out without a hitch. Mission accomplished!
 Cali: One task down, four to go!
 Dark Self: If you make it that far.
+//in every scene I wrote I tried not to introduce more anxiety than you could also successfully reduce with the best possible path through the scene
+//while we need to introduce enough anxiety to put pressure on players, we also DO NOT want to introduce a negative feedback loop powerful enough to sink everybody every time
+//even if that is the truth about anxiety sometimes :/
+//unless we do, in which case tell me now so I can stop writing success/low-anxiety paths through scenes
 <<set $globalAnxiety -= 15>>
 <<jump HardwareDone>>
 ===
@@ -116,11 +147,12 @@ Cali: I'm going to find it.
 Dark Self: Where? You looked everywhere, just give up already.
 Cali: I'll come back tomorrow. Try again. It's not an emergency.
 Dark Self: Sure, it's not like you need a desk with legs on it anyway.
+Cali: Let's go.
 <<set $globalAnxiety -= 5>>
 <<jump HardwareDone>>
 ===
 
 title: HardwareDone
 ---
-Hardware store over.
+Cali: On to the next mission, I guess.
 ===

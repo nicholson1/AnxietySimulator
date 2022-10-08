@@ -1,6 +1,6 @@
 ﻿title: DarkSelfConfrontation
-tags:
 ---
+//this scene still needs a lot of testing because it is so long and dense
 <<if $globalAnxiety <= 25>>
 Cali: It's a beautiful day, and I feel…surprisingly fine.
 Dark Self: You're probably forgetting something.
@@ -192,13 +192,13 @@ Dark Self: I'm the only one who's telling it like it is.
 Cali: You're telling it like it's the worst it could be.
 Cali: But it usually isn't.
 <<if $gotWrench is false>>
-Cali: It's fine if I get a new wrench or whatever tomorrow instead of today.
-Cali: It's literally no big deal.
-Cali: But you always make it one.
+	Cali: It's fine if I get a new wrench or whatever tomorrow instead of today.
+	Cali: It's literally no big deal.
+	Cali: But you always make it one.
 <<else>>
-Cali: I actually did a lot today.
-Cali: But no matter what I do, you make it seem small and stupid.
-Cali: And it isn't.
+	Cali: I actually did a lot today.
+	Cali: But no matter what I do, you make it seem small and stupid.
+	Cali: And it isn't.
 <<endif>>
 <<set $globalAnxiety -= 10>>
 Cali: I'm tired of listening to you.
@@ -247,5 +247,10 @@ Dark Self: Well-
 
 title: ConfrontationDone
 ---
-Confrontation done.
+Cali: Still lots left to do today...
+<<if $globalAnxiety < 50>>
+	Cali: So I'd better get to it!
+<<else>>
+	Cali: And I'm already exhausted.
+<<endif>>
 ===

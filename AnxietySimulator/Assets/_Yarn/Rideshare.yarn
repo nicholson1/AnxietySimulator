@@ -1,5 +1,6 @@
 ﻿title: Rideshare
 ---
+//this scene still needs a lot of restructure because of the lengthy dialogues
 Tony: Calypso?
 Cali: That's me.
 Tony: Welcome aboard! 5578 First Avenue is our destination?
@@ -198,5 +199,5 @@ Cali: Will do!
 
 title: RideDone
 ---
-Rideshare over.
+Tony: Catch ya later!
 ===
