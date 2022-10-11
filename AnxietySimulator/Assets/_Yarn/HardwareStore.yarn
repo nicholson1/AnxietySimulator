@@ -1,5 +1,7 @@
 ﻿title: HardwareStore
 ---
+//THIS DIALOGUE HAS RECEIVED ONE TEST RUNTHROUGH
+
 //gotta declare all variables up at the top
 //if it's going to be something that's going to be relevant to multiple scenes, I propose putting it in the start.yarn
 //so there's somewhere we can jump back to easily
@@ -41,7 +43,7 @@ You wander the aisles, inspecting the paint chips, admiring the hammers, and pre
 			//I've had some trouble with wrapping dialogue choice lines in if-elses
 			//so if that can be avoided or the scene can be lightly restructured to rework that, go for it
 			//at least until we discover the secrets of exactly what yarnspinner is thinking line-by-line
-			<<if $globalAnxiety>= 75>>
+			<<if $globalAnxiety >= 75>>
 				<<jump FleeHStore>>
 			<<else>>
 				<<jump WrenchesFound>>
@@ -93,7 +95,7 @@ title: WrenchQuestion
 ---
 //because I repeated Beatrix's answer three times during the cashier assist node
 //I moved that dialogue to this node so those lines only need to appear once
-//efficiency mode activated, avoiding repeating variables and jumps, etc. and introducing more opportunities for me to create errors and forget shit
+//efficiency mode activated, avoiding repeating variables and jumps, etc. and avoiding introducing more opportunities for me to create errors and forget shit
 Beatrix: Wrench aisle.
 She points to a sign you hadn't noticed before.
 It's labelled "Wrenches."
