@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b458d42c-1dcb-4cf8-91fc-d048c43a4d8f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AnxietySimulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AnxietySimulator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Car.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Car.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CarSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CarSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SyntyStudios/PolygonCity/Scenes/Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SyntyStudios/PolygonCity/Scenes/Demo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SyntyStudios/PolygonCity/Scenes/Demo/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SyntyStudios/PolygonCity/Scenes/Demo/NavMesh.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Characters.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Characters.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/Car.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/Car.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/Characters/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/Characters/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NPC/NPCMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NPC/NPCMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +16,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/CarEater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/CarSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/FogParticleControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Camera/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/NPC/NPC_Controller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/TheDarkOne/TheDarkOneMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/TheDarkOne/TheDarkOneSizeController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Pacman/Assets/SoundObserver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Programming-Patterns-master/Programming-Patterns-master/Programming Patterns/Assets/State Pattern/Scripts/FSM/NPCSearch.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Programming-Patterns-master/Programming-Patterns-master/Programming Patterns/Assets/State Pattern/Scripts/FSM/NPCSearch_No_FSM_ExtraState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Programming-Patterns-master/Programming-Patterns-master/Programming Patterns/Assets/State Pattern/Scripts/FSM/NPCWanderState.cs" root0="SKIP_HIGHLIGHTING" />
@@ -47,7 +46,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.9f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\Neil\Documents\GitHub\AnxietySimulator\AnxietySimulator -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Neil\Documents\GitHub\AnxietySimulator\AnxietySimulator" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -86,7 +85,8 @@
       <workItem from="1663635332135" duration="4977000" />
       <workItem from="1664740020375" duration="25494000" />
       <workItem from="1664840345971" duration="4645000" />
-      <workItem from="1664846003464" duration="5875000" />
+      <workItem from="1664846003464" duration="6466000" />
+      <workItem from="1665509982838" duration="3697000" />
     </task>
     <servers />
   </component>

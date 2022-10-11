@@ -27,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
         {
             RaycastHit click;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out click, Mathf.Infinity))
+            bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+            if (!isOverUI && Physics.Raycast(ray, out click, Mathf.Infinity))
             {
                 agent.SetDestination(click.point);
                 targetPos = click.point;

@@ -194,7 +194,7 @@ public class NPCMovement : MonoBehaviour
 
                     if (NpcController.InteractCheck() && temp.NpcController.InteractCheck())
                     {
-                        Debug.Log("Iran");
+                        //Debug.Log("Iran");
                         temp.NPCInteract = this;
                         NPCInteract = temp;
                     }
