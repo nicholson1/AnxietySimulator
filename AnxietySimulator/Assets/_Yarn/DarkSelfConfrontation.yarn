@@ -1,6 +1,7 @@
 ﻿title: DarkSelfConfrontation
 ---
-//this scene still needs a lot of testing because it is so long and dense
+//THIS SCENE HAS RECEIVED ONE TEST RUNTHROUGH
+
 <<if $globalAnxiety <= 25>>
 Cali: It's a beautiful day, and I feel…surprisingly fine.
 Dark Self: You're probably forgetting something.
@@ -104,6 +105,7 @@ Dark Self: What are you going to do that's useful with a psych master's and no a
 
 title: RelationshipAnxiety
 ---
+Dark Self: You're all alone.
 Dark Self: You literally left Val behind.
 Dark Self: How do you think she feels about that?
 Cali: She said she's fine with it…
@@ -159,21 +161,7 @@ Dark Self: What's the point of you?
 	    Dark Self: You're not a good person.
 	    <<set $globalAnxiety += 5>>
 	    ->"You're right."
-		    Cali: I messed it all up.
-		    Dark Self: Say it.
-		    Dark Self: You don't belong here.
-		    Cali: I…
-		    Dark Self: I don't belong here.
-		    Cali: I don't belong here.
-		    Dark Self: I'm not good enough.
-		    Cali: I'm not good enough.
-		    Dark Self: There. You were finally honest with yourself. 
-            Dark Self: Doesn't that feel better?
-		    Cali: Not really.
-		    Dark Self: You'll feel it soon.
-		    Dark Self: I promise.
-		    <<set $globalAnxiety += 10>>
-		    <<jump ConfrontationDone>>
+		    <<jump Submit>>
 		->"No…"
 		    Cali: I am a good person.
 		    Dark Self: You're what?
@@ -181,6 +169,24 @@ Dark Self: What's the point of you?
 		    Cali: I'm here, and I'm going to make the best of it.
 		    Dark Self: How can you possibly do that?
 		    <<jump DarkSelfShowdown>>
+===
+title: Submit
+---
+Cali: I messed it all up.
+Dark Self: Say it.
+Dark Self: You don't belong here.
+Cali: I…
+Dark Self: I don't belong here.
+Cali: I don't belong here.
+Dark Self: I'm not good enough.
+Cali: I'm not good enough.
+Dark Self: There. You were finally honest with yourself. 
+Dark Self: Doesn't that feel better?
+Cali: Not really.
+Dark Self: You'll feel it soon.
+Dark Self: I promise.
+<<set $globalAnxiety += 10>>
+<<jump ConfrontationDone>>
 ===
 
 title: DarkSelfShowdown
@@ -249,7 +255,7 @@ title: ConfrontationDone
 ---
 Cali: Still lots left to do today...
 <<if $globalAnxiety < 50>>
-	Cali: So I'd better get to it!
+	Cali: So I'd better get to it.
 <<else>>
 	Cali: And I'm already exhausted.
 <<endif>>

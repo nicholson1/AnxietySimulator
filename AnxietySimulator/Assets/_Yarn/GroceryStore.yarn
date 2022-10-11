@@ -1,7 +1,6 @@
 ﻿title: GroceryStore
 ---
-
-<<declare $gotGroceries to false>>
+//THIS SCRIPT HAS RECEIVED ONE TEST RUNTHROUGH
 You enter the grocery store. Like most grocery stores, it's loud, bright, and full of people who are stressed, hungry, or both.
 
 <<set $globalAnxiety += 5>>
@@ -18,7 +17,6 @@ Cali: Who's they? Big Peanut Butter?
 
 <<set $globalAnxiety += 5>>
 
-//need to test this if statement for proper display
 <<if $globalAnxiety < 75>>
 ->Buy (ugh) creamy peanut butter instead.
 	Cali: It has to happen. I need the protein.
@@ -64,24 +62,12 @@ You approach the cashier. Close up, he appears to be…fourteen? Is that legal? 
 Elijah: Hello, and welcome to Mega…um…Mega…
 Cali: Mega-Shoppers? The name of the store?
 Elijah: Aw geez, sorry. I knew that. I mean, I work here. Obviously I knew that.
+//here on this node I cut a lot of dialogue from under that first option
+//and moved it to its own node because yarnspinner wasn't displaying the second dialogue option
+//and once I did that, it worked and it also made the if statement in ElijahAssurance work better as well
     ->"Don't worry about it, I've been having a weird day too."
 		Eljiah: Thanks. It's my first real day of work. I don't know if I can handle it.
-		<<if $darkSelfRebuked is true>>
-		    Cali: It'll get easier, eventually.
-		    Elijah: Hopefully.
-		<<endif>>
-		Elijah scans your items, and packs them with genuine skill.
-		Elijah: Thanks again for being chill. I think I'll get it right on the next customer.
-		Cali: I believe in you!
-		<<set $globalAnxiety -= 5>>
-		You take your groceries and depart the store.
-		Cali: Groceries done!
-		Dark Self: Except the peanut butter…
-		Cali: We figured that out.
-		Dark Self: Now you have to get home with all this stuff. Figure that one out.
-		<<set $globalAnxiety -= 20>>
-		<<set $gotGroceries to true>>
-        <<jump GroceryDone>>
+		<<jump ElijahAssurance>>
 	->"Yep."
 		Elijah scans your items, and soon you've escaped the store.
 		Cali: Groceries done!
@@ -91,6 +77,28 @@ Elijah: Aw geez, sorry. I knew that. I mean, I work here. Obviously I knew that.
 		<<set $globalAnxiety -= 20>>
 		<<set $gotGroceries to true>>   
         <<jump GroceryDone>>
+===
+
+title: ElijahAssurance
+---
+<<if $darkSelfRebuked is true>>
+	Cali: It'll get easier, eventually.
+	Elijah: Hopefully.
+<<else>>
+	Cali: It'll get easier, eventually. Hopefully.
+<<endif>>
+Elijah scans your items, and packs them with genuine skill.
+Elijah: Thanks again for being chill. I think I'll get it right on the next customer.
+Cali: I believe in you!
+<<set $globalAnxiety -= 5>>
+You take your groceries and depart the store.
+Cali: Groceries done!
+Dark Self: Except the peanut butter…
+Cali: We figured that out.
+Dark Self: Now you have to get home with all this stuff. Figure that one out.
+<<set $globalAnxiety -= 20>>
+<<set $gotGroceries to true>>
+<<jump GroceryDone>>
 ===
 
 title: SelfCheckout
@@ -121,5 +129,5 @@ Dark Self: mmm another rice week. Healthy.
 
 title: GroceryDone
 ---
-Cali: I'm so ready to get home.
+Cali: Ugh, I'm so ready to get home.
 ===
