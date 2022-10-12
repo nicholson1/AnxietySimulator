@@ -6,7 +6,7 @@ using static UnityEngine.ParticleSystem;
 public class FogParticleControl : MonoBehaviour
 {
     [SerializeField] private ParticleSystem ps;
-    private void Start()
+    private void Awake()
     {
         GameManager.AnxietyChanged += AnxietyHasChanged;
     }

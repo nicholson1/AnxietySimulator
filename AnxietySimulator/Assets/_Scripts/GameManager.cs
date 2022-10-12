@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
     
     public static event Action<int> AnxietyChanged;
 
+    private void Start()
+    {
+        AnxietyChanged(AnxietyLevel);
+    }
+
     public void AdjustAnxietyLevel(int changeAmount)
     {
         AnxietyLevel += changeAmount;

@@ -6,7 +6,7 @@ using UnityEngine;
 public class TheDarkOneSizeController : MonoBehaviour
 {
     [SerializeField] private GameObject model;
-    private void Start()
+    private void Awake()
     {
         GameManager.AnxietyChanged += AnxietyHasChanged;
     }

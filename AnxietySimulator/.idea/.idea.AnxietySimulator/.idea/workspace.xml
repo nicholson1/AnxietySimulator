@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b458d42c-1dcb-4cf8-91fc-d048c43a4d8f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AnxietySimulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AnxietySimulator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FogParticleControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FogParticleControl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SyntyStudios/PolygonCity/Scenes/Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SyntyStudios/PolygonCity/Scenes/Demo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/NPC/NPCMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/NPC/NPCMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/TheDarkOne/TheDarkOneSizeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/TheDarkOne/TheDarkOneSizeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_animations/Characters/PlayerAnimationController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_animations/Characters/PlayerAnimationController.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +20,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/CarSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FogParticleControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Camera/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Camera/NewCameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/NPC/NPC_Controller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/TheDarkOne/TheDarkOneMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/TheDarkOne/TheDarkOneSizeController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -86,7 +89,7 @@
       <workItem from="1664740020375" duration="25494000" />
       <workItem from="1664840345971" duration="4645000" />
       <workItem from="1664846003464" duration="6466000" />
-      <workItem from="1665509982838" duration="3697000" />
+      <workItem from="1665509982838" duration="8354000" />
     </task>
     <servers />
   </component>

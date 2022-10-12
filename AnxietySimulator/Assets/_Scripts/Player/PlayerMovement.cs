@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
     private Animator animator;
-    private Vector3 targetPos;
+    public Vector3 targetPos;
 
 
     private bool is_walking = false;
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
-        if  (Vector3.Distance(targetPos, this.transform.position) < 1f )
+        if  (Vector3.Distance(targetPos, this.transform.position) < .25f )
         {
             if (!is_idle)
             {
