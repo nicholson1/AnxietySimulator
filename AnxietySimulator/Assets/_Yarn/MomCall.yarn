@@ -1,0 +1,125 @@
+﻿title: MomCall
+---
+<<declare $momCall to false>>
+<<declare $dadCall to false>>
+
+You would have put off that call to your mom forever if you could have.
+Unfortunately, you can't “put off” her birthday, and you'll never hear the end of it if you don't give her the acknowledgement she feels entitled to.
+Surely birthdays must have lost their luster decades ago for a woman pushing 60, but she'll never pass up an opportunity to victimize herself.
+You'd send her a text if it were a viable option, but she'd probably find a way to be more offended about that than not wishing her a happy birthday at all.
+In her eyes, texts are too impersonal, as if a phone call you mentally tortured yourself with all day would be anything other than impersonal.
+
+You have to do it eventually… or maybe you don't technically have to, in the same way that humans need oxygen to live.
+Your brain can't let go of the idea that this is a necessity, a requirement.
+Even if you see the call as mandatory, making it right that minute is quite the opposite.
+After all, there are still plenty of waking hours left in her birthday to go!
+
+->Keep putting it off
+    Dark Self: Weak.
+    <<if $globalAnxiety > 75>> 
+        Cali: True.
+    <<if $globalAnxiety < 35>> 
+        Cali: Hardly.
+    <<else>> 
+        Cali: Maybe. 
+    <<endif>> 
+    <<endif>>
+    Cali: All I need to do is mentally prepare for a bit.
+    Dark Self: Psh, “mentally prepare” - that's a crock load of shit and we both know it.
+    Dark Self: You know deep down that no amount of time will mentally prepare you, so how about you stop lying to yourself?
+    Cali: Okay, fine, you're right, or whatever you so desperately want to hear.
+    Cali: Either way, I'd still rather wait a little longer… 
+    Dark Self: What are you waiting for, exactly? For your relationship with your mom to be normal?
+    Dark Self: Dream on, in that case.
+    Cali: Okay, fine, I'll make the call now, I guess…
+    <<set $globalAnxiety += 5>>
+    <<jump PhoneCallBeginning>>
+-> Make the call now
+    <<jump PhoneCallBeginning>>
+===
+title: PhoneCallBeginning
+---
+
+You futilely hope Mom won't pick up, but she does on the first ring.
+She knows why you're calling, and waits for you to say the words.
+
+Cali: Happy birthday, Mom…! 
+Dark Self: She's totally gonna know that was forced.
+Mom: Great to hear from you, (REDACTED)! 
+<<if $dadCall is false>> 
+    Cali: Oof, it’s been a while since I’ve been called that…
+<<endif>>
+<<if $dadCall is true>>
+    Cali: I could go the rest of my day without hearing that name again… or the rest of my life, for that matter.
+<<endif>>
+Cali: Of course-
+Mom: After last year, I half-expected you to forget.
+Cali: I already said I was sorry for that… 
+Mom: Oh, no hard feelings or anything.
+Mom: I just know you can be a real scatterbrain sometimes, so it was nice to hear I didn't stop existing to you.
+Mom: Pretty sure Leo has never forgotten my birthday, but of course, my children both have their strengths and their weaknesses… 
+
+<<if $globalAnxiety < 50>>
+-> Move on with the conversation
+    <<jump MoveOn>>
+<<else>>
+-> "What are my strengths, exactly?"
+    <<jump Strengths>>
+<<endif>>
+
+===
+title: Strengths 
+---
+
+Mom: Hmm?
+Cali: Just now.
+Cali: You said Leo and I both have our strengths and our weaknesses… when talking about a strength of his and a weakness of mine.
+Cali: So, what about my strengths?
+Dark Self: Are you really doing this?
+Mom: You have plenty of strengths, (REDACTED)!
+Cali: Sounds pretty insincere if you ask me… 
+Dark Self: Not too late to abandon this line of thought, y'know…
+Dark Self: If anyone's gonna ruin your self-esteem, it's probably best it's me- er, yourself.
+<<set $globalAnxiety += 5>>
+
+-> "Like what? Name some."
+    Mom: Name some what?
+    Dark Self: I warned you. Don't cry about it later if you don't like where this conversation ends up going…
+    Cali: Some of my strengths. If there's plenty of them, it shouldn't be too hard…
+    Mom: Are you seriously doing this today? 
+    Mom: I would have rather you skipped the birthday wishes a second year if you were just going to instigate something, (REDACTED)!
+    Cali: When she says it in that tone, it sounds less like a name she picked at my birth with love, and more like a swear word… 
+    Dark Self: It's far too late to avoid feeling like shit about this, but it's still not to late to drop it…
+    -> "You wanna see instigating?!"
+        Dark Self: Guess not.
+        <<jump Confrontation>>
+===
+title: Confrontation
+---
+
+Cali: Not sure how asking for clarification about the statement YOU made is "instigating something," but whatever.
+Cali: Sorry that saying something positive about one of your children is soooo difficult that it would ruin your precious birthday to even try, though.
+Dark Self: Those are the thoughts you're supposed to internalize, dumbass!
+Dark Self: Okay, you're on your own with this one. I do not wanna hear a word about your hurt feelings later…
+Mom: Well, you're not exactly making it easy to say anything positive right now, are you?
+Cali: You and I both know that's a weak excuse.
+Mom: Now, you listen-
+Cali: No, YOU listen.
+Cali: Yes, I'm not making it easy, and sure, I'm doing it on purpose this time… but get real, Mom!
+Cali: It wouldn't matter if I was a ray of sunshine in every interaction we ever had, because it wouldn't change your obvious resentment towards my dreams extending beyond the family farm, w-would it?
+Dark Self: Good going, Cali. Now you're about to cry, and it's your own dumbass fault.
+
+->Choke back your tears
+    <<if $globalAnxiety < 45>>
+        Somehow, you manage to overcome the feeling of being about to cry… for now. 
+        No promises for how you'll be feeling later.
+        <<set $globalAnxiety += 5>>
+    <<if $globalAnxiety > 75>>
+        Despite your best efforts, the floodgates come crashing down, and you start uncontrollably sobbing.
+    <<else>>
+        The catch in your throat just won't leave, but you manage to keep the tears at bay… until the end of this conversation, at least.
+        Once you hang up, all bets are off.
+        <<set $globalAnxiety += 5>>
+    <<endif>>
+    <<endif>>
+===

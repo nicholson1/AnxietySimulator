@@ -1,0 +1,151 @@
+﻿title: Lunch
+---
+<<declare $gotLunch to false>>
+<<declare $macSalad to false>>
+<<declare $turkeySandwich to false>>
+
+You enter the restaurant.  
+Victoria and Ash have already found a table in the back corner by a window. 
+As you sit down, the glare from the window is directly in your eyes.
+
+Dark Self: Nice job making them wait.
+
+<<set $globalAnxiety += 5>>
+
+<<if $globalAnxiety <= 50 >>
+Cali: Come on, it's not that big a deal.
+<<endif>>
+
+Victoria rises from her seat to give you a brief hug.
+
+Victoria: Cali, it's so good to see you!
+Ash: Hey, Cali. How's it going?
+
+->"It's going good."
+    Cali: I have a lot of errands to run today, so this is a nice break.
+
+<<if $gotWrench is true>>
+->"I just saw the coolest person ever at the hardware store."
+    Cali: She had this awesome tattoo of a flaming skeleton with a battleaxe.
+	Ash: Okay, that is amazing.
+    Ash: We need to be friends with this person immediately.
+	Victoria: A flaming skeleton tattoo could only belong to a gay person.
+    Victoria: So yes, friends for life.
+	Cali: Haha, I know right?
+<<endif>>
+
+Victoria: Well, I'm glad we could be a nice break for you.
+Victoria: Why don't you go up and grab something to eat?
+Ash: Yeah, I was kind of hangry so we ordered already. 
+Ash: Hope you don't mind.
+Dark Self: See, they were waiting on you.
+Dark Self: Why can't you do anything right?
+Cali: Yeah, I'll go grab something really quick. Be right back.
+
+You run up to the counter and try to decide what to order.
+Being at a new restaurant makes it hard to choose what to get.
+Do you branch out and try the macaroni salad, or play it safe with a neutral-sounding turkey sandwich?
+
+->Push yourself and try new things!
+	<<set $macSalad to true>>
+	You order the macaroni salad, thinking it sounds pretty good.
+    You grab a number and return to the table.
+	Dark Self: You know, if you hate it, you're either gonna have to finish it anyway or be hungry for the rest of the day.
+	<<set $globalAnxiety += 10>>
+->Turkey sandwiches are classic for a reason.  You know what you want.
+	<<set $turkeySandwich to true>>
+	You order the turkey sandwich, knowing it'll be at least somewhat familiar.
+    You grab a number and return to the table.
+	Dark Self: You always get the same thing. They're going to think you're weird.
+	<<set $globalAnxiety +=5>>
+
+You get back to the table to find Ash with her arm around Victoria, the two of them sitting close together in the corner booth.  
+Victoria blushes a little when you approach, but doesn't try to move.
+You take your seat across from them, adjusting as much as you can to avoid the sun.
+
+Cali: Anyway, how have you guys been? How is wedding planning going?
+Ash: Oh, you know this one. No real plans yet, but her Pinterest board just gets bigger and bigger.
+Victoria: Is it too much to ask for everything to be perfect when the time does come?
+Ash: At this rate, we could have four weddings and not get to everything you want to do. 
+Ash: I'm saying this with love, of course.
+Victoria: Yeah, you talk a big game, but if we left the planning to you, we'd be getting married in your parents' backyard with wedding invitations in Comic Sans.
+Ash: Babe, how dare you make fun of Comic Sans?
+Ash: Don't you want our invitations to have personality?
+Dark Self: This would be so much better if Val were here.
+Cali: I'm sure Val would agree with you.
+Cali: If we ever got married, she would have the most busted taste in wedding invitations. It would be amazing.
+Victoria: Ooh, what's Valentina up to these days? Is she any closer to being ready to move here?
+Cali: She actually texted me this morning!
+
+You show them the cute dog picture Valentina sent you.
+They are, obviously, appreciative.
+
+Victoria: How is the long distance going? Any updates on the job hunt?
+
+->"She's super busy, so updates have been kind of sporadic."
+    Ash: Is that normal for her to do? Not messaging you very often?
+    Victoria: Ash!
+    Dark Self: They think she's a bad partner.
+    Ash: Sorry, was that out of line?
+    Cali: No, it’s fine. I get a lot of small updates from her, but it’s hard for her to keep track of big stuff to update me on when she doesn’t see me any day. I’m fine with it.
+    Dark Self: Are you fine with it though?
+    Cali: She's been so great about the moving stuff though! 
+    Cali: It's just logistics getting in the way. I'm sure she'll be out here soon.
+    Dark Self: Or she's been putting it off because she secretly wants to break up with you.
+    Victoria: We should all get lunch when she gets here! I'd love to meet her in person sometime.
+    Dark Self: If she ever gets here.
+    <<set $globalAnxiety += 10>>
+<<if $globalAnxiety <= 60>>
+->"Distance is hard, but it's nothing we haven't done before."
+    Cali: I'm really excited for her to get here, though.
+	Victoria: We should all get lunch when she gets here! I'd love to meet her in person sometime.
+	Ash: Yeah, let's do a double date!
+	Cali: I'd love that!
+	<<set $globalAnxiety -= 5>>
+<<endif>>
+
+<<if $macSalad is true>>
+A waiter with a tray full of food comes up and places your macaroni salad in front of you.
+At first glance, you are apprehensive, but then you take a bite and it. is. delicious.
+
+Cali: Wow, this is really good!
+Ash: Ooh, is that the macaroni salad? I always get that, it's amazing! Good choice!
+Dark Self: …you win this time, new food.
+<<set $globalAnxiety -= 15>>
+<<endif>>
+
+<<if $turkeySandwich is true>>
+A waiter with a tray full of food comes up and places your turkey sandwich in front of you.
+It sounded delicious when you ordered it, but looking at it right now, it seems very meh.
+
+Dark Self: You can't even order food right.
+Dark Self: Guess you're gonna be hungry this afternoon.
+
+You finish the sandwich, but are slightly dissatisfied.
+Hey, it's better than nothing.
+<<set $globalAnxiety += 5>>
+<<endif>>
+
+Victoria: Well, we don't want to keep you from your errands for too long!
+Dark Self: They're tired of you. They want you gone.
+Cali: Yeah, I have a few more stops to get to today, so I should get going. It was great to see you!
+Ash: Great to see you too!
+
+The three of you gather up your stuff and make your way to the door.
+Before you can run off to your next errand, Ash stops you.
+
+Ash: Hey, before you get going, we were wondering if you wanted to join us for trivia night at the Black Sheep next week.
+Ash: Val's welcome to come whenever she gets here, too! We just figured you might want some more friends in town.
+Dark Self: They don't actually want you to come. They just feel bad for you.”
+
+->”Yeah, that would be awesome! Thanks for inviting me!”
+	Victoria: Great, we can't wait! I'll text you the details later tonight.
+	<<set $globalAnxiety -= 10>>
+->”Oh, I don't know. It's hard to get out with moving and everything.”
+	Victoria: I totally get that, it's hard for me to make plans with school and everything too.
+    Ash: Think about it a little bit, okay? We would love to have you, we think it'd be fun to introduce you to some of our friends!
+    Victoria: I'll text you some of the details later.
+	<<set $globalAnxiety -= 5>>
+
+<<set $gotLunch to true>>
+===
