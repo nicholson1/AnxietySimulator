@@ -3,27 +3,27 @@ tags:
 ---
 //I commented out this whole scene just because I've been using it as the start node in the Yarn Project every time
 //and don't need to see it every time since it all works already
-<<declare $globalAnxiety to 75>>
+<<declare $globalAnxiety to 15>>
 <<declare $darkSelfRebuked to false>>
 <<declare $gotWrench to false>>
 <<declare $gotGroceries to false>>
-// Cali: Okay, Cali, you can do this. You overslept a little bit, but it's fine, we can still turn this day around!
-// Dark Self: You're out of time, you're late, you're behind…
-// Cali: You made a list and everything, it's gonna be fine! 
-// Cali: Where did I put the list… oh, here it is! 
-// Cali: Okay, so today, we need to go to the hardware store and get the allen wrench, grab lunch with Victoria and Ash, grab some groceries...
-// Cali: And if we have time, we can call Mom.
-// Dark Self: You're late, she's mad at you, everyone is mad at you…
-// Cali: Hopefully, there'll be some time in there to talk to Val and see how the job search is going, too!
-// Dark Self: If she even has time to call you…
-// Cali: Alright, let's go!
+Cali: Okay, Cali, you can do this. You overslept a little bit, but it's fine, we can still turn this day around!
+Dark Self: You're out of time, you're late, you're behind…
+Cali: You made a list and everything, it's gonna be fine! 
+Cali: Where did I put the list… oh, here it is! 
+Cali: Okay, so today, we need to go to the hardware store and get the allen wrench, grab lunch with Victoria and Ash, grab some groceries...
+Cali: And if we have time, we can call Mom.
+Dark Self: You're late, she's mad at you, everyone is mad at you…
+Cali: Hopefully, there'll be some time in there to talk to Val and see how the job search is going, too!
+Dark Self: If she even has time to call you…
+Cali: Alright, let's go!
 
-// TO DO LIST:
-// One: Hardware store - get 3/8 allen wrench!
-// Two: Lunch w/ Victoria + Ash :-)
-// Three: Get groceries!
-// Four: Call mom
-// Five: Maybe go to the park? Treat yourselfffff
+//TO DO LIST:
+//One: Hardware store - get 3/8 allen wrench!
+//Two: Lunch w/ Victoria + Ash :-)
+//Three: Get groceries!
+//Four: Call mom
+//Five: Maybe go to the park? Treat yourselfffff
 
 //I've been putting a jump to whatever scene I was testing here
 //But if I understand what the final version will be like, we won't need a jump here at all
@@ -32,5 +32,5 @@ tags:
 //<<jump GroceryStore>>
 //<<jump HardwareStore>>
 //<<jump Rideshare>>
-<<jump DarkSelfConfrontation>>
+//<<jump DarkSelfConfrontation>>
 ===
