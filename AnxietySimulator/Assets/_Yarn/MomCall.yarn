@@ -2,6 +2,7 @@
 ---
 <<declare $momCall to false>>
 <<declare $dadCall to false>>
+<<declare $callBreakdown to false>>
 
 You would have put off that call to your mom forever if you could have.
 Unfortunately, you can't “put off” her birthday, and you'll never hear the end of it if you don't give her the acknowledgement she feels entitled to.
@@ -18,11 +19,12 @@ After all, there are still plenty of waking hours left in her birthday to go!
     Dark Self: Weak.
     <<if $globalAnxiety > 75>> 
         Cali: True.
+    <<endif>>
     <<if $globalAnxiety < 35>> 
         Cali: Hardly.
-    <<else>> 
+    <<endif>>
+    <<if $globalAnxiety >= 35 && $globalAnxiety <= 75>> 
         Cali: Maybe. 
-    <<endif>> 
     <<endif>>
     Cali: All I need to do is mentally prepare for a bit.
     Dark Self: Psh, “mentally prepare” - that's a crock load of shit and we both know it.
@@ -62,11 +64,45 @@ Mom: Pretty sure Leo has never forgotten my birthday, but of course, my children
 <<if $globalAnxiety < 50>>
 -> Move on with the conversation
     <<jump MoveOn>>
-<<else>>
+<<endif>>
 -> "What are my strengths, exactly?"
     <<jump Strengths>>
-<<endif>>
+->Apologize for not measuring up to your brother
+    <<jump BrotherApology>>
+->Say something shamelessly snarky
+    <<jump ShamelessSnark>>
 
+===
+title: MoveOn
+---
+Cali: So, how has Leo been, anyway?
+Mom: Well, you know how hard Leo can be to read, but he's been doing good, as far as I can tell.
+Mom: You didn't hear it from me, but he started planning his proposal to Jenny!
+Cali: Oh, that's wonderful!
+Cali: As long as you let me know when the wedding is gonna be, I'll make sure to take off some time to come up and visit.
+Mom: At least your brother's future wedding is important enough to you to justify taking time out of your busy schedule to drop by… 
+Cali: I'll visit when I can, Mom… but anyway, I hope you enjoy the rest of your birthday.
+Mom: Thanks, (REDACTED). I'll do my best, but I've had such a busy day that I barely had time to answer the phone.
+Mom: If only the critters and the crops would let me take a day off for my birthday...
+Mom: I'm glad I have Leo around to help out, at least! I should go see what he's been up to…
+Cali: I'm glad Leo is around to help you out too- oh, she hung up.
+Dark Self: It's for the best. Honestly, how did you expect to sound sincere saying something like that?
+Cali: I meant it about as much as I could.
+Cali: I'm glad one of her kids didn't let her down, at least.
+Cali: Takes some of the pressure off of me.
+Dark Self: You're not a good liar, you know.
+Dark Self: You can admit if you feel crushed under the weight of Mom's expectations.
+Dark Self: It would honestly be more rational than most of your feelings.
+Cali: Okay, fine, you caught me - I hate being the family disappointment, but how is it my problem?
+Cali: I'm not a failure just because I don't see a future for myself working on the farm.
+Dark Self: You're right. That's not the reason you're a failure. 
+Cali: …ugh… well, the call could have gone worse, I guess.
+Dark Self: Sure, though I'm not sure how much that means, given how disastrously some of your past calls have gone with her.
+Cali: It doesn't matter. Point is, I got through it mostly unscathed…
+<<if $globalAnxiety > 30>> 
+    Cali: Well, at least not a whole lot more scathed than I was before.
+<<endif>>
+<<set $globalAnxiety += 5>>
 ===
 title: Strengths 
 ---
@@ -93,6 +129,38 @@ Dark Self: If anyone's gonna ruin your self-esteem, it's probably best it's me- 
     -> "You wanna see instigating?!"
         Dark Self: Guess not.
         <<jump Confrontation>>
+    -> Swallow your pride and apologize
+        <<jump PrideSwallowed>>
+===
+title: BrotherApology
+---
+Cali: I'm sorry for being forgetful.
+Mom: There's no need to apologize, I completely understand.
+Mom: People are more likely to remember what they prioritize-
+Cali: I'm sorry I can't be more like Leo.
+Mom: What are you talking about?
+Cali: I'm sorry I wasn't super mature by the time I graduated elementary school like Leo.
+Cali: I'm sorry I can't trick the world into thinking I'm mentally stable in the same way he can.
+Cali: I'm sorry I'm not as hard of a worker as he is, that I don't know exactly what I'm gonna do with my life, that I have goals outside the family farm-
+Mom: (REDACTED), will you cut it out? I didn't answer your call to deal with your manipulative bullshit. 
+Dark Self: Maybe not manipulative, but you definitely got away from the point… assuming you ever had one.
+
+->Swallow your pride and apologize
+    <<jump PrideSwallowed>>
+->Go full "scorched earth"
+    <<jump ScorchedEarth>>
+===
+title: ShamelessSnark
+---
+Cali: By the way you talk about him, I wouldn't have guessed you thought your perfect little farmer boy had a single weakness.
+Mom: Are you really doing this now?
+Mom: Aren't siblings supposed to grow out of such petty drama by their 20s?
+Mom: You're way too old to be acting like this, (REDACTED).
+
+->Swallow your pride and apologize
+    <<jump PrideSwallowed>>
+->Double down on snark
+    <<jump DoubledDown>>
 ===
 title: Confrontation
 ---
@@ -114,12 +182,147 @@ Dark Self: Good going, Cali. Now you're about to cry, and it's your own dumbass 
         Somehow, you manage to overcome the feeling of being about to cry… for now. 
         No promises for how you'll be feeling later.
         <<set $globalAnxiety += 5>>
+    <<endif>>
     <<if $globalAnxiety > 75>>
         Despite your best efforts, the floodgates come crashing down, and you start uncontrollably sobbing.
-    <<else>>
+    <<endif>>
+    <<if $globalAnxiety > 45 && $globalAnxiety < 75>>
         The catch in your throat just won't leave, but you manage to keep the tears at bay… until the end of this conversation, at least.
         Once you hang up, all bets are off.
         <<set $globalAnxiety += 5>>
     <<endif>>
-    <<endif>>
+    //question from Molly: where does the call jump to now?
+->Let your tears flow
+    <<jump CallBreakdown>>
+===
+title: CallBreakdown
+---
+<<set $callBreakdown to true>>
+Whatever comment your mom makes about her derailed birthday call fades into background noise as the floodgates come crashing down.
+At some undefined point during your sob session, the phone call ends.
+After crying loudly enough to drown out even your internal monologue, your tear ducts eventually run dry.
+
+Dark Self: …
+Cali: …………
+Dark Self: I don't even know what to say.
+Cali: Then don't say anything.
+Dark Self: …
+Cali: I can agonize over this some other time. Apparently, I needed the emotional release.
+Dark Self: Maybe I should have gone about it better, but I can't take it back now. 
+Dark Self: I guess.
+Cali: It sucks for her that running the farm has been so hard since Dad left, but it's not my fault.
+Cali: It doesn't make sense for her to blame me.
+Dark Self: …as much as I want to tell you that you're wrong, I can't.
+Dark Self: Of all the mistakes you've made in your life, existing outside your mother's expectations isn't one of them.
+Cali: I'm assuming that's the nicest thing you'll say to me all day, so I'll take it.
+Dark Self: As much as I want to tell you that you're wrong, I c-
+Cali: Will you shut up already?! I thought I made it clear I was done listening to you… for now, at least.
+
+<<set $globalAnxiety -= 15>>
+===
+title: PrideSwallowed
+---
+Cali: Sorry, Mom. It's been a rough day, and I might have let my stress get carried away-
+Mom: Not really interested in hearing your excuses.
+Cali: Wasn't trying to make an excuse…
+Mom: What was that?
+Cali: Nothing important… I hope the rest of your birthday goes well.
+Mom: Thanks, (REDACTED)... if only the critters and the crops would let me take a day off for my birthday.
+Mom: I'll talk to you whenever you decide I'm important enough to warrant another call, I suppose.
+Cali: Nothing personal, I'm just busy with school- oh, she hung up.
+Dark Self: It's for the best. She wouldn't have been interested in hearing another excuse.
+Cali: Ugh… I mean, as far as conversations with my mom go, I could be feeling worse?
+Cali: I mean, I'm still feeling pretty bad, but I'm not crying and I'm not actively getting a panic attack, so that counts for something, right?
+Cali: It's the little victories that count.
+Dark Self: That's less a “little victory” and more like a pathetically low bar, but sure, whatever you want to tell yourself, I guess.
+
+<<set $globalAnxiety += 10>>
+===
+title: DoubledDown
+---
+Cali: And you're not?
+Mom: Not what? What are you talking about?
+Cali: And you… you're n-not too old?
+Dark Self: Nice delivery, dipshit. Sounded a lot cooler in your head, huh?
+Mom: What?!
+Cali: You're the one who brought up Leo to begin with.
+Cali: Aren't parents supposed to grow out of such petty drama by their 50s?
+Mom: I will NOT tolerate this type of disrespect from you, (REDACTED).
+Cali: Fine, then don't tolerate it! Nobody is forcing you to continue this call- oh, she hung up.
+Dark Self: Nobody was forcing you to go off the rails like that, either.
+
+<<if $globalAnxiety < 50>>
+    Cali: Why did I say all of that?!
+    Dark Self: Good question. Why did you?
+    Cali: Oh god, that really just happened…
+    Dark Self: You're right. It did, in fact, happen.
+    Cali: I can't believe I just did that…
+    Dark Self: Are we gonna do this all day?
+    Cali: That actually came from my mouth…
+    Dark Self: I'll take that as a yes.
+
+    <<set $globalAnxiety += 10>>
+<<endif>>
+
+<<if $globalAnxiety >= 50 && $globalAnxiety < 75>>
+    Cali: Okay, maybe I went a little off the rails…
+    Dark Self: A lot off the rails.
+    Cali: Okay, a lot off the rails, whatever. I'm not gonna beat myself up over it.
+    Dark Self: Really now? That's a first.
+    Cali: I mean, I'm sure this moment will haunt me as I fall asleep tonight, but that's a problem for Future Calypso.
+    Cali: For now, I'm gonna forget it happened and move on with my day.
+    Dark Self: Fine, but no complaining when you stay up all night overthinking later, okay?
+<<endif>>
+
+<<if $globalAnxiety >= 75>>
+    Cali: Maybe I was overdue to go off the rails, ever consider that?!
+    Dark Self: …
+    Cali: Guess that was building up inside for a while… 
+    Dark Self: …gee, ya think?
+    Cali: If nothing else, that gave me some much needed emotional release.
+    Dark Self: There are hundreds of other ways you could have gotten that emotional release without looking so unhinged.
+    Cali: Sure, and I'll pick one of those hundreds of ways next time.
+    Dark Self: You're committed to not cringing about this, huh?
+    Cali: I'm sure Future Me will cringe plenty, but for now, I have too many more important things to worry about.
+    Dark Self: Your definition of “important” has always been stupid, but sure, whatever you say… 
+    <<set $globalAnxiety -= 5>>
+<<endif>>
+===
+title: ScorchedEarth
+---
+Cali: If me apologizing for not measuring up to my brother is manipulative,
+Cali: so was the unprompted comparison to him that started all this.
+Mom: Would it take me pretending you and Leo are clones of each other for you to be happy?
+Mom: God forbid I acknowledge my two children as individuals with unique traits that set them apart from one another.
+Cali: That isn't w-what I… meant and you know it!
+Dark Self: Don't do this.
+Cali: Y…you don't have to pretend we're exactly the same to treat us equally!
+Dark Self: Guess you're already committed to making a fool of yourself.
+Dark Self: Don't say I didn't warn you.
+Mom: Well, that mentality is your first problem, silly (REDACTED).
+Mom: You and Leo aren't equal.
+Cali: Excuse me…? Did you really just-
+Mom: Every single person on this planet is different, so how can two people ever truly be equal to one another?
+Mom: It's a fool's errand to try and erase that for some naive notion of equality. 
+Cali: It's… a fool's errand to love your children equally? 
+Mom: Now you're putting words in my mouth.
+Mom: I'm not the villain you're making me out to be, [REDACTED].
+Mom: It may seem cruel to say, but I'm telling you for your own good.
+Mom: Wanting everyone to be equal sure is sweet and all, but it's misguided.
+Mom: You'll protect your peace a lot better by not wasting your precious energy by fighting something that can't be helped.
+Cali: … 
+Mom: Anyway, thanks for the birthday wishes...
+Mom: but unfortunately, the critters and crops won't let me take a day off for managing to stick around another year.
+Mom: So, I should probably get going.
+Cali: ……
+Dark Self: She hung up. You can stop holding the phone to your ear.
+Cali: ………
+Dark Self: I hope you're not feeling sorry for yourself.
+Dark Self: With how you steered that conversation, you were practically begging to be hurt.
+Cali: …………
+Dark Self: I know despondently staring off into the distance is one of your greatest talents, but you can't do that all day.
+Cali: ……………
+Dark Self: ……………
+
+<<set $globalAnxiety += 15>>
 ===
