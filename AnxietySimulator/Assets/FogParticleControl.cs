@@ -20,7 +20,7 @@ public class FogParticleControl : MonoBehaviour
     {
         //cant change direct PS emission
         var emission = ps.emission;
-        emission.rateOverTime =   anxietyLevel- 25 ;
+        emission.rateOverTime =   anxietyLevel ;
 
     }
 }

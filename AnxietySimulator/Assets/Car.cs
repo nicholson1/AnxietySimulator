@@ -120,7 +120,7 @@ public class Car : MonoBehaviour
 
             if (Vector3.Distance(this.transform.position,Waypoints[currentTarget] ) < 1)
             {
-                Debug.Log("Go to next point");
+                //Debug.Log("Go to next point");
                 currentTarget += 1;
                 if (currentTarget > Waypoints.Count - 1)
                 {
