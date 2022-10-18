@@ -4,7 +4,7 @@
 <<declare $dadCall to false>>
 <<declare $callBreakdown to false>>
 
-You would have put off that call to your mom forever if you could have.
+You would have put off this call to your mom forever if you could have.
 Unfortunately, you can't “put off” her birthday, and you'll never hear the end of it if you don't give her the acknowledgement she feels entitled to.
 Surely birthdays must have lost their luster decades ago for a woman pushing 60, but she'll never pass up an opportunity to victimize herself.
 You'd send her a text if it were a viable option, but she'd probably find a way to be more offended about that than not wishing her a happy birthday at all.
@@ -15,7 +15,7 @@ Your brain can't let go of the idea that this is a necessity, a requirement.
 Even if you see the call as mandatory, making it right that minute is quite the opposite.
 After all, there are still plenty of waking hours left in her birthday to go!
 
-->Keep putting it off
+->Keep putting it off.
     Dark Self: Weak.
     <<if $globalAnxiety > 75>> 
         Cali: True.
@@ -36,7 +36,7 @@ After all, there are still plenty of waking hours left in her birthday to go!
     Cali: Okay, fine, I'll make the call now, I guess…
     <<set $globalAnxiety += 5>>
     <<jump PhoneCallBeginning>>
--> Make the call now
+-> Make the call now.
     <<jump PhoneCallBeginning>>
 ===
 title: PhoneCallBeginning
@@ -50,8 +50,7 @@ Dark Self: She's totally gonna know that was forced.
 Mom: Great to hear from you, (REDACTED)! 
 <<if $dadCall is false>> 
     Cali: Oof, it’s been a while since I’ve been called that…
-<<endif>>
-<<if $dadCall is true>>
+<<else>>
     Cali: I could go the rest of my day without hearing that name again… or the rest of my life, for that matter.
 <<endif>>
 Cali: Of course-
@@ -62,17 +61,34 @@ Mom: I just know you can be a real scatterbrain sometimes, so it was nice to hea
 Mom: Pretty sure Leo has never forgotten my birthday, but of course, my children both have their strengths and their weaknesses… 
 
 <<if $globalAnxiety < 50>>
--> Move on with the conversation
-    <<jump MoveOn>>
+    <<jump LowAnxietyTopics>>
+<<else>>
+    <<jump HighAnxietyTopics>>
 <<endif>>
--> "What are my strengths, exactly?"
-    <<jump Strengths>>
-->Apologize for not measuring up to your brother
-    <<jump BrotherApology>>
-->Say something shamelessly snarky
-    <<jump ShamelessSnark>>
 
 ===
+
+title: HighAnxietyTopics
+---
+->"What are my strengths, exactly?"
+    <<jump Strengths>>
+->Apologize for not measuring up to your brother.
+    <<jump BrotherApology>>
+->Say something shamelessly snarky.
+    <<jump ShamelessSnark>>
+===
+title: LowAnxietyTopics
+---
+->Move on with the conversation.
+    <<jump MoveOn>>
+->"What are my strengths, exactly?"
+    <<jump Strengths>>
+->Apologize for not measuring up to your brother.
+    <<jump BrotherApology>>
+->Say something shamelessly snarky.
+    <<jump ShamelessSnark>>
+===
+
 title: MoveOn
 ---
 Cali: So, how has Leo been, anyway?
@@ -103,10 +119,10 @@ Cali: It doesn't matter. Point is, I got through it mostly unscathed…
     Cali: Well, at least not a whole lot more scathed than I was before.
 <<endif>>
 <<set $globalAnxiety += 5>>
+<<jump MomCallDone>>
 ===
-title: Strengths 
+title: Strengths
 ---
-
 Mom: Hmm?
 Cali: Just now.
 Cali: You said Leo and I both have our strengths and our weaknesses… when talking about a strength of his and a weakness of mine.
@@ -129,7 +145,7 @@ Dark Self: If anyone's gonna ruin your self-esteem, it's probably best it's me- 
     -> "You wanna see instigating?!"
         Dark Self: Guess not.
         <<jump Confrontation>>
-    -> Swallow your pride and apologize
+    -> Swallow your pride and apologize.
         <<jump PrideSwallowed>>
 ===
 title: BrotherApology
@@ -145,9 +161,9 @@ Cali: I'm sorry I'm not as hard of a worker as he is, that I don't know exactly 
 Mom: (REDACTED), will you cut it out? I didn't answer your call to deal with your manipulative bullshit. 
 Dark Self: Maybe not manipulative, but you definitely got away from the point… assuming you ever had one.
 
-->Swallow your pride and apologize
+->Swallow your pride and apologize.
     <<jump PrideSwallowed>>
-->Go full "scorched earth"
+->Go full "scorched earth".
     <<jump ScorchedEarth>>
 ===
 title: ShamelessSnark
@@ -157,14 +173,13 @@ Mom: Are you really doing this now?
 Mom: Aren't siblings supposed to grow out of such petty drama by their 20s?
 Mom: You're way too old to be acting like this, (REDACTED).
 
-->Swallow your pride and apologize
+->Swallow your pride and apologize.
     <<jump PrideSwallowed>>
-->Double down on snark
+->Double down on snark.
     <<jump DoubledDown>>
 ===
 title: Confrontation
 ---
-
 Cali: Not sure how asking for clarification about the statement YOU made is "instigating something," but whatever.
 Cali: Sorry that saying something positive about one of your children is soooo difficult that it would ruin your precious birthday to even try, though.
 Dark Self: Those are the thoughts you're supposed to internalize, dumbass!
@@ -177,7 +192,7 @@ Cali: Yes, I'm not making it easy, and sure, I'm doing it on purpose this time�
 Cali: It wouldn't matter if I was a ray of sunshine in every interaction we ever had, because it wouldn't change your obvious resentment towards my dreams extending beyond the family farm, w-would it?
 Dark Self: Good going, Cali. Now you're about to cry, and it's your own dumbass fault.
 
-->Choke back your tears
+->Choke back your tears.
     <<if $globalAnxiety < 45>>
         Somehow, you manage to overcome the feeling of being about to cry… for now. 
         No promises for how you'll be feeling later.
@@ -191,8 +206,9 @@ Dark Self: Good going, Cali. Now you're about to cry, and it's your own dumbass 
         Once you hang up, all bets are off.
         <<set $globalAnxiety += 5>>
     <<endif>>
+    <<jump PrideSwallowed>>
     //question from Molly: where does the call jump to now?
-->Let your tears flow
+->Let your tears flow.
     <<jump CallBreakdown>>
 ===
 title: CallBreakdown
@@ -215,10 +231,13 @@ Cali: It doesn't make sense for her to blame me.
 Dark Self: …as much as I want to tell you that you're wrong, I can't.
 Dark Self: Of all the mistakes you've made in your life, existing outside your mother's expectations isn't one of them.
 Cali: I'm assuming that's the nicest thing you'll say to me all day, so I'll take it.
-Dark Self: As much as I want to tell you that you're wrong, I c-
-Cali: Will you shut up already?! I thought I made it clear I was done listening to you… for now, at least.
+<<if $darkSelfRebuked is true>>
+    Dark Self: As much as I want to tell you that you're wrong, I c-
+    Cali: Will you shut up already?! I thought I made it clear I was done listening to you… for now, at least.
+<<endif>>
 
 <<set $globalAnxiety -= 15>>
+<<jump MomCallDone>>
 ===
 title: PrideSwallowed
 ---
@@ -237,6 +256,7 @@ Cali: It's the little victories that count.
 Dark Self: That's less a “little victory” and more like a pathetically low bar, but sure, whatever you want to tell yourself, I guess.
 
 <<set $globalAnxiety += 10>>
+<<jump MomCallDone>>
 ===
 title: DoubledDown
 ---
@@ -287,6 +307,8 @@ Dark Self: Nobody was forcing you to go off the rails like that, either.
     Dark Self: Your definition of “important” has always been stupid, but sure, whatever you say… 
     <<set $globalAnxiety -= 5>>
 <<endif>>
+
+<<jump MomCallDone>>
 ===
 title: ScorchedEarth
 ---
@@ -306,7 +328,7 @@ Mom: Every single person on this planet is different, so how can two people ever
 Mom: It's a fool's errand to try and erase that for some naive notion of equality. 
 Cali: It's… a fool's errand to love your children equally? 
 Mom: Now you're putting words in my mouth.
-Mom: I'm not the villain you're making me out to be, [REDACTED].
+Mom: I'm not the villain you're making me out to be, (REDACTED).
 Mom: It may seem cruel to say, but I'm telling you for your own good.
 Mom: Wanting everyone to be equal sure is sweet and all, but it's misguided.
 Mom: You'll protect your peace a lot better by not wasting your precious energy by fighting something that can't be helped.
@@ -325,4 +347,26 @@ Cali: ……………
 Dark Self: ……………
 
 <<set $globalAnxiety += 15>>
+<<jump MomCallDone>>
+===
+
+title: MomCallDone
+---
+<<if $callBreakdown is true>>
+    Cali: Oof.
+    Dark Self: Oof is right.
+<<endif>>
+<<if $globalAnxiety > 75>>
+Cali: Holy shit, today sucked.
+Dark Self: And tomorrow may suck even more!
+Cali: Ugh.
+<<else>>
+    Cali: Long day.
+    Dark Self: Yep! And another one tomorrow!
+    <<if $globalAnxiety < 35>>
+        Cali: And another one tomorrow!
+    <<else>>
+        Cali: And another one tomorrow...
+    <<endif>>
+<<endif>>
 ===

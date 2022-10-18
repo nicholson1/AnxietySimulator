@@ -1,6 +1,5 @@
 ﻿title: ValTexts
 ---
-via text:
 Val: omg good morninggg baby!!!!!!! <3 <3 <3
 1 minute later...
 Val: good luck with your classes today! ik you're gonna do amazing!
@@ -11,7 +10,6 @@ Val: lol i forget but either way you're gonna knock it out of the park! :) <3
 Cali: good morning!
 Cali: yeah classes aren't till next week lol trying to make the most of my last free week
 
-in real life:
 Dark Self: Psh, you have a weird definition of making the most of something, don't you?
 Cali: Will you shut up?
 Cali: Excuse the hell out of me for wanting to reassure my girlfriend that I'm not totally falling apart.
@@ -23,14 +21,13 @@ Cali: Texting my girlfriend is nice. I won't let you ruin that for me!
 Dark Self: We'll see about that…
 Cali: Ugh, ANYWAY, lemme think about what I should text her next…
 
-->Be honest about how you're feeling
+->Be honest about how you're feeling.
     <<jump BeHonest>>
-->Change the subject and ask about Valentina instead
+->Change the subject and ask about Valentina instead.
     <<jump SubjectChanged>>
 ===
 title: BeHonest
 ---
-via text:
 5 minutes later...
 Cali: little nervous about class tbh
 1 minute later...
@@ -47,7 +44,6 @@ Cali: i'm just really excited about you eventually getting here y'know?
 Cali: also sorry for so many texts in a row
 Cali: and i guess this is also another text so i'm sorry about that too
 
-in real life:
 Dark Self: …annnnnd how many texts in a row was that, exactly?
 Dark Self: Definitely way too many, in any case.
 Cali: Ugh, shut up! Why the hell does it matter?
@@ -63,7 +59,6 @@ Dark Self: …for now.
 Cali: Just got another text from her, so I'm gonna go back to pretending you don't exist, thank you very much.
 Dark Self: …for now.
 
-via text:
 Val: ohhh nooooo baby im so sorry! i miss you too <3
 3 minutes later...
 Val: i wish i was there too :( and i would be if not for Peter >:(
@@ -117,7 +112,6 @@ Cali: aww so cute <3 very us
 2 minutes later...
 Cali: lmk how the interview goes once you're done, okay?
 
-in real life:
 Cali: There is nothing for you to complain about right now.
 Dark Self: Well-
 Cali: No, zip it! Let me say that again in case I wasn't clear the first time:
@@ -131,13 +125,12 @@ Dark Self: What?! Is a person's inner darkness not allowed to admit when dogs ar
 Dark Self: I'm just calling a spade a spade!
 
 <<set $globalAnxiety -= 15>>
+<<jump ValTextsDone>>
 ===
 title: SubjectChanged
 ---
-via text:
 Cali: How have you been lately? I hope things have been going good for you!
 
-in real life:
 Dark Self: It looks so stupid when you use an exclamation point.
 Cali: Ugh, shut up! Why the hell does it matter?
 Cali: Not only is Val, y'know, the literal love of my life...
@@ -156,7 +149,6 @@ Dark Self: You're right.
 Dark Self: It won't be the occasional exclamation point that causes her to leave you, that's for sure.
 Cali: I'm in no need for your input. She just texted back, and I know who I'd rather talk to!
 
-via text:
 Val: pretty good!! :) i even have an interview today! :D
 1 minute later...
 Val: it has good pay and everything! :o 
@@ -183,7 +175,6 @@ Even though your so-called “best” hardly ever feels like enough.
 ===
 title: ShowSolidarity
 ---
-via text:
 Cali: a lot nervous is an entire mood tbh
 1 minute later...
 Cali: bet you're totally gonna rock that interview though!
@@ -216,10 +207,10 @@ Who are you to doubt such sincere and infectious enthusiasm?
 Even if she ends up being wrong, those dogs are pretty adorable… 
 
 <<set $globalAnxiety -= 10>>
+<<jump ValTextsDone>>
 ===
 title: ComfortAtOwnExpense
 ---
-via text: 
 Cali: aww i'm sorry you're nervous. here for you <3
 2 minutes later...
 Cali: bet you're gonna do great at the interview tho!
@@ -294,4 +285,15 @@ Cali: So I'm not currently paying attention to a word you're saying.
 Dark Self: Possibly the most rational thought process you've had all day; I'll let you have it.
 
 <<set $globalAnxiety -= 5>>
+<<jump ValTextsDone>>
+===
+
+title: ValTextsDone
+---
+Cali: I really miss her.
+Dark Self: Aw, cheer up. She'll get here soon.
+Cali: What?
+Dark Self: Uh...I mean...She hates you and she's never moving here!
+Cali: That's more like it. Don't start going soft on me now.
+Dark Self: Never!
 ===

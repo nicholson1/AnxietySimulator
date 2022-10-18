@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 
+//cribbed most of this script from one of the Yarn example projects on their site
+//the sample project is also in our project for ref
 public class YarnInteract : MonoBehaviour
 {
     [SerializeField] private string conversationStartNode;
 
-    public DialogueRunner dialogueRunner;
-    public bool interactable = true;
-    public bool isCurrentConversation = false;
+    private DialogueRunner dialogueRunner;
+    private bool interactable = true;
+    private bool isCurrentConversation = false;
 
-    public Transform playerProximity;
+    private Transform playerProximity;
     public float activationDist = 2f;
 
     // Start is called before the first frame update
@@ -26,13 +28,18 @@ public class YarnInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ActivateConvo();
+    }
+
+    private void ActivateConvo() 
+    {
         float dist = Vector3.Distance(playerProximity.position, transform.position);
-        if (dist <= activationDist && Input.GetKeyUp(KeyCode.E)) 
+        if (dist <= activationDist && Input.GetKeyUp(KeyCode.E))
         {
-           if (interactable && !dialogueRunner.IsDialogueRunning)
-           {
-               StartConversation();
-           }
+            if (interactable && !dialogueRunner.IsDialogueRunning)
+            {
+                StartConversation();
+            }
         }
     }
 
