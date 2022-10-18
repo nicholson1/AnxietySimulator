@@ -17,14 +17,14 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private NavMeshAgent navAgent;
     private Vector3 nextLocation;
     public float wanderDistance = 10f;
-    private float walkDistance = 10f;
+    //private float walkDistance = 10f;
 
     [SerializeField]private NPC_Controller NpcController;
 
     private NPCMovement NPCInteract = null;
 
 
-    private float IdleWaitTime = -3f;
+    //private float IdleWaitTime = -3f;
 
     private void Start()
     {

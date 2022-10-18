@@ -7,12 +7,10 @@ public class NewCameraFollow : MonoBehaviour
 {
     private Transform target;
     public Vector3 target_Offset;
-    [SerializeField] private GameObject camera;
-    [SerializeField] private Transform lineTargetL;
-    [SerializeField] private Transform lineTargetR;
+    //[SerializeField] private GameObject camera;
     
 
-    private bool rotate = true;
+    //private bool rotate = true;
     public float rotateSpeed;
     
     private void Awake()

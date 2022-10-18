@@ -11,6 +11,10 @@ public class Car : MonoBehaviour
     [SerializeField] private MeshRenderer[] Skins;
     [SerializeField] private NavMeshAgent navAgent;
 
+    private SoundManager _soundManager;
+    private AudioSource CarAudioSource;
+    private AudioClip myHonk;
+
     public Transform Path;
 
     private List<Vector3> Waypoints = new List<Vector3>();
@@ -45,7 +49,14 @@ public class Car : MonoBehaviour
 
         moveSpeed = Random.Range(3, 7);
         navAgent.speed = moveSpeed;
-        
+
+        if (_soundManager != null)
+        {
+            myHonk = _soundManager.GetRandomHonk();
+        }
+
+
+
 
     }
 
@@ -53,8 +64,10 @@ public class Car : MonoBehaviour
 
     private void Start()
     {
-        Initialize();
         
+        _soundManager = FindObjectOfType<SoundManager>();
+        CarAudioSource = GetComponent<AudioSource>();
+        Initialize();
 
     }
 
@@ -74,7 +87,7 @@ public class Car : MonoBehaviour
             RaycastHit hit;
 
             Vector3 p1 = transform.position;
-            float distanceToObstacle = 0;
+            //float distanceToObstacle = 0;
 
             // Cast a sphere wrapping character controller 10 meters forward
             // to see if it is about to hit anything.
@@ -136,8 +149,17 @@ public class Car : MonoBehaviour
         
     }
 
+    private void HonkSounds()
+    {
+        CarAudioSource.clip = myHonk;
+        CarAudioSource.volume = .25f;
+        CarAudioSource.Play();
+    }
+
     IEnumerator StopHonkAndWait()
     {
+        HonkSounds();
+
         navAgent.isStopped = true;
         Moving = false;
         //honk

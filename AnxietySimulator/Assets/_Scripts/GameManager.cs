@@ -9,6 +9,25 @@ public class GameManager : MonoBehaviour
     
     public static event Action<int> AnxietyChanged;
 
+    private void Awake()
+    {
+        Car.Honk += HonkedAt;
+    }
+    
+    private void OnDestroy()
+    {
+        Car.Honk -= HonkedAt;
+    }
+    
+    private void HonkedAt(GameObject player, Transform car)
+    {
+        if (player.CompareTag("Player"))
+        {
+            AdjustAnxietyLevel(1);
+            Debug.Log("We Ran");
+        }
+    }
+
     private void Start()
     {
         AnxietyChanged(AnxietyLevel);
