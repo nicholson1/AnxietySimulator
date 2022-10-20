@@ -1,13 +1,40 @@
 ﻿title: ValTexts
 ---
+<<declare $texts1 to false>>
+<<declare $texts2 to false>>
+<<declare $texts3 to false>>
+
+<<if $texts1 is false>>
+    <<jump Texts1>>
+<<else>>
+    <<if $texts2 is false>>
+        <<jump Texts2>>
+    <<else>>
+        <<if $texts3 is false>>
+            <<jump Texts3>>
+        <<else>>
+            <<jump DadCall>>
+        <<endif>>
+    <<endif>>
+<<endif>>
+===
+
+title: Texts1
+---
+<<set $texts1 to true>>
+
+Your phone buzzes. It's a text from Val!
 Val: omg good morninggg baby!!!!!!! <3 <3 <3
-1 minute later...
 Val: good luck with your classes today! ik you're gonna do amazing!
-2 minutes later...
 Val: w8 or did your classes start next week?
 Val: lol i forget but either way you're gonna knock it out of the park! :) <3 
-(10 minutes later)
-Cali: good morning!
+
+Cali: Oh shit, what do I say?
+Dark Self: Something normal?
+Cali: Yeah, yeah, okay. Let me think about this...
+Dark Self: Don't spend ten minutes on this, please.
+
+Cali: good morning Val! <3
 Cali: yeah classes aren't till next week lol trying to make the most of my last free week
 
 Dark Self: Psh, you have a weird definition of making the most of something, don't you?
@@ -28,19 +55,13 @@ Cali: Ugh, ANYWAY, lemme think about what I should text her next…
 ===
 title: BeHonest
 ---
-5 minutes later...
 Cali: little nervous about class tbh
-1 minute later...
 Cali: actually more like nervous about class among many other things
-1 minute later...
 Cali: i also miss you a lot. i really really wish you were here
-2 minutes later...
 Cali: it's ok though i know saving up money is important.
 Cali: i just hate that i'll be starting my semester without you by my side
-1 minute later...
 Cali: sorry not trying to guilt trip you
 Cali: i'm just really excited about you eventually getting here y'know?
-1 minute later...
 Cali: also sorry for so many texts in a row
 Cali: and i guess this is also another text so i'm sorry about that too
 
@@ -55,19 +76,22 @@ Dark Self: Valentina has the charm to pull it off. When she sends a bunch of tex
 Dark Self: Unlike you, where it comes across awkward, desperate, cringy… lots of adjectives, none of which are positive. 
 Cali: That's what you think. It doesn't mean she feels the same!
 Dark Self: …for now.
-*phone buzzes*
+<<jump TextsFinal>>
+===
+
+title: Texts2
+---
+<<set $texts2 to true>>
+Your phone buzzes. It's Val.
+
 Cali: Just got another text from her, so I'm gonna go back to pretending you don't exist, thank you very much.
 Dark Self: …for now.
 
 Val: ohhh nooooo baby im so sorry! i miss you too <3
-3 minutes later...
 Val: i wish i was there too :( and i would be if not for Peter >:(
 Val: i hope aliens abduct him and never bring him back 
-2 minutes later...
 Cali: bold assumption the aliens would even want him lol but in all seriousness fuck that guy
-2 minutes later...
 Val: LOL yea you have a point
-1 minute later...
 Val: and true!! fuck that guy >:( 
 
 Val always had interesting ways to word the misfortunes she wished on those who crossed her.
@@ -80,36 +104,21 @@ Val may struggle with advanced notice
 but the one time she planned months in advance, it proved not to be enough.
 Living with her mom may cut down on expenses, but without any money coming in, managing the move would be easier said than done.
 
-3 minutes later...
 Val: tho i actually have an interview coming up! :)
-1 minute later...
 Val: gr8 pay too! :o
-2 minutes later...
 Val: once i have $$$ coming in im moving there asap!!! 
-2 minutes later...
 Cali: ooh sounds important, i won't keep bothering ya then
-2 minutes later...
 Cali: good luck though! you're totally gonna crush it <3
-3 minutes later...
 Val: trust me id much rather be talking to you but unfortunately texting my gf cant be my job lol 
-1 minute later...
 Val: wish it could be tho!! <3 :P
-1 minute later...
 Val: id clock in overtime everyday and have the money to move there lickedysplit!
-1 minute later...
 Val: omg did i just say lickedysplit? pretty sure ive never said that in my life lmao
-2 minutes later...
 Val: but anyway thx so much baby! <3 <3 good luck with your not-classes today lol
-1 minute later...
 Val: one last thing before i go tho
-1 minute later...
 Cali: oh yeah?
-1 minute later...
 Val sends a picture of two dogs snuggling.
 Val: us!!! <3 <3 im the one on the left :D
-1 minute later...
 Cali: aww so cute <3 very us
-2 minutes later...
 Cali: lmk how the interview goes once you're done, okay?
 
 Cali: There is nothing for you to complain about right now.
@@ -129,6 +138,7 @@ Dark Self: I'm just calling a spade a spade!
 ===
 title: SubjectChanged
 ---
+<<set $texts2 to true>>
 Cali: How have you been lately? I hope things have been going good for you!
 
 Dark Self: It looks so stupid when you use an exclamation point.
@@ -147,20 +157,23 @@ Cali: But there's nothing forced about it when I'm talking with Valentina!
 Cali: As for awkward and cringy, just because you feel that way doesn't mean she does. 
 Dark Self: You're right.
 Dark Self: It won't be the occasional exclamation point that causes her to leave you, that's for sure.
-Cali: I'm in no need for your input. She just texted back, and I know who I'd rather talk to!
+Cali: Ugh, you're the worst.
+//Cali: I'm in no need for your input. She just texted back, and I know who I'd rather talk to!
 
-Val: pretty good!! :) i even have an interview today! :D
-1 minute later...
+<<jump TextsFinal>>
+===
+
+title: Texts3
+---
+Cali: Val responded!
+Dark Self: Probably she's dumping you.
+
+Val: i'm pretty good today!! :) i even have an interview today! :D
 Val: it has good pay and everything! :o 
-1 minute later...
 Cali: That's awesome! Good luck <3
-3 minutes later...
 Val: thank youuu <3 <3 
-1 minute later...
 Val: little nervous tbh… 
-1 minute later...
 Val: actually more like a lot nervous :/
-2 minute later...
 Val: its been so long since ive had an interview idk i feel out of practice
 
 “A lot nervous” is one way to put it, and that makes two of you.
@@ -168,37 +181,28 @@ You're torn between wanting to let Val know she's not alone with her feelings an
 Emotional comfort isn't your strong suit either way, but for your girlfriend of 4 years, you'll try your best...
 Even though your so-called “best” hardly ever feels like enough.
 
-->Show solidarity in being “a lot nervous”
+->Show solidarity in being “a lot nervous”.
     <<jump ShowSolidarity>>
-->Comfort her while keeping your own feelings at bay
+->Comfort her while keeping your own feelings at bay.
     <<jump ComfortAtOwnExpense>>
 ===
 title: ShowSolidarity
 ---
 Cali: a lot nervous is an entire mood tbh
-1 minute later...
 Cali: bet you're totally gonna rock that interview though!
-1 minute later...
 Cali: I know i'd hire you on the spot <3
-5 minutes later...
 Val: aww thanks baby <3 i sure hope i rock the interview lol trying to $ecure the bag :P 
-1 minute later...
 Val: sorry to hear ur nervous too tho! :( <3 
-2 minutes later...
 Val: wish i was there so i could help you feel better <3 <3 <3
-1 minute later...
 Val: tho ill be there soon i hope! 
 Val: gonna try my absolute best to make that happen!!!!! >:3
-3 minute later...
 Val: and i know ur gonna absolutely knock it out of the park w/ ur classes next week! <3 <3
-1 minute later...
 Val: oh and one more thing before i go
-1 minute later...
+
 Val sends a picture of two dogs snuggling.
+
 Val: us!!! <3 <3 im the one on the left :D
-1 minute later...
 Cali: aww so cute <3 very us
-2 minutes later...
 Cali: lmk how the interview goes once you're done, okay?
 
 If you let yourself ruminate on it, you may start to overthink Valentina's claims.
@@ -212,68 +216,40 @@ Even if she ends up being wrong, those dogs are pretty adorable…
 title: ComfortAtOwnExpense
 ---
 Cali: aww i'm sorry you're nervous. here for you <3
-2 minutes later...
 Cali: bet you're gonna do great at the interview tho!
-1 minutes later...
 Val: i sure hope so! 
-1 minute later...
 Val: kinda tired of messing everything up :/
-2 minutes later...
 Val: most of my job apps seem like they get lost to the void then
 Val: the rare interview i get keeps going nowhere 
-1 minute later...
 Val: why am i like this??
-1 minute later...
 Val: ugh sorry ik you have your own stuff going on rn 
-2 minutes later...
 Cali: no no no you arent messing up anything i promise 
-1 minute later...
 Cali: i'm the one messing everything up if anything lol you're totally fine
-3 minutes later...
 Val: STOP!!!!!! no self-deprecating to try and cheer me up >:(
-1 minute later...
 Cali: sorry. i shouldn't have made it about me like that
-1 minute later...
 Val: apologize to yourself!! 
-1 minute later...
 Val: thats the person you made the mean comment about >:(
-2 minutes later...
 Cali: really tho i hope the interview goes well!
 Cali: but i'll be here even if it doesn't
-1 minute later...
 Val: >:(
-1 minute later...
 Cali: ???
-1 minute later...
 Val: i told you to apologize to yourself!!
-1 minute later...
 Cali: oh you were being serious? 
-1 minute later...
 Val: >:(
-1 minute later...
 Cali: ok jeez not used to you being this bossy lol
-3 minutes later...
 Cali: i'm really sorry calypso. valentina wasn't gonna let me hear the end of it if i didn't apologize to you
-2 minutes later...
 Val: that's right! now you better start being nicer to yourself or else >:(
-1 minute later...
 Cali: or else what?
-1 minute later...
 Val: idk! just be nicer to yourself!! omg 
-5 minutes later...
 Cali: you too though!
 Cali: i don't wanna hear a single word about my adorable gf “messing everything up”
 Cali: or whatever RUDE slander you tried to spread
-1 minute later...
 Val: lol fiiine its only fair
-1 minute later...
 Val: oh and one more thing before i go
-1 minute later...
+
 Val sends a picture of two dogs snuggling.
 Val: us!!! <3 <3 im the one on the left :D
-1 minute later...
 Cali: aww so cute <3 very us
-2 minutes later...
 Cali: lmk how the interview goes once you're done, okay?
 
 Dark Self: Wait, wasn't your plan to keep your anxiety to yourself and focus on her instead?
@@ -290,10 +266,16 @@ Dark Self: Possibly the most rational thought process you've had all day; I'll l
 
 title: ValTextsDone
 ---
-Cali: I really miss her.
+Cali:...
+Cali: I really miss Val.
 Dark Self: Aw, cheer up. She'll get here soon.
 Cali: What?
 Dark Self: Uh...I mean...She hates you and she's never moving here!
 Cali: That's more like it. Don't start going soft on me now.
 Dark Self: Never!
+<<set $texts3 to true>>
+===
+
+title: TextsFinal
+---
 ===

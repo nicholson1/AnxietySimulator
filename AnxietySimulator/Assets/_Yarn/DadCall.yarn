@@ -1,0 +1,54 @@
+﻿title: DadCall
+tags:
+---
+It’s been a while since you’ve called your mom, but even longer since you’ve called your dad. 
+Interactions with him feel like rolling dice rigged to land on snake eyes.
+Or maybe more like you’re a rat in an experiment, pushing a button that could dispense a pellet, but is much more likely to administer an electric shock. 
+Why do you even bother? 
+
+That’s a question without an easy answer. 
+It makes perfect sense why Mom wanted a divorce… 
+Too bad you can’t “divorce” him as your father. 
+As much as you’d like to, you can’t erase that you’re related to him. 
+You could never speak to him again, like plenty of kids with shitty parents do. 
+Why don’t you go no contact? 
+That’s another question without an easy answer.
+
+->Contemplate calling Dad
+    <<set $globalAnxiety += 5>>
+	<<jump DadContinue>>
+->Stop thinking about Dad
+	<<jump DadStop>>
+===
+
+title: DadStop
+---
+Cali: Just because he contributed half my genetics doesn’t mean he’s worth my mental real estate. I have better shit to do.
+Dark Self: Do you, though? You’re not exactly a person known for using your time productively…
+    <<if $globalAnxiety <= 25>>
+        Cali: Yes, and I also have better things to do than listen to your crap.
+    <<else>>
+        Cali: It doesn’t matter. Practically anything would be better than this. 
+    <<endif>>
+<<set $globalAnxiety -= 5>>
+<<jump DadFinal>>
+===
+
+title: DadContinue
+---
+Cali: Ugh! Why did I have to start thinking about him? Why can’t I stop?!
+Dark Self: You let dumber things take up way too much of your mental real estate. 
+Dark Self: I’m not sure why you’re shocked to think about the man who, like it or not, contributed half of your genetics. 
+Dark Self: More even more than half, given how much you look like him… 
+Cali: Don’t remind me… 
+Dark Self: So, clearly forgetting your sperm donor exists didn’t work. Now what?
+Cali: Well, I’m way too anxious to even think about calling that man, so I guess I’ll just have to keep going while the thought of him ruins my day more than it’s already been ruined… 
+Dark Self: Ah, that’s the spirit.
+
+<<set $globalAnxiety += 5>>
+<<jump DadFinal>>
+===
+
+title: DadFinal
+---
+===

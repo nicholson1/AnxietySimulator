@@ -68,6 +68,7 @@ public class YarnInteract : MonoBehaviour
         {
             isCurrentConversation = false;
             //Debug.Log($"Started conversation with {name}.");
+            gameObject.SetActive(false);
         }
     }
 
