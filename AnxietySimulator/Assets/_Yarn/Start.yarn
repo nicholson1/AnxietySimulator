@@ -8,6 +8,7 @@ tags:
 <<declare $gotWrench to false>>
 //<<declare $gotWrench to true>>
 <<declare $gotGroceries to false>>
+<<declare $dadCall to false>>
 // Cali: Okay, Cali, you can do this. You overslept a little bit, but it's fine, we can still turn this day around!
 // Dark Self: You're out of time, you're late, you're behind…
 // Cali: You made a list and everything, it's gonna be fine! 

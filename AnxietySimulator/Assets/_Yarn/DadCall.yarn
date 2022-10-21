@@ -1,6 +1,8 @@
 ﻿title: DadCall
 tags:
 ---
+<<declare $dadMood to 0>>
+
 It’s been a while since you’ve called your mom, but even longer since you’ve called your dad. 
 Interactions with him feel like rolling dice rigged to land on snake eyes.
 Or maybe more like you’re a rat in an experiment, pushing a button that could dispense a pellet, but is much more likely to administer an electric shock. 
@@ -27,26 +29,388 @@ Cali: Just because he contributed half my genetics doesn’t mean he’s worth m
 Dark Self: Do you, though? You’re not exactly a person known for using your time productively…
     <<if $globalAnxiety <= 25>>
         Cali: Yes, and I also have better things to do than listen to your crap.
+        <<set $globalAnxiety -= 5>>
     <<else>>
-        Cali: It doesn’t matter. Practically anything would be better than this. 
+        <<if $globalAnxiety > 75>>
+            Cali: Ugh! Why did I have to start thinking about him? Why can’t I stop?!
+            Dark Self: You let dumber things take up way too much of your mental real estate. 
+            Dark Self: I’m not sure why you’re shocked to think about the man who, like it or not, contributed half of your genetics. 
+            Dark Self: More even more than half, given how much you look like him… 
+            Cali: Don’t remind me… 
+            Dark Self: So, clearly forgetting your sperm donor exists didn’t work. Now what?
+            Cali: Well, I’m way too anxious to even think about calling that man, so I guess I’ll just have to keep going while the thought of him ruins my day more than it’s already been ruined… 
+            Dark Self: Ah, that’s the spirit.
+            <<set $globalAnxiety += 5>>
+        <<else>>
+            Cali: It doesn’t matter. Practically anything would be better than this. 
+            <<set $globalAnxiety -= 5>>
+        <<endif>>
     <<endif>>
-<<set $globalAnxiety -= 5>>
 <<jump DadFinal>>
 ===
 
 title: DadContinue
 ---
-Cali: Ugh! Why did I have to start thinking about him? Why can’t I stop?!
-Dark Self: You let dumber things take up way too much of your mental real estate. 
-Dark Self: I’m not sure why you’re shocked to think about the man who, like it or not, contributed half of your genetics. 
-Dark Self: More even more than half, given how much you look like him… 
-Cali: Don’t remind me… 
-Dark Self: So, clearly forgetting your sperm donor exists didn’t work. Now what?
-Cali: Well, I’m way too anxious to even think about calling that man, so I guess I’ll just have to keep going while the thought of him ruins my day more than it’s already been ruined… 
-Dark Self: Ah, that’s the spirit.
+Cali: As much as I’d like to stop thinking about him and move on with my day, it’s not that easy…
+Dark Self: That’s because you’re mentally weak.
+Cali: Even if that’s true, is this really the best example of my so-called mental weakness?
+Cali: We wouldn’t think of someone else so harshly for being in this kind of situation, would we?
+Dark Self: It depends... 
+DarkSelf: Does this hypothetical other person suck as much as you do?
+Cali: Ugh, we’ve gotten off-topic. 
+Cali: This is about my dad, not me!
+Dark Self: I dunno, I think it’s about you as well, considering you’ve let him get inside your head. 
+Dark Self: Call him, don’t call him… that’s immaterial to the truth of the situation. 
+Dark Self: With that truth being how you’ll be thinking about your daddy issues for the rest of the day either way.
+Cali: Will not!
+Dark Self: Argue all you want; it doesn’t matter one bit. 
+Dark Self: Deep down, you already know what I’m saying is true. 
+Dark Self: No sense in denying it, right?
+Cali: Okay, whatever. Maybe I made the horrific mistake of remembering that I didn’t come into this world via immaculate conception… my goddamn bad, I guess. 
+Cali: Either way, that doesn’t mean I have to let this moment derail the entire rest of my day!
+Dark Self: I’ll give you that - you’re technically right. 
+Dark Self: You don’t have to let it ruin the rest of your day. 
+Dark Self: Let’s be real, though… you’re probably gonna let it do exactly that, aren’t you?
+Cali: Will you shut up for once? 
+Dark Self: Me shutting up won’t solve the little dilemma you’ve found yourself in, will it? 
+Dark Self: Like it or not, your sperm donor is on your mind now. 
+Dark Self: It’s only a question of what you do with that.
+Cali: Oh, now you’re acting like I have options? That’s new.
+Dark Self: Of course you have options! 
+Dark Self: It’s just that none of those options consist of you pretending like this doesn’t bother you. 
+Dark Self: But I think you knew that, no?
+Cali: Ugh… 
+Dark Self: So, pick your poison: 
+Dark Self: you can avoid calling him and let the uncertainty of what could have been torture you all day, 
+Dark Self: or bite the bullet and chance making that pain something much more concrete.
+Cali: Neither of those options sound great.
+Dark Self: Ah well. That’s life.
+
+->Avoid the call.
+    <<jump DadUncertain>>
+->Bite the bullet.
+    <<jump CallHim>>
+===
+
+title: DadUncertain
+---
+Dark Self: Wrong answer.
+Cali: You’d say that either way, wouldn’t you?
+Dark Self: Oops, ya caught me. 
+Dark Self: Either way, I’ll have plenty of “fun” brainstorming all the creative ways he could have hurt you this time if you had called!
+
+<<set $globalAnxiety += 10>>
+<<jump DadFinal>>
+===
+
+title: DadConflict
+---
+<<set $dadMood to 1>>
+
+Dark Self: Wrong answer. 
+Cali: You’d say that either way, wouldn’t you?
+Dark Self: Oops, ya caught me. 
+Dark Self: Either way, better not waste any more time! 
+Dark Self: Go ahead and make that call, if you dare… 
+Cali: Well, when you put it that way, maybe I shouldn’t call him?
+Dark Self: What’s the matter? 
+Dark Self: You seemed so certain a second ago. 
+Dark Self: If you’re trying to pick the choice that won’t hurt you, you may as well just give up on that silly little dream. 
+Dark Self: With the type of father and type of brain you have, you never stood a chance.
+
+->Decide against calling.
+    <<jump DadStop>>
+->Proceed with the call.
+    <<jump CallHim>>
+===
+
+title: CallHim
+---
+<<set $dadCall to true>>
+
+<<if $dadMood is 0>>
+    <<jump DadCheer>>
+<<else>>
+    <<jump DadBad>>
+<<endif>>
+===
+
+title: DadCheer
+---
+Your pulse races faster with each subsequent ring. 
+Your heart very well may have given out by the forth ring at the rate you were going, but he picks up in the middle of the third. 
+
+Dad: Ah, (REDACTED), can’t say I was expecting to hear from you.
+Cali: Yeah, I’d been thinking about calling for a bit now. How are you?
+Dad: Right now? Actually pretty good. 
+Cali: You’re high right now, aren’t you?
+Dad: Heh, what gave it away?
+Cali: It’s not exactly subtle, you know…
+Dark Self: Remember that one time as a freshman in undergrad when you tried smoking weed with that ex girlfriend of yours? 
+Dark Self: I’m surprised she didn’t dump you after that cringeworthy freakout. 
+Dark Self: It was so embarrassing when you started-
+Dad: Heh, maybe it is pretty obvious. 
+Dad: Ah well… didn’t you say you got accepted to grad school whenever we talked last? 
+Dad: Did that start yet?
+Cali: Not quite, but it’s about to. 
+Cali: I only recently made the move. 
+Cali: Still settling in and all.
+Dad: Well, hopefully that’s gone smoothly for you. 
+Dad: Moving is such a pain in the ass.
+<<if $globalAnxiety <= 40>>
+    Cali: Moving totally does suck, but honestly, it could be going a whoooole lot worse. The city seems pretty nice, too!
+<<else>>
+    <<if $globalAnxiety > 40 && $globalAnxiety < 70>>
+        Cali: Moving totally does suck, and this time has kinda sucked too, but… 
+        Cali: I dunno, it could be worse, I guess? 
+        Cali: At least the city seems pretty nice!
+    <<else>>
+        <<if $globalAnxiety > 70 && $globalAnxiety < 90>>
+            Cali: Moving totally does suck, and I can’t lie, this time has been no exception… 
+            Cali: I guess the city is nice, at least?
+        <<else>>
+            Cali: Moving totally does suck, and this time around has sucked the absolute most. 
+            Cali: Ugh… I guess the city seems nice? Maybe? 
+            Cali: I dunno, it’s hard to tell when the move has been the exact opposite…
+        <<endif>>
+    <<endif>>
+<<endif>>
+Cali: They actually have legal weed here.
+Dad: Didn’t you inherit your mom’s tendencies to get paranoid after smoking pot?
+Dark Self: Ah yes, that reminds me! 
+Dark Self: It was sooooo embarrassing when 19-year-old you, stoned as can be, accidentally pushed the poor sucker who agreed to date you off the couch you were cuddling on!
+Dark Self: Then you went on a borderline incoherent tangent about-
+Cali: Oh, uh, yeah, I guess I kinda did. 
+Cali: More saying it because it was relevant to you.
+Dad: How are the laws of somewhere I don’t live relevant to me?
+Cali: I meant, in case you ever wanted to visit-
+Dad: Not a chance.
+Cali: Oh. I thought you said you were in a good mood…
+Dad: I am, but that doesn’t change that I’m not gonna drive out all that way.
+Dark Self: Oof, I know a secret bad mood would be an easier pill to swallow than you being the problem, but-
+Cali: I checked how far I am from different people I know the other day, and I live about 2 and a half hours away from you.
+Dad: So?
+Cali: Didn’t you once visit your friend who lives 5 and a half hours away? 
+Cali: I could’ve sworn you mentioned that to me during our last conversation…
+Dad: Yeah, so? 
+Cali: Look, Dad, I know you’re high, but I feel like I shouldn’t have to spell this out for you.
+Dad: Spell it out for me, (REDACTED). What are you going on about?
+Cali: So, you were willing to drive that long for a friend… 
+Cali: but less than half that length is too long for your daughter?
+Dad: …
+Cali: …
+Dad: …
+Cali: …h-hello?
+Dark Self: I swear, if you start crying now of all times…
+Dad: Huh?
+Cali: Do you… care to explain that?
+Dad: What is there to explain?
+<<if $globalAnxiety <= 20>>
+    <<jump LowAnxietyDad>>
+<<else>>
+    <<if $globalAnxiety < 20 && $globalAnxiety >= 50>>
+        <<jump MidAnxietyDad>>
+    <<else>>
+        <<if $globalAnxiety > 50 && $globalAnxiety <= 75>>
+            <<jump HighAnxietyDad>>
+        <<else>>
+            <<jump UltraAnxietyDad>>
+        <<endif>>
+    <<endif>>
+<<endif>>
+===
+
+title: UltraAnxietyDad
+---
+Cali: …
+Dad: …
+Cali: …
+Dad: …
+Dark Self: …
+Cali: ……
+Dad: ……
+Dark Self: ……
+Cali: ………
+Dark Self: You do realize he hung up, right?
+Cali: …
+Dark Self: You didn’t say anything. Neither did he. 
+Dark Self: Then the call ended.
+Cali: … 
+Dark Self: He didn’t even consider you worth saying bye to.
+Cali: …
+Dark Self: You couldn’t even blame him not wanting to see you on a bad mood! That must’ve stung… 
+Cali: … 
+Dark Self: It must hurt to know that even with the people who created you, the problem still might be you!
+Cali: … 
+Dark Self: Uh oh. You’re dissociating, aren’t you?
+Cali: … 
+Dark Self: Guess you’re too stressed out to process that phone call right now, hmm?
+Cali: …
+Dark Self: I’ll take that as a yes.
+Cali: … 
+Dark Self: Look, I’ll be nice and not force you to think about it right this second. Clearly you can’t mentally handle it. 
+Dark Self: Just be warned it will come back to bite you later. 
+Cali: …
+Dark Self: Specifically, it might come back to bite you tonight, just as you finally start to drift off to sleep… 
+Cali: …
+Dark Self: Well, don’t say I didn’t warn you!
+Cali: …
+Dark Self: Okay, this has gone on long enough. 
+Dark Self: I better give your brain a much needed hard reset, or you might go catatonic for the rest of the day…
+Cali: …
+Dark Self: … 
+Cali: …!
+
+<<jump DadFinal>>
+===
+
+title: HighAnxietyDad
+---
+Cali: If you can’t grasp… 
+Cali: if you can’t understand… 
+Cali: if it doesn’t make s- if you can’t… if y-
+Dad: What are you babbling about now, (REDACTED)?
+Cali: Nothing. Not important. Good… bye… 
+You hang up.
+Dark Self: It’s a miracle you choked out that last word, huh? 
+Dark Self: I thought for sure you were going to break down sobbing, or something equally pathetic.
+Cali: … 
+Dark Self: Sucks that blaming his reaction on his bad mood didn’t work, didn’t it?
+Cali: …
+Dark Self: Would’ve been convenient if you could have said the reason he didn’t want to see you was because he was angry, but it turns out, the issue might be you!
+Cali: …not… now…
+Dark Self: What was that? That was barely audible.
+Cali: NOT NOW!!!
+Dark Self: Okay, okay, too loud. 
+Dark Self: That whisper scream was more like a scream, you better hope nobody heard that… 
+Cali: …
+Dark Self: We’ll circle back about this later tonight, preferably when you’re juuuust about to fall asleep. 
+Dark Self: Sound good?
+Cali: …
+Dark Self: Well, it sounds good to me!
+Cali: I guess I better just keep going with my day…
+
+<<set $globalAnxiety += 15>>
+<<jump DadFinal>>
+===
+
+title: MidAnxietyDad
+---
+Cali: This is hopeless.
+Dad: Heh, what’s hopeless?
+Cali: This conversation. 
+Cali: Explaining any of this to you. Not worth it. 
+Cali: Goodbye. 
+You hang up.
+Dark Self: And here you thought-
+Cali: Listen, I’m gonna cut you off right there before you waste a bunch of the limited time I have left of my day. 
+Cali: That call sucked. 
+Cali: I know it sucked, and we don’t need to spend some ridiculous amount of time going over why it sucked. 
+Cali: Understood?
+Dark Self: Understood.
+Cali: Wait, really?
+Dark Self: Sure. 
+Dark Self: Tonight when you’re just about to drift off to sleep sounds like a much better time to talk more about this, actually!
+Cali: Okay, fine, whatever. 
+Cali: It doesn’t matter. 
+Cali: At least my day will be over by then…
 
 <<set $globalAnxiety += 5>>
 <<jump DadFinal>>
+===
+
+title: LowAnxietyDad
+---
+Cali: If you can’t grasp what the issue is, then I don’t see any point in explaining it to you. 
+Cali: Goodbye.
+Dad: Heh, okay. Bye, (REDACTED).
+You hang up.
+Dark Self: And here you thought-
+Cali: This phone call felt really bad, and I’m not going to let you make me feel worse.
+Dark Self: But-
+Cali: But nothing. 
+Cali: I have too much else I need to do today to let him or you slow me down!
+Dark Self: Bravo. That’s almost an impressive line to hear from you.
+Cali: You really think so?
+Cali: Yeah, I almost believed you for a second there! 
+Cali: Listen, that unaffected act is super cool and all, but I think this call might have bothered you more than you’re letting on.
+Cali: So?
+Dark Self: Sorry to say, but you don’t pull off the indifferent “So?” nearly as well as your old man. 
+Dark Self: My point is, you’re clearly bothered by this.
+Cali: Am not!
+Dark Self: You are! Besides that, I don’t know why you’re bothering, given how terrible you’ve always been at repressing any remotely negative emotion you have.
+Cali: Am n… not… 
+Dark Self: You can give up with the illusion now. 
+Dark Self: Nobody is fooled, least of all yourself.
+Cali: Ugh…
+
+<<set $globalAnxiety += 20>>
+<<jump DadFinal>>
+===
+
+title: DadBad
+---
+Your pulse races faster with each subsequent ring, to a point where it starts to scare you by the fourth ring. 
+He picks up just before the call goes to voicemail. 
+You assume your heart would’ve given out entirely if you’d gotten that far.
+
+Dad: …hello?
+Cali: H-hi, Dad…
+Dad: What do you want?
+Dark Self: Nice going. 
+Dark Self: You wanted to pretend you had some semblance of a father figure in your life, and you caught him when he’s clearly in a bad mood.
+Cali: Uh, I don’t know…
+Dad: You don’t know? Then why are you wasting my time?!
+Cali: I guess… I wanted… to c-c-
+Dad: What are you whimpering about now? 
+Cali: I wanted to catch… to catch… up? Maybe? I think…?
+Dad: I can’t hear a word you’re saying, (REDACTED). 
+Cali: I…
+Dad: Thanks for wasting my time, since I can only assume that’s the reason you called me. Goodbye.
+Dark Self: He hung up.
+
+<<if $globalAnxiety <= 20>>
+    Dark Self: Ouch, that must’ve h-
+    Cali: Yes, it hurt. 
+    Dark Self: Oh wow, you actually admitted it.
+    Cali: Yes, I admitted it. Why is that such a surprise?
+    Dark Self: You often like to put up a weak front of denial that fools absolutely nobody. 
+    Dark Self: So I guess you’re skipping past that step this time?
+    Cali: Why pretend it didn’t hurt for my dad to treat me like that? Obviously it hurt.
+    Dark Self: You say it’s obvious, but you’ve denied some equally obvious truths before, all because you were too weak to deal with the pain. 
+    Cali: Maybe I’m weak - why does that matter right now? 
+    CalI: The key issue is that he thinks that’s an appropriate way to treat his child, not my so-called weakness.
+    Dark Self: It can be both at once.
+    Cali: Fine, it’s both. 
+    Cali: I’m going to move on with my day anyway, weak or not… 
+
+    <<set $globalAnxiety += 5>>
+    <<jump DadFinal>>
+<<else>>
+    <<if $globalAnxiety > 20 && $globalAnxiety <= 60>>
+        Dark Self: Ouch, that must’ve hurt!
+        Cali: A little bit, yeah…
+        Dark Self: More like a lot bit. 
+        Cali: Okay, it hurt a lot. What’s your point?
+        Dark Self: Just wanted to make sure you knew this phone call hurt you, since sometimes you like to deny when things hurt you despite the fact that you have never fooled a single person with it.
+        Cali: Yes, it hurt me. It’s probably going to eat away at me for the rest of the day, and or at least while I’m falling asleep tonight. I admit it! Are you happy now?
+        Dark Self: What a dumb question to ask ME…
+        <<set $globalAnxiety += 10>>
+        <<jump DadFinal>>
+    <<else>>
+        Cali: Sniff…
+        Dark Self: Now isn’t the time to cry.
+        Cali: Sniff sniff…
+        Dark Self: Later, Cali. You have too much to do with your day.
+        Cali: Ahem… sniff…
+        Dark Self: Postpone that crying session until tonight.
+        Cali: … 
+        Dark Self: Maybe a little sooner than tonight, but not now. Not yet.
+        Cali: Okay… no crying yet, sure…
+        <<set $globalAnxiety += 15>>
+        <<jump DadFinal>>
+    <<endif>>
+<<endif>>
 ===
 
 title: DadFinal

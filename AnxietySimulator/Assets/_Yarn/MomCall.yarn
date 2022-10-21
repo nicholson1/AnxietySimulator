@@ -1,7 +1,6 @@
 ﻿title: MomCall
 ---
 <<declare $momCall to false>>
-<<declare $dadCall to false>>
 <<declare $callBreakdown to false>>
 
 You would have put off this call to your mom forever if you could have.
