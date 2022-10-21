@@ -18,6 +18,7 @@ That’s another question without an easy answer.
 
 ->Contemplate calling Dad
     <<set $globalAnxiety += 5>>
+    <<ChangeAnxiety GameManager 5>>
 	<<jump DadContinue>>
 ->Stop thinking about Dad
 	<<jump DadStop>>
@@ -30,6 +31,7 @@ Dark Self: Do you, though? You’re not exactly a person known for using your ti
     <<if $globalAnxiety <= 25>>
         Cali: Yes, and I also have better things to do than listen to your crap.
         <<set $globalAnxiety -= 5>>
+        <<ChangeAnxiety GameManager -5>>
     <<else>>
         <<if $globalAnxiety > 75>>
             Cali: Ugh! Why did I have to start thinking about him? Why can’t I stop?!
@@ -41,9 +43,11 @@ Dark Self: Do you, though? You’re not exactly a person known for using your ti
             Cali: Well, I’m way too anxious to even think about calling that man, so I guess I’ll just have to keep going while the thought of him ruins my day more than it’s already been ruined… 
             Dark Self: Ah, that’s the spirit.
             <<set $globalAnxiety += 5>>
+            <<ChangeAnxiety GameManager 5>>
         <<else>>
             Cali: It doesn’t matter. Practically anything would be better than this. 
             <<set $globalAnxiety -= 5>>
+            <<ChangeAnxiety GameManager -5>>
         <<endif>>
     <<endif>>
 <<jump DadFinal>>
@@ -100,6 +104,7 @@ Dark Self: Oops, ya caught me.
 Dark Self: Either way, I’ll have plenty of “fun” brainstorming all the creative ways he could have hurt you this time if you had called!
 
 <<set $globalAnxiety += 10>>
+<<ChangeAnxiety GameManager 10>>
 <<jump DadFinal>>
 ===
 
@@ -291,6 +296,7 @@ Dark Self: Well, it sounds good to me!
 Cali: I guess I better just keep going with my day…
 
 <<set $globalAnxiety += 15>>
+<<ChangeAnxiety GameManager 15>>
 <<jump DadFinal>>
 ===
 
@@ -316,6 +322,7 @@ Cali: It doesn’t matter.
 Cali: At least my day will be over by then…
 
 <<set $globalAnxiety += 5>>
+<<ChangeAnxiety GameManager 5>>
 <<jump DadFinal>>
 ===
 
@@ -345,6 +352,7 @@ Dark Self: Nobody is fooled, least of all yourself.
 Cali: Ugh…
 
 <<set $globalAnxiety += 20>>
+<<ChangeAnxiety GameManager 20>>
 <<jump DadFinal>>
 ===
 
@@ -385,6 +393,7 @@ Dark Self: He hung up.
     Cali: I’m going to move on with my day anyway, weak or not… 
 
     <<set $globalAnxiety += 5>>
+    <<ChangeAnxiety GameManager 5>>
     <<jump DadFinal>>
 <<else>>
     <<if $globalAnxiety > 20 && $globalAnxiety <= 60>>
@@ -396,6 +405,7 @@ Dark Self: He hung up.
         Cali: Yes, it hurt me. It’s probably going to eat away at me for the rest of the day, and or at least while I’m falling asleep tonight. I admit it! Are you happy now?
         Dark Self: What a dumb question to ask ME…
         <<set $globalAnxiety += 10>>
+        <<ChangeAnxiety GameManager 10>>
         <<jump DadFinal>>
     <<else>>
         Cali: Sniff…
@@ -408,6 +418,7 @@ Dark Self: He hung up.
         Dark Self: Maybe a little sooner than tonight, but not now. Not yet.
         Cali: Okay… no crying yet, sure…
         <<set $globalAnxiety += 15>>
+        <<ChangeAnxiety GameManager 15>>
         <<jump DadFinal>>
     <<endif>>
 <<endif>>

@@ -10,6 +10,7 @@ Cali: I just ate lunch, I'm not even hungry.
 Dark Self: Oh, yes, let's talk about lunch.
 Dark Self: Specifically how weird you were.
 <<set $globalAnxiety += 5>>
+<<ChangeAnxiety GameManager 5>>
 	->"I wasn't weird."
 	    <<jump LunchPostMortem>>
 	->"I don't want to…"
@@ -21,6 +22,7 @@ Dark Self: Specifically how weird you were.
 	Dark Self: You guess? You're equivocating about how nice the day is?
 	Dark Self: How are you ever going to decide what to do with, I don't know, the rest of your life?
 	<<set $globalAnxiety += 5>>
+	<<ChangeAnxiety GameManager 5>>
 		->"I don't have to yet…"
 		    <<jump CareerAnxiety>>
 		->"I don't know!"
@@ -141,6 +143,7 @@ Dark Self: You're twenty-five years old already, and you're starting your life o
 Dark Self: And not well.
 Dark Self: What's the point of you?
 <<set $globalAnxiety += 15>>
+<<ChangeAnxiety GameManager 15>>
 	->"I'm the point of me."
 	    Cali: I don't have to earn the right to exist.
 	    Cali: I'm here, and I'm going to make the best of it.
@@ -154,12 +157,15 @@ Dark Self: What's the point of you?
 	    Dark Self: And you've got nothing going for you.
 	    Dark Self: Admit it: you don't belong here.
 	    <<set $globalAnxiety += 5>>
+		<<ChangeAnxiety GameManager 5>>
 	    Dark Self: You're not a good girlfriend.
 	    Dark Self: You're not a good friend.
 	    <<set $globalAnxiety += 5>>
+		<<ChangeAnxiety GameManager 5>>
 	    Dark Self: You're not a good student.
 	    Dark Self: You're not a good person.
 	    <<set $globalAnxiety += 5>>
+		<<ChangeAnxiety GameManager 5>>
 	    ->"You're right."
 		    <<jump Submit>>
 		->"No…"
@@ -186,6 +192,7 @@ Cali: Not really.
 Dark Self: You'll feel it soon.
 Dark Self: I promise.
 <<set $globalAnxiety += 10>>
+<<ChangeAnxiety GameManager 10>>
 <<jump ConfrontationDone>>
 ===
 
@@ -228,6 +235,7 @@ Dark Self: Well-
 		Cali: Let's go.
 		<<set $darkSelfRebuked to true>>
 		<<set $globalAnxiety -= 25>>
+		<<ChangeAnxiety GameManager -25>>
 		<<jump ConfrontationDone>>
 	->"I'm going to make so many friends I can't even hear you."
 		Cali: And then I'm going to forget about you entirely.
@@ -236,6 +244,7 @@ Dark Self: Well-
 		Cali: Time to go.
 		<<set $darkSelfRebuked to true>>
 		<<set $globalAnxiety -= 25>>
+		<<ChangeAnxiety GameManager -25>>
 		<<jump ConfrontationDone>>
 	->"I'm going to have such a good life that you're going to fucking explode."
 		Cali: You're going to pop like a soap bubble and I'm not even going to remember you.
@@ -248,6 +257,7 @@ Dark Self: Well-
 		Dark Self: I'm coming, I'm coming!
 		<<set $darkSelfRebuked to true>>
 		<<set $globalAnxiety -= 25>>
+		<<ChangeAnxiety GameManager -25>>
         <<jump ConfrontationDone>>
 ===
 

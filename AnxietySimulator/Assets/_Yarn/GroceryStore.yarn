@@ -4,6 +4,7 @@
 You enter the grocery store. Like most grocery stores, it's loud, bright, and full of people who are stressed, hungry, or both.
 
 <<set $globalAnxiety += 5>>
+<<ChangeAnxiety GameManager 5>>
 
 You slowly fill your cart with the necessary supplies, until you reach the peanut butter aisle.
 
@@ -16,6 +17,7 @@ Cali: Who's they? Big Peanut Butter?
 <<endif>>
 
 <<set $globalAnxiety += 5>>
+<<ChangeAnxiety GameManager 5>>
 
 <<if $globalAnxiety < 75>>
 ->Buy (ugh) creamy peanut butter instead.
@@ -24,6 +26,7 @@ Cali: Who's they? Big Peanut Butter?
 	Cali: I'll get a can of peanuts, and I'll crunchetize it myself.
 	Dark Self: It'll cost extra money.
 	<<set $globalAnxiety += 5>>
+	<<ChangeAnxiety GameManager 5>>
 	<<jump CheckOut>>
 ->Make a new plan for breakfasts this week.
 	Cali: Okay, I've already got some bread, butter…how about eggs?
@@ -38,6 +41,7 @@ Cali: Who's they? Big Peanut Butter?
 	Cali: I'll get a can of peanuts, and I'll crunchetize it myself.
 	Dark Self: It'll cost extra money.
 	<<set $globalAnxiety += 5>>
+	<<ChangeAnxiety GameManager 5>>
 	<<jump CheckOut>>
 ->Flee the store.
 	<<jump FleeStore>>
@@ -75,6 +79,7 @@ Elijah: Aw geez, sorry. I knew that. I mean, I work here. Obviously I knew that.
 		Cali: We figured that out.
 		Dark Self: Now you have to get home with all this stuff. Figure that one out.
 		<<set $globalAnxiety -= 20>>
+		<<ChangeAnxiety GameManager -20>>
 		<<set $gotGroceries to true>>   
         <<jump GroceryDone>>
 ===
@@ -91,12 +96,14 @@ Elijah scans your items, and packs them with genuine skill.
 Elijah: Thanks again for being chill. I think I'll get it right on the next customer.
 Cali: I believe in you!
 <<set $globalAnxiety -= 5>>
+<<ChangeAnxiety GameManager -5>>
 You take your groceries and depart the store.
 Cali: Groceries done!
 Dark Self: Except the peanut butter…
 Cali: We figured that out.
 Dark Self: Now you have to get home with all this stuff. Figure that one out.
 <<set $globalAnxiety -= 20>>
+<<ChangeAnxiety GameManager -20>>
 <<set $gotGroceries to true>>
 <<jump GroceryDone>>
 ===
@@ -109,6 +116,7 @@ Dark Self: Except the peanut butter…
 Cali: We figured that out.
 Dark Self: Now you have to get home with all this stuff. Figure that one out.
 <<set $globalAnxiety -= 20>>
+<<ChangeAnxiety GameManager -20>>
 <<set $gotGroceries to true>>
 <<jump GroceryDone>>
 ===
@@ -124,6 +132,7 @@ Dark Self: Lazy. Now lazy and hungry too… What are you going to do this week w
 Cali: I have…rice.
 Dark Self: mmm another rice week. Healthy.
 <<set $globalAnxiety += 5>>
+<<ChangeAnxiety GameManager 5>>
 <<jump GroceryDone>>
 ===
 

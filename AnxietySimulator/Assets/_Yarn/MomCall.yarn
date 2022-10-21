@@ -34,6 +34,7 @@ After all, there are still plenty of waking hours left in her birthday to go!
     Dark Self: Dream on, in that case.
     Cali: Okay, fine, I'll make the call now, I guess…
     <<set $globalAnxiety += 5>>
+    <<ChangeAnxiety GameManager 5>>
     <<jump PhoneCallBeginning>>
 -> Make the call now.
     <<jump PhoneCallBeginning>>
@@ -118,6 +119,7 @@ Cali: It doesn't matter. Point is, I got through it mostly unscathed…
     Cali: Well, at least not a whole lot more scathed than I was before.
 <<endif>>
 <<set $globalAnxiety += 5>>
+<<ChangeAnxiety GameManager 5>>
 <<jump MomCallDone>>
 ===
 title: Strengths
@@ -132,6 +134,7 @@ Cali: Sounds pretty insincere if you ask me…
 Dark Self: Not too late to abandon this line of thought, y'know…
 Dark Self: If anyone's gonna ruin your self-esteem, it's probably best it's me- er, yourself.
 <<set $globalAnxiety += 5>>
+<<ChangeAnxiety GameManager 5>>
 
 -> "Like what? Name some."
     Mom: Name some what?
@@ -196,6 +199,7 @@ Dark Self: Good going, Cali. Now you're about to cry, and it's your own dumbass 
         Somehow, you manage to overcome the feeling of being about to cry… for now. 
         No promises for how you'll be feeling later.
         <<set $globalAnxiety += 5>>
+        <<ChangeAnxiety GameManager 5>>
     <<endif>>
     <<if $globalAnxiety > 75>>
         Despite your best efforts, the floodgates come crashing down, and you start uncontrollably sobbing.
@@ -204,6 +208,7 @@ Dark Self: Good going, Cali. Now you're about to cry, and it's your own dumbass 
         The catch in your throat just won't leave, but you manage to keep the tears at bay… until the end of this conversation, at least.
         Once you hang up, all bets are off.
         <<set $globalAnxiety += 5>>
+        <<ChangeAnxiety GameManager 5>>
     <<endif>>
     <<jump PrideSwallowed>>
     //question from Molly: where does the call jump to now?
@@ -236,6 +241,7 @@ Cali: I'm assuming that's the nicest thing you'll say to me all day, so I'll tak
 <<endif>>
 
 <<set $globalAnxiety -= 15>>
+<<ChangeAnxiety GameManager -15>>
 <<jump MomCallDone>>
 ===
 title: PrideSwallowed
@@ -255,6 +261,7 @@ Cali: It's the little victories that count.
 Dark Self: That's less a “little victory” and more like a pathetically low bar, but sure, whatever you want to tell yourself, I guess.
 
 <<set $globalAnxiety += 10>>
+<<ChangeAnxiety GameManager 10>>
 <<jump MomCallDone>>
 ===
 title: DoubledDown
@@ -281,6 +288,7 @@ Dark Self: Nobody was forcing you to go off the rails like that, either.
     Dark Self: I'll take that as a yes.
 
     <<set $globalAnxiety += 10>>
+    <<ChangeAnxiety GameManager 10>>
 <<endif>>
 
 <<if $globalAnxiety >= 50 && $globalAnxiety < 75>>
@@ -305,6 +313,7 @@ Dark Self: Nobody was forcing you to go off the rails like that, either.
     Cali: I'm sure Future Me will cringe plenty, but for now, I have too many more important things to worry about.
     Dark Self: Your definition of “important” has always been stupid, but sure, whatever you say… 
     <<set $globalAnxiety -= 5>>
+    <<ChangeAnxiety GameManager -5>>
 <<endif>>
 
 <<jump MomCallDone>>
@@ -346,6 +355,7 @@ Cali: ……………
 Dark Self: ……………
 
 <<set $globalAnxiety += 15>>
+<<ChangeAnxiety GameManager 15>>
 <<jump MomCallDone>>
 ===
 
