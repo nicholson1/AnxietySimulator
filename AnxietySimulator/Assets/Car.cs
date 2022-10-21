@@ -7,9 +7,14 @@ using Random = UnityEngine.Random;
 
 public class Car : MonoBehaviour
 {
+    public bool isUber = false;
+    public bool activated = false;
+    
     [SerializeField] private Material[] Materials;
     [SerializeField] private MeshRenderer[] Skins;
     [SerializeField] private NavMeshAgent navAgent;
+    
+    
 
     private SoundManager _soundManager;
     private AudioSource CarAudioSource;
@@ -76,6 +81,19 @@ public class Car : MonoBehaviour
     private float movingTime;
     private void LateUpdate()
     {
+        if (isUber)
+        {
+            if (activated)
+            {
+                navAgent.isStopped = false;
+                player.transform.position = this.transform.position - Vector3.forward *3;
+            }
+            else
+            {
+                navAgent.isStopped = true;
+            }
+        }
+        
 
         if (Moving)
         {
@@ -168,5 +186,46 @@ public class Car : MonoBehaviour
         Moving = true;
         navAgent.isStopped = false;
         movingTime = 0;
+    }
+
+    private GameObject player;
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isUber)
+        {
+            if (other.CompareTag("Player"))
+            {
+                if (!activated)
+                {
+                    
+                    activated = true;
+                    player = other.gameObject;
+                    player.SetActive(false);
+                    navAgent.speed = 2;
+                    
+                    
+
+
+                }
+            }
+        }
+    }
+
+    public void DropPlayer()
+    {
+        player.transform.position = transform.position + Vector3.right * 3;
+        player.SetActive(true);
+        StartCoroutine(waitThenLeave());
+        player = null;
+        isUber = false;
+
+    }
+
+    IEnumerator waitThenLeave()
+    {
+        navAgent.isStopped = true;
+        yield return new WaitForSeconds(5);
+        navAgent.isStopped = false;
     }
 }

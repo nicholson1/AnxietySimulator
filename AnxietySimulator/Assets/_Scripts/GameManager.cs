@@ -12,11 +12,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Car.Honk += HonkedAt;
+        PopupComment.PopUpClicked += IncreaseAnxiety;
     }
     
     private void OnDestroy()
     {
         Car.Honk -= HonkedAt;
+        PopupComment.PopUpClicked -= IncreaseAnxiety;
     }
     
     private void HonkedAt(GameObject player, Transform car)
@@ -24,8 +26,13 @@ public class GameManager : MonoBehaviour
         if (player.CompareTag("Player"))
         {
             AdjustAnxietyLevel(1);
-            Debug.Log("We Ran");
+            //Debug.Log("We Ran");
         }
+    }
+
+    private void IncreaseAnxiety()
+    {
+        AdjustAnxietyLevel(1);
     }
 
     private void Start()

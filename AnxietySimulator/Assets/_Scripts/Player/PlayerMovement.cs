@@ -14,45 +14,52 @@ public class PlayerMovement : MonoBehaviour
     private bool is_walking = false;
     private bool is_idle ;
 
+   
+    
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
     }
 
+    
+
     void Update()
     {
-       
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit click;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
-            if (!isOverUI && Physics.Raycast(ray, out click, Mathf.Infinity))
+        
+            if (Input.GetMouseButtonDown(0))
             {
-                agent.SetDestination(click.point);
-                targetPos = click.point;
-                //Debug.Log(is_walking);
-                if (!is_walking)
+                RaycastHit click;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+                if (!isOverUI && Physics.Raycast(ray, out click, Mathf.Infinity))
                 {
+                    agent.SetDestination(click.point);
+                    targetPos = click.point;
+                    //Debug.Log(is_walking);
+                    if (!is_walking)
+                    {
                     
-                    animator.SetTrigger("Move");
-                    is_walking = true;
-                    is_idle = false;
+                        animator.SetTrigger("Move");
+                        is_walking = true;
+                        is_idle = false;
 
+                    }
                 }
             }
-        }
         
-        if  (Vector3.Distance(targetPos, this.transform.position) < .25f )
-        {
-            if (!is_idle)
+            if  (Vector3.Distance(targetPos, this.transform.position) < .25f )
             {
-                is_walking = false;
-                is_idle = true;
-                animator.SetTrigger("Idle");
+                if (!is_idle)
+                {
+                    is_walking = false;
+                    is_idle = true;
+                    animator.SetTrigger("Idle");
+                }
             }
-        }
+        
+    
+       
         
         
         
