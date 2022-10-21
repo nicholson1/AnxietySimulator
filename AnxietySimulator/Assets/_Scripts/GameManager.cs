@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,10 +41,11 @@ public class GameManager : MonoBehaviour
         AnxietyChanged(AnxietyLevel);
     }
 
+    [YarnCommand("ChangeAnxiety")]
     public void AdjustAnxietyLevel(int changeAmount)
     {
         AnxietyLevel += changeAmount;
-
+        Debug.Log("we changes our shit");
         // clamp anxiety levels between 0 and 100;
         if (AnxietyLevel < 0)
         {
@@ -57,5 +59,7 @@ public class GameManager : MonoBehaviour
         
         AnxietyChanged(AnxietyLevel);
     }
+
+
     
 }

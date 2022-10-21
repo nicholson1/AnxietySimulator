@@ -14,8 +14,17 @@ public class PlayerMovement : MonoBehaviour
     private bool is_walking = false;
     private bool is_idle ;
 
-   
-    
+    private void Awake()
+    {
+        YarnInteract.InConvo += Convo;
+
+        
+    }
+    private void OnDestroy()
+    {
+        YarnInteract.InConvo -= Convo;
+    }
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -26,7 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+
+        if (!_inConvo)
+        {
+
+
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit click;
@@ -39,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
                     //Debug.Log(is_walking);
                     if (!is_walking)
                     {
-                    
+
                         animator.SetTrigger("Move");
                         is_walking = true;
                         is_idle = false;
@@ -47,8 +60,8 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
             }
-        
-            if  (Vector3.Distance(targetPos, this.transform.position) < .25f )
+
+            if (Vector3.Distance(targetPos, this.transform.position) < .25f)
             {
                 if (!is_idle)
                 {
@@ -57,12 +70,20 @@ public class PlayerMovement : MonoBehaviour
                     animator.SetTrigger("Idle");
                 }
             }
+        }
         
     
        
         
         
         
+    }
+
+    private bool _inConvo;
+
+    private void Convo(bool inConvo)
+    {
+        _inConvo = inConvo;
     }
     
    

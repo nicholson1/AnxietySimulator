@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class YarnInteract : MonoBehaviour
 
     private Transform playerProximity;
     public float activationDist = 2f;
+
+    public static event Action<bool> InConvo;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +46,8 @@ public class YarnInteract : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) 
         {
@@ -54,18 +58,20 @@ public class YarnInteract : MonoBehaviour
             }
         }
     }
-*/
+
     private void StartConversation()
     {
         //Debug.Log($"Started conversation with {name}.");
         isCurrentConversation = true;
         dialogueRunner.StartDialogue(conversationStartNode);
+        InConvo(true);
     }
 
     private void EndConversation()
     {
         if (isCurrentConversation)
         {
+            InConvo(false);
             isCurrentConversation = false;
             //Debug.Log($"Started conversation with {name}.");
             gameObject.SetActive(false);
