@@ -12,6 +12,7 @@ As you sit down, the glare from the window is directly in your eyes.
 Dark Self: Nice job making them wait.
 
 <<set $globalAnxiety += 5>>
+<<ChangeAnxiety GameManager 5>>
 
 <<if $globalAnxiety <= 50 >>
     Cali: Come on, it's not that big a deal.
@@ -74,6 +75,7 @@ You order the macaroni salad, thinking it sounds pretty good.
 You grab a number and return to the table.
 Dark Self: You know, if you hate it, you're either gonna have to finish it anyway or be hungry for the rest of the day.
 <<set $globalAnxiety += 10>>
+<<ChangeAnxiety GameManager 10>>
 <<jump BackToTable>>
 ===
 title: TurkeyWich
@@ -83,6 +85,7 @@ You order the turkey sandwich, knowing it'll be at least somewhat familiar.
 You grab a number and return to the table.
 Dark Self: You always get the same thing. They're going to think you're weird.
 <<set $globalAnxiety +=5>>
+<<ChangeAnxiety GameManager 5>>
 <<jump BackToTable>>
 ===
 
@@ -136,6 +139,7 @@ Dark Self: Or she's been putting it off because she secretly wants to break up w
 Victoria: We should all get lunch when she gets here! I'd love to meet her in person sometime.
 Dark Self: If she ever gets here.
 <<set $globalAnxiety += 10>>
+<<ChangeAnxiety GameManager 10>>
 <<jump EatLunch>>
 ===
 title: LowAnxietyChat
@@ -145,6 +149,7 @@ Victoria: We should all get lunch when she gets here! I'd love to meet her in pe
 Ash: Yeah, let's do a double date!
 Cali: I'd love that!
 <<set $globalAnxiety -= 5>>
+<<ChangeAnxiety GameManager -5>>
 <<jump EatLunch>>
 ===
 
@@ -158,6 +163,7 @@ title: EatLunch
     Ash: Ooh, is that the macaroni salad? I always get that, it's amazing! Good choice!
     Dark Self: …you win this time, new food.
     <<set $globalAnxiety -= 15>>
+    <<ChangeAnxiety GameManager -15>>
 <<else>>
     A waiter with a tray full of food comes up and places your turkey sandwich in front of you.
     It sounded delicious when you ordered it, but looking at it right now, it seems very meh.
@@ -168,6 +174,7 @@ title: EatLunch
     You finish the sandwich, but are slightly dissatisfied.
     Hey, it's better than nothing.
     <<set $globalAnxiety += 5>>
+    <<ChangeAnxiety GameManager 5>>
 <<endif>>
 
 Victoria: Well, we don't want to keep you from your errands for too long!
@@ -183,15 +190,27 @@ Ash: Val's welcome to come whenever she gets here, too! We just figured you migh
 Dark Self: They don't actually want you to come. They just feel bad for you.
 
 ->"Yeah, that would be awesome! Thanks for inviting me!"
-	Victoria: Great, we can't wait! I'll text you the details later tonight.
-	<<set $globalAnxiety -= 10>>
-    <<jump LunchDone>>
+    <<jump TriviaPos>>
 ->"Oh, I don't know. It's hard to get out with moving and everything."
-	Victoria: I totally get that, it's hard for me to make plans with school and everything too.
-    Ash: Think about it a little bit, okay? We would love to have you, we think it'd be fun to introduce you to some of our friends!
-    Victoria: I'll text you some of the details later.
-	<<set $globalAnxiety -= 5>>
-    <<jump LunchDone>>
+    <<jump TriviaNeg>>
+===
+
+title: TriviaPos
+---
+Victoria: Great, we can't wait! I'll text you the details later tonight.
+<<set $globalAnxiety -= 10>>
+<<ChangeAnxiety GameManager -10>>
+<<jump LunchDone>>
+===
+
+title: TriviaNeg
+---
+Victoria: I totally get that, it's hard for me to make plans with school and everything too.
+Ash: Think about it a little bit, okay? We would love to have you, we think it'd be fun to introduce you to some of our friends!
+Victoria: I'll text you some of the details later.
+<<set $globalAnxiety -= 5>>
+<<ChangeAnxiety GameManager -5>>
+<<jump LunchDone>>
 ===
 
 title: LunchDone

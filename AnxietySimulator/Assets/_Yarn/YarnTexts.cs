@@ -40,9 +40,7 @@ public class YarnTexts : MonoBehaviour
         }
     }
 
-    //[YarnCommand("disable")]
-    //not yet sure how to implement these
-    //but we do need to figure out how to turn off dialogues when we finish them
+    [YarnCommand("disable")]
     public void DisableConversation()
     {
         interactable = false;

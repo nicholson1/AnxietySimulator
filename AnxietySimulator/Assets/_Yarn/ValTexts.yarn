@@ -134,6 +134,7 @@ Dark Self: What?! Is a person's inner darkness not allowed to admit when dogs ar
 Dark Self: I'm just calling a spade a spade!
 
 <<set $globalAnxiety -= 15>>
+<<ChangeAnxiety GameManager -15>>
 <<jump ValTextsDone>>
 ===
 title: SubjectChanged
@@ -211,6 +212,7 @@ Who are you to doubt such sincere and infectious enthusiasm?
 Even if she ends up being wrong, those dogs are pretty adorable… 
 
 <<set $globalAnxiety -= 10>>
+<<ChangeAnxiety GameManager -10>>
 <<jump ValTextsDone>>
 ===
 title: ComfortAtOwnExpense
@@ -261,6 +263,7 @@ Cali: So I'm not currently paying attention to a word you're saying.
 Dark Self: Possibly the most rational thought process you've had all day; I'll let you have it.
 
 <<set $globalAnxiety -= 5>>
+<<ChangeAnxiety GameManager -5>>
 <<jump ValTextsDone>>
 ===
 

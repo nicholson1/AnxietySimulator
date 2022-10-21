@@ -43,6 +43,7 @@ title: MovingChatter
 Tony: Are you happy with your new place?
 Dark Self: Yeah, are you?
 <<set $globalAnxiety += 5>>
+<<ChangeAnxiety GameManager 5>>
 
 ->"Yeah, totally."
 	Tony: That's great! It's so fun to get a new place set up.
@@ -54,6 +55,7 @@ Dark Self: Yeah, are you?
 		Cali: Yeah, I still need to get a new wrench from the hardware store.
 		Dark Self: Which you should have done today.
 		<<set $globalAnxiety += 5>>
+		<<ChangeAnxiety GameManager 5>>
 	<<endif>>
 	Tony: Did you forget to bring one? You've gotta have some tools for moving!
 	Cali: Well…
@@ -70,7 +72,7 @@ Dark Self: Yeah, are you?
 		Cali: Oof is right.
 		Dark Self: It was embarrassing to watch.
 		<<jump DropOff>>
-	->[LIE] "Yeah, you're right. I should have packed better."
+	->"Yeah, you're right. I should have packed better."
 		Tony: Oh well. Lesson learned, I guess.
 		Cali: Yup.
 		Dark Self: As if.
@@ -88,6 +90,7 @@ Dark Self: Yeah, are you?
 	Tony: Have fun with it! Even if it's been a bumpy start.
 	Cali: Thanks.
 	<<set $globalAnxiety -= 5>>
+	<<ChangeAnxiety GameManager -5>>
 	<<jump DropOff>>
 ===
 
@@ -97,6 +100,7 @@ Tony: Are you here by yourself?
 Dark Self: Ooh good one!
 
 <<set $globalAnxiety += 5>>
+<<ChangeAnxiety GameManager 5>>
 
 ->"For now."
 	Tony: That's the worst part of getting settled in a new place.
@@ -166,6 +170,7 @@ Cali: I hope so.
 <<if $darkSelfRebuked is false>>
 	Dark Self: *If* she actually gets here. If she actually likes it here. If, if, if…
 	<<set $globalAnxiety += 5>>
+	<<ChangeAnxiety GameManager 5>>
 <<endif>>
 <<jump DropOff>>
 ===
@@ -181,6 +186,7 @@ Cali: We used to love going out together, especially to the park.
 	Cali: I really like it there.
 	Tony: I'm sure she will too.
 	<<set $globalAnxiety -= 15>>
+	<<ChangeAnxiety GameManager -15>>
 	 <<jump DropOff>>
 <<else>>
 	Cali: I want to find a park like the one we used to visit back home.
@@ -191,6 +197,7 @@ Cali: We used to love going out together, especially to the park.
 	Tony: Hopefully it'll be a great city for you and her too!
 	Cali: Yeah!
 	<<set $globalAnxiety -= 10>>
+	<<ChangeAnxiety GameManager -10>>
 	<<jump DropOff>>
 <<endif>>
 ===

@@ -18,6 +18,7 @@ ScriptedImporter:
   - {fileID: 6391573757903218779, guid: ff73d5b517b384880a1840fd7a9a0637, type: 3}
   - {fileID: 6391573757903218779, guid: 7748aa99463b84465a0372b552536cdb, type: 3}
   - {fileID: 6391573757903218779, guid: a0659b50bb06d6b4ba21dd69b96bd880, type: 3}
+  - {fileID: 6391573757903218779, guid: 2a0a8bc539609044bbc716b04e64b45f, type: 3}
   compileErrors: []
   serializedDeclarations:
   - name: $globalAnxiety
@@ -47,6 +48,14 @@ ScriptedImporter:
   - name: $gotGroceries
     typeName: Bool
     defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: 
+    isImplicit: 0
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 7260a0e1e5965e64db941a37e17a4781, type: 3}
+  - name: $dadCall
+    typeName: Bool
+    defaultValueBool: 1
     defaultValueNumber: 0
     defaultValueString: 
     description: 
@@ -108,14 +117,6 @@ ScriptedImporter:
     description: 
     isImplicit: 0
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 7748aa99463b84465a0372b552536cdb, type: 3}
-  - name: $dadCall
-    typeName: Bool
-    defaultValueBool: 0
-    defaultValueNumber: 0
-    defaultValueString: 
-    description: 
-    isImplicit: 0
-    sourceYarnAsset: {fileID: 6391573757903218779, guid: 7748aa99463b84465a0372b552536cdb, type: 3}
   - name: $callBreakdown
     typeName: Bool
     defaultValueBool: 0
@@ -124,6 +125,14 @@ ScriptedImporter:
     description: 
     isImplicit: 0
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 7748aa99463b84465a0372b552536cdb, type: 3}
+  - name: $dadMood
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: 
+    isImplicit: 0
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: a0659b50bb06d6b4ba21dd69b96bd880, type: 3}
   defaultLanguage: en-US
   languagesToSourceAssets: []
   useAddressableAssets: 0

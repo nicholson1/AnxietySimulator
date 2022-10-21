@@ -2,6 +2,9 @@
 tags:
 ---
 <<declare $dadMood to 0>>
+<<if $dadCall is true>>
+    <<jump NoMoreMessages>>
+<<endif>>
 
 It’s been a while since you’ve called your mom, but even longer since you’ve called your dad. 
 Interactions with him feel like rolling dice rigged to land on snake eyes.
@@ -16,11 +19,11 @@ You could never speak to him again, like plenty of kids with shitty parents do.
 Why don’t you go no contact? 
 That’s another question without an easy answer.
 
-->Contemplate calling Dad
+->Contemplate calling Dad.
     <<set $globalAnxiety += 5>>
     <<ChangeAnxiety GameManager 5>>
 	<<jump DadContinue>>
-->Stop thinking about Dad
+->Stop thinking about Dad.
 	<<jump DadStop>>
 ===
 

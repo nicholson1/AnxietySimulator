@@ -59,7 +59,7 @@ public class YarnInteract : MonoBehaviour
         }
     }
 
-    private void StartConversation()
+    public void StartConversation()
     {
         //Debug.Log($"Started conversation with {name}.");
         isCurrentConversation = true;
@@ -72,6 +72,7 @@ public class YarnInteract : MonoBehaviour
         if (isCurrentConversation)
         {
             InConvo(false);
+
             isCurrentConversation = false;
             //Debug.Log($"Started conversation with {name}.");
             gameObject.SetActive(false);
