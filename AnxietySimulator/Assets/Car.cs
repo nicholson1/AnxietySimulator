@@ -13,7 +13,8 @@ public class Car : MonoBehaviour
     [SerializeField] private Material[] Materials;
     [SerializeField] private MeshRenderer[] Skins;
     [SerializeField] private NavMeshAgent navAgent;
-    
+
+    public Transform CarryPos;
     
 
     private SoundManager _soundManager;
@@ -86,7 +87,8 @@ public class Car : MonoBehaviour
             if (activated)
             {
                 navAgent.isStopped = false;
-                player.transform.position = this.transform.position - Vector3.forward *3;
+                player.transform.position = CarryPos.position;
+                
             }
             else
             {
@@ -202,7 +204,7 @@ public class Car : MonoBehaviour
                     activated = true;
                     player = other.gameObject;
                     player.SetActive(false);
-                    navAgent.speed = 2;
+                    navAgent.speed = 3;
                     
                     
 
@@ -214,7 +216,7 @@ public class Car : MonoBehaviour
 
     public void DropPlayer()
     {
-        player.transform.position = transform.position + Vector3.right * 3;
+        player.transform.position = transform.localPosition + Vector3.right * 3;
         player.SetActive(true);
         StartCoroutine(waitThenLeave());
         player = null;
