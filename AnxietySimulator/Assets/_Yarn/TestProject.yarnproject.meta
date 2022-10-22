@@ -19,6 +19,7 @@ ScriptedImporter:
   - {fileID: 6391573757903218779, guid: 7748aa99463b84465a0372b552536cdb, type: 3}
   - {fileID: 6391573757903218779, guid: a0659b50bb06d6b4ba21dd69b96bd880, type: 3}
   - {fileID: 6391573757903218779, guid: 2a0a8bc539609044bbc716b04e64b45f, type: 3}
+  - {fileID: 6391573757903218779, guid: 16e4f7176bb7b7b4abdc440a51156b3a, type: 3}
   compileErrors: []
   serializedDeclarations:
   - name: $globalAnxiety
@@ -55,7 +56,7 @@ ScriptedImporter:
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 7260a0e1e5965e64db941a37e17a4781, type: 3}
   - name: $dadCall
     typeName: Bool
-    defaultValueBool: 1
+    defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
     description: 

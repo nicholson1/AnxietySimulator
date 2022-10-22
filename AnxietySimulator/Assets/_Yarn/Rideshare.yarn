@@ -71,12 +71,12 @@ Dark Self: Yeah, are you?
 		Tony: Oof.
 		Cali: Oof is right.
 		Dark Self: It was embarrassing to watch.
-		<<jump DropOff>>
+		<<jump RideshareClose>>
 	->"Yeah, you're right. I should have packed better."
 		Tony: Oh well. Lesson learned, I guess.
 		Cali: Yup.
 		Dark Self: As if.
-		<<jump DropOff>>
+		<<jump RideshareClose>>
 ->"It would help if I'd actually gotten my furniture set up already."
 	Tony: Oof, that's the worst part.
 	Tony: Other than the heavy lifting.
@@ -91,7 +91,7 @@ Dark Self: Yeah, are you?
 	Cali: Thanks.
 	<<set $globalAnxiety -= 5>>
 	<<ChangeAnxiety GameManager -5>>
-	<<jump DropOff>>
+	<<jump RideshareClose>>
 ===
 
 title: RelationshipChatter
@@ -116,7 +116,7 @@ Dark Self: Ooh good one!
 	Tony: I hope. Anything to bring the median age above 78.
 	Tony: Not that we don't all love Florence, Gloria, and Miss Louise.
 	Tony: But we need to refresh the membership pool.
-	<<jump DropOff>>
+	<<jump RideshareClose>>
 ->"My girlfriend's supposed to move here soon, but it's taking a bit."
 	<<jump RelationshipBreakpoint>>
 ===
@@ -154,7 +154,7 @@ Tony: Personally I just need a little more murder at the end of a long day.
 Tony: Virtual murder.
 Tony: Obviously.
 Cali: Obviously.
-<<jump DropOff>>
+<<jump RideshareClose>>
 ===
 
 title: MidAnxietyRelationship
@@ -172,7 +172,7 @@ Cali: I hope so.
 	<<set $globalAnxiety += 5>>
 	<<ChangeAnxiety GameManager 5>>
 <<endif>>
-<<jump DropOff>>
+<<jump RideshareClose>>
 ===
 
 title: LowAnxietyRelationship
@@ -187,7 +187,6 @@ Cali: We used to love going out together, especially to the park.
 	Tony: I'm sure she will too.
 	<<set $globalAnxiety -= 15>>
 	<<ChangeAnxiety GameManager -15>>
-	 <<jump DropOff>>
 <<else>>
 	Cali: I want to find a park like the one we used to visit back home.
 	Cali: Big trees, lots of people. Maybe a pool or a basketball court.
@@ -198,30 +197,10 @@ Cali: We used to love going out together, especially to the park.
 	Cali: Yeah!
 	<<set $globalAnxiety -= 10>>
 	<<ChangeAnxiety GameManager -10>>
-	<<jump DropOff>>
 <<endif>>
+<<jump RideshareClose>>
 ===
 
-title: DropOff
+title: RideshareClose
 ---
-Tony: Okay, here we are!
-<<if $globalAnxiety <= 75>>
-	Cali: Thanks for the ride. It was nice talking to you!
-	Tony: Same here!
-<<else>>
-	Cali: Thanks for the ride.
-	Tony: It's my job!
-<<endif>>
-Tony: If you ever need a pickup, you know who to call!
-Tony: Well, I can't promise it'll be me specifically that gets your request, but it might be.
-Tony: And don't forget that 5-star rating!
-<<if $globalAnxiety <= 75>>
-	Cali: Will do!
-<<endif>>
-<<jump RideDone>>
-===
-
-title: RideDone
----
-Tony: Catch ya later!
 ===

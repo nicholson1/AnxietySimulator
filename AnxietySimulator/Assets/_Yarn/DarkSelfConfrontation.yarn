@@ -6,15 +6,28 @@
 Cali: It's a beautiful day, and I feel…surprisingly fine.
 Dark Self: You're probably forgetting something.
 Dark Self: The groceries, for example.
-Cali: I just ate lunch, I'm not even hungry.
-Dark Self: Oh, yes, let's talk about lunch.
-Dark Self: Specifically how weird you were.
-<<set $globalAnxiety += 5>>
-<<ChangeAnxiety GameManager 5>>
-	->"I wasn't weird."
-	    <<jump LunchPostMortem>>
-	->"I don't want to…"
-	    <<jump LunchPostMortem>>
+	<<if $gotLunch is true>>
+		Cali: I just ate lunch, I'm not even hungry.
+		Dark Self: Oh, yes, let's talk about lunch.
+		Dark Self: Specifically how weird you were.
+		<<set $globalAnxiety += 5>>
+		<<ChangeAnxiety GameManager 5>>
+			->"I wasn't weird."
+	   			<<jump LunchPostMortem>>
+			->"I don't want to…"
+	    		<<jump LunchPostMortem>>
+	<<else>>
+		Dark Self: Not to mention your so-called friends.
+		Dark Self: Who are probably wondering why you haven't shown up to lunch yet.
+		Dark Self: Or your girlfriend.
+		Dark Self: Who you, you know, abandoned.
+		<<set $globalAnxiety += 5>>
+		<<ChangeAnxiety GameManager 5>>
+			->"I didn't abandon her."
+				<<jump RelationshipAnxiety>>
+			->"She understands..."
+				<<jump RelationshipAnxiety>>
+	<<endif>>
 <<endif>>
 <<if $globalAnxiety > 25>>
 	<<if $globalAnxiety < 75>>

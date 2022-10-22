@@ -100,16 +100,17 @@ public class GameManager : MonoBehaviour
             case "HardwareStore":
                 Player.SetActive(true);
                 DarkSelf.SetActive(true);
-                thingsToActive[1].SetActive(true);
+                thingsToActive[0].SetActive(true);
                 StartCoroutine(WaitThenActivatePhone());// activate the phone
                 break;
             case "Lunch":
                 Player.SetActive(true);
                 DarkSelf.SetActive(true);
-                thingsToActive[2].SetActive(true);
+                thingsToActive[1].SetActive(true);
                 break;
                 
-            case "DarkSelfConfrontation": 
+            case "DarkSelfConfrontation":
+                thingsToActive[2].SetActive(true);
                 StartCoroutine(WaitThenActivatePhone());// activate the phone
 
                 break;
@@ -121,10 +122,12 @@ public class GameManager : MonoBehaviour
             case "Rideshare":
                 thingsToActive[4].SetActive(true);
                 break;
-            
-           
-            
-            
+            case "RideshareEnd":
+                thingsToActive[6].SetActive(true);
+                break;
+
+
+
         }
     }
 

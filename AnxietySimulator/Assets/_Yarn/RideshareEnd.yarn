@@ -1,0 +1,24 @@
+﻿title: RideshareEnd
+tags:
+---
+Tony: Okay, here we are!
+<<if $globalAnxiety <= 75>>
+	Cali: Thanks for the ride. It was nice talking to you!
+	Tony: Same here!
+<<else>>
+	Cali: Thanks for the ride.
+	Tony: It's my job!
+<<endif>>
+Tony: If you ever need a pickup, you know who to call!
+Tony: Well, I can't promise it'll be me specifically that gets your request, but it might be.
+Tony: And don't forget that 5-star rating!
+<<if $globalAnxiety <= 75>>
+	Cali: Will do!
+<<endif>>
+<<jump RideDone>>
+===
+
+title: RideDone
+---
+Tony: Catch ya later!
+===
