@@ -31,6 +31,27 @@ public class PopupComment : MonoBehaviour
         "You’re going the wrong way.",
         "You’re never going to get all of this stuff done.",
         "You’re forgetting something. I don’t know what it is, but you forgot it.",
+        "Moving here was a mistake.",
+        "You aren’t cut out for grad school.",
+        "I bet everyone at the orientation last week thought you were a freak.",
+        "Why are you like this?",
+        "You walk weirdly and everyone notices it.",
+        "You don’t deserve to make any new friends here.",
+        "I bet they accepted you to this grad program by mistake.",
+        "You look so awkward right now… I just know it.",
+        "Stop. Just, in general… stop.",
+        "Your mom was right about you.",
+        "No wonder your dad barely wants to acknowledge you.",
+        "Why can’t you be more like your brother?",
+        "That facial expression you’re making is creeping everyone out…",
+        "You’re existing wrong. I don’t know how, you just are.",
+        "Your body looks gross and your clothes don’t fit right.",
+        "Your heart is beating so fast, I bet you’ll get a heart attack!",
+        "How does someone like you have friends, let alone a girlfriend?",
+        "You’re gonna bump into someone. They’re gonna hate you for it.",
+        "Listen to your own heartbeat. Isn’t that unnerving…?",
+        "You didn’t sleep enough to get through today…",
+
     };
 
     private String[] HonkComments = new[]
@@ -38,7 +59,12 @@ public class PopupComment : MonoBehaviour
         "You’re going to get hit by a car!",
         "You're in the way of that car!",
         "Move they're honking at you!",
-        "I wish they would just hit you..."
+        "I wish they would just hit you...",
+        "Maybe you deserve to be hit…",
+        "Isn’t it embarrassing how you can’t drive?",
+        "Today would be easier if you had a license.",
+        "I bet that person wanted to hit you.",
+
     };
     private void Start()
     {
