@@ -10,16 +10,26 @@ public class GameManager : MonoBehaviour
     
     public static event Action<int> AnxietyChanged;
 
+    [SerializeField] private GameObject[] thingsToActive;
+    
+
+    private GameObject Player;
+    private GameObject DarkSelf;
+
     private void Awake()
     {
         Car.Honk += HonkedAt;
         PopupComment.PopUpClicked += IncreaseAnxiety;
+        YarnInteract.EndConvo += SetEndConvo;
+        YarnInteract.StartConvo += SetStartConvo;
     }
     
     private void OnDestroy()
     {
         Car.Honk -= HonkedAt;
         PopupComment.PopUpClicked -= IncreaseAnxiety;
+        YarnInteract.EndConvo -= SetEndConvo;
+        YarnInteract.StartConvo -= SetStartConvo;
     }
     
     private void HonkedAt(GameObject player, Transform car)
@@ -39,6 +49,19 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         AnxietyChanged(AnxietyLevel);
+        Player = FindObjectOfType<PlayerMovement>().gameObject;
+        DarkSelf = FindObjectOfType<TheDarkOneMovement>().gameObject;
+        
+        DisableConvos();
+    }
+    
+    
+    private void DisableConvos()
+    {
+        foreach (GameObject i in thingsToActive )
+        {
+            i.SetActive(false);
+        }
     }
 
     [YarnCommand("ChangeAnxiety")]
@@ -60,6 +83,71 @@ public class GameManager : MonoBehaviour
         AnxietyChanged(AnxietyLevel);
     }
 
+    IEnumerator WaitThenActivatePhone()
+    {
+        yield return new WaitForSeconds(20);
+        thingsToActive[5].SetActive(true);
+    }
+
+
+    private void SetEndConvo(string scene)
+    {
+        switch (scene)
+        {
+            case "Start":
+                StartCoroutine(WaitThenActivatePhone());// activate the phone
+                break;
+            case "HardwareStore":
+                Player.SetActive(true);
+                DarkSelf.SetActive(true);
+                thingsToActive[1].SetActive(true);
+                StartCoroutine(WaitThenActivatePhone());// activate the phone
+                break;
+            case "Lunch":
+                Player.SetActive(true);
+                DarkSelf.SetActive(true);
+                thingsToActive[2].SetActive(true);
+                break;
+                
+            case "DarkSelfConfrontation": 
+                StartCoroutine(WaitThenActivatePhone());// activate the phone
+
+                break;
+            case "GroceryStore":
+                Player.SetActive(true);
+                DarkSelf.SetActive(true);
+                thingsToActive[3].SetActive(true);
+                break;
+            case "Rideshare":
+                thingsToActive[4].SetActive(true);
+                break;
+            
+           
+            
+            
+        }
+    }
+
+    private void SetStartConvo(string scene)
+    {
+        switch (scene)
+        {
+            case "GroceryStore":
+                Player.SetActive(false);
+                DarkSelf.SetActive(false);
+                break;
+            
+            case "Lunch":
+                Player.SetActive(false);
+                DarkSelf.SetActive(false);
+                break;
+            case "HardwareStore":
+                Player.SetActive(false);
+                DarkSelf.SetActive(false);
+                break;
+            
+        }
+    }
 
     
 }

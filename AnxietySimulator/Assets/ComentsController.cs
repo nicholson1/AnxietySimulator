@@ -9,6 +9,7 @@ public class ComentsController : MonoBehaviour
 {
 
     private int _anxietyLevel = 0;
+    private bool _inConvo;
     private float TimeTillNextComment = 15f;
     
     
@@ -21,12 +22,14 @@ public class ComentsController : MonoBehaviour
     {
         GameManager.AnxietyChanged += AnxietyHasChanged;
         Car.Honk += HonkedAt;
+        YarnInteract.InConvo += Convo;
     }
 
     private void OnDestroy()
     {
         GameManager.AnxietyChanged -= AnxietyHasChanged;
         Car.Honk -= HonkedAt;
+        YarnInteract.InConvo += Convo;
     }
     
     private void AnxietyHasChanged(int anxietyLevel)
@@ -48,14 +51,18 @@ public class ComentsController : MonoBehaviour
     private float timeCounter;
     private void Update()
     {
-        timeCounter -= Time.deltaTime;
-
-        if (timeCounter < 0)
+        if (!_inConvo)
         {
-            CreateNewComment();
-            timeCounter = TimeTillNextComment;
+            timeCounter -= Time.deltaTime;
+
+            if (timeCounter < 0)
+            {
+                CreateNewComment();
+                timeCounter = TimeTillNextComment;
             
+            }
         }
+        
     }
 
     private bool isButton1 = true;
@@ -117,4 +124,10 @@ public class ComentsController : MonoBehaviour
 
         }
     }
+
+    private void Convo(bool inconvo)
+    {
+        _inConvo = inconvo;
+    }
+    
 }

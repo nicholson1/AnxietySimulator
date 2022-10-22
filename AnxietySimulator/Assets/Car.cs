@@ -74,8 +74,12 @@ public class Car : MonoBehaviour
         _soundManager = FindObjectOfType<SoundManager>();
         CarAudioSource = GetComponent<AudioSource>();
         Initialize();
+        
+        
 
     }
+
+   
 
     private int honkAtCarCounter = 0;
     private GameObject Honktarget;
@@ -157,6 +161,15 @@ public class Car : MonoBehaviour
                 currentTarget += 1;
                 if (currentTarget > Waypoints.Count - 1)
                 {
+                    if (isUber)
+                    {
+                        DropPlayer();
+                    }
+                    else
+                    {
+                        Destroy(this.gameObject);
+                    }
+                    
                     currentTarget = 0;
                 }
             
@@ -204,8 +217,10 @@ public class Car : MonoBehaviour
                     activated = true;
                     player = other.gameObject;
                     player.SetActive(false);
-                    navAgent.speed = 3;
+                    navAgent.speed = 4;
                     
+                    
+                    GetComponentInChildren<YarnInteract>().StartConversation();
                     
 
 

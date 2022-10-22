@@ -18,6 +18,8 @@ public class YarnInteract : MonoBehaviour
     public float activationDist = 2f;
 
     public static event Action<bool> InConvo;
+    public static event Action<String> EndConvo;
+    public static event Action<String> StartConvo;
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,7 @@ public class YarnInteract : MonoBehaviour
         isCurrentConversation = true;
         dialogueRunner.StartDialogue(conversationStartNode);
         InConvo(true);
+        StartConvo(conversationStartNode);
     }
 
     private void EndConversation()
@@ -72,6 +75,7 @@ public class YarnInteract : MonoBehaviour
         if (isCurrentConversation)
         {
             InConvo(false);
+            EndConvo(conversationStartNode);
 
             isCurrentConversation = false;
             //Debug.Log($"Started conversation with {name}.");

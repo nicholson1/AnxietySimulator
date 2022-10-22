@@ -38,6 +38,15 @@ public class TheDarkOneMovement : MonoBehaviour
                 agent.isStopped = true;
                 animator.SetBool("Swiming", false);
             }
+
+            if (distance > 10)
+            {
+                agent.speed = distance;
+            }
+            else
+            {
+                agent.speed = 2.5f;
+            }
         }
         
     }
