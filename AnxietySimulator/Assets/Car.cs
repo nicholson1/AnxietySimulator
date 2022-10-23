@@ -15,6 +15,7 @@ public class Car : MonoBehaviour
     [SerializeField] private NavMeshAgent navAgent;
 
     public Transform CarryPos;
+    public YarnInteract startEndRideshareConvo;
     
 
     private SoundManager _soundManager;
@@ -30,7 +31,17 @@ public class Car : MonoBehaviour
     private float moveSpeed;
     
     public static event Action<GameObject, Transform> Honk;
-    
+
+    private void Awake()
+    {
+        YarnInteract.EndConvo += SetEndConvo;
+    }
+
+    private void OnDestroy()
+    {
+        YarnInteract.EndConvo -= SetEndConvo;
+    }
+
     public void Initialize()
     {
         foreach (Transform point in Path.GetComponentsInChildren<Transform>())
@@ -74,13 +85,15 @@ public class Car : MonoBehaviour
         _soundManager = FindObjectOfType<SoundManager>();
         CarAudioSource = GetComponent<AudioSource>();
         Initialize();
+
+        
         
         
 
     }
 
-   
 
+    private bool waitingForConvoEnd = false;
     private int honkAtCarCounter = 0;
     private GameObject Honktarget;
     private float movingTime;
@@ -161,16 +174,29 @@ public class Car : MonoBehaviour
                 currentTarget += 1;
                 if (currentTarget > Waypoints.Count - 1)
                 {
+                    
                     if (isUber)
                     {
-                        DropPlayer();
+                        currentTarget -= 1;
+
+                        if (waitingForConvoEnd)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            startEndRideshareConvo.StartConversation();
+                            waitingForConvoEnd = true;
+
+                        }
+                       
                     }
                     else
                     {
                         Destroy(this.gameObject);
                     }
                     
-                    currentTarget = 0;
+                    
                 }
             
                 navAgent.SetDestination(Waypoints[currentTarget]);
@@ -203,7 +229,7 @@ public class Car : MonoBehaviour
         movingTime = 0;
     }
 
-    private GameObject player;
+    public GameObject player;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -236,6 +262,9 @@ public class Car : MonoBehaviour
         StartCoroutine(waitThenLeave());
         player = null;
         isUber = false;
+        currentTarget = 0;
+        waitingForConvoEnd = false;
+        navAgent.SetDestination(Waypoints[currentTarget]);
 
     }
 
@@ -244,5 +273,15 @@ public class Car : MonoBehaviour
         navAgent.isStopped = true;
         yield return new WaitForSeconds(5);
         navAgent.isStopped = false;
+    }
+
+    private void SetEndConvo(string convo)
+    {
+        switch(convo)
+        {
+            case "RideshareEnd":
+                DropPlayer();
+                break;
+        }
     }
 }

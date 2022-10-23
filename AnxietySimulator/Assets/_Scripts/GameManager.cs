@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public static event Action<int> AnxietyChanged;
 
     [SerializeField] private GameObject[] thingsToActive;
-    
+
+    public GameObject Uber;
+    public Transform UberStartPos;
 
     private GameObject Player;
     private GameObject DarkSelf;
@@ -118,6 +120,8 @@ public class GameManager : MonoBehaviour
                 Player.SetActive(true);
                 DarkSelf.SetActive(true);
                 thingsToActive[3].SetActive(true);
+                Uber.transform.position = UberStartPos.position;
+                Debug.Log("move uber");
                 break;
             case "Rideshare":
                 thingsToActive[4].SetActive(true);
