@@ -125,9 +125,17 @@ public class ComentsController : MonoBehaviour
         }
     }
 
-    private void Convo(bool inconvo)
+    private void Convo(string inconvo)
     {
-        _inConvo = inconvo;
+        if (inconvo != null)
+        {
+            _inConvo = true;
+        }
+        else
+        {
+            _inConvo = false;
+        }
+        
     }
     
 }

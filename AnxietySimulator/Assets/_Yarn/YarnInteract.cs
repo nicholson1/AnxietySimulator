@@ -18,7 +18,7 @@ public class YarnInteract : MonoBehaviour
     //public float activationDist = 2f;
 
     public bool AllowPlayerToWalk = false;
-    public static event Action<bool> InConvo;
+    public static event Action<String> InConvo;
     public static event Action<String> EndConvo;
     public static event Action<String> StartConvo;
 
@@ -67,11 +67,10 @@ public class YarnInteract : MonoBehaviour
         //Debug.Log($"Started conversation with {name}.");
         isCurrentConversation = true;
         dialogueRunner.StartDialogue(conversationStartNode);
-        if (!AllowPlayerToWalk)
-        {
-            InConvo(true);
-            StartConvo(conversationStartNode);
-        }
+        
+        InConvo(conversationStartNode);
+        StartConvo(conversationStartNode);
+        
         
         
         
@@ -81,7 +80,7 @@ public class YarnInteract : MonoBehaviour
     {
         if (isCurrentConversation)
         {
-            InConvo(false);
+            InConvo(null);
             EndConvo(conversationStartNode);
 
             isCurrentConversation = false;
