@@ -265,6 +265,8 @@ public class Car : MonoBehaviour
         currentTarget = 0;
         waitingForConvoEnd = false;
         navAgent.SetDestination(Waypoints[currentTarget]);
+        player.GetComponent<PlayerMovement>().FixAnimationBug();
+
 
     }
 

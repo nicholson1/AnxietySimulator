@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     IEnumerator WaitThenActivatePhone()
     {
         yield return new WaitForSeconds(20);
-        thingsToActive[5].SetActive(true);
+        thingsToActive[7].SetActive(true);
     }
 
 
@@ -104,11 +104,14 @@ public class GameManager : MonoBehaviour
                 DarkSelf.SetActive(true);
                 thingsToActive[0].SetActive(true);
                 StartCoroutine(WaitThenActivatePhone());// activate the phone
+                Player.GetComponent<PlayerMovement>().FixAnimationBug();
                 break;
             case "Lunch":
                 Player.SetActive(true);
                 DarkSelf.SetActive(true);
                 thingsToActive[1].SetActive(true);
+                Player.GetComponent<PlayerMovement>().FixAnimationBug();
+
                 break;
                 
             case "DarkSelfConfrontation":
@@ -121,6 +124,7 @@ public class GameManager : MonoBehaviour
                 DarkSelf.SetActive(true);
                 thingsToActive[3].SetActive(true);
                 Uber.transform.position = UberStartPos.position;
+                Player.GetComponent<PlayerMovement>().FixAnimationBug();
                 Debug.Log("move uber");
                 break;
             case "Rideshare":

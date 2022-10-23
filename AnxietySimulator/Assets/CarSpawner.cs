@@ -44,7 +44,7 @@ public class CarSpawner : MonoBehaviour
     {
         if (DeadList.Count != 0)
         {
-            Debug.Log(DeadList.Count);
+            //Debug.Log(DeadList.Count);
             DeadList[0].gameObject.transform.position = SpawnLocation.position;
             DeadList[0].gameObject.SetActive(true);
             DeadList[0].Initialize();

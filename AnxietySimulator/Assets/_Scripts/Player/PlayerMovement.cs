@@ -17,12 +17,15 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         YarnInteract.InConvo += Convo;
+        //YarnInteract.EndConvo += EndConvo;
 
         
     }
     private void OnDestroy()
     {
         YarnInteract.InConvo -= Convo;
+        //YarnInteract.EndConvo += EndConvo;
+
     }
 
     private void Start()
@@ -86,6 +89,10 @@ public class PlayerMovement : MonoBehaviour
         _inConvo = inConvo;
     }
     
+    public void FixAnimationBug()
+    {
+        agent.SetDestination(this.transform.position);
+    }
    
 
    
