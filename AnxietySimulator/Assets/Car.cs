@@ -185,7 +185,8 @@ public class Car : MonoBehaviour
                         }
                         else
                         {
-                            startEndRideshareConvo.StartConversation();
+                            //startEndRideshareConvo.StartConversation();
+                            DropPlayer();
                             waitingForConvoEnd = true;
 
                         }
@@ -261,7 +262,7 @@ public class Car : MonoBehaviour
         player.SetActive(true);
         StartCoroutine(waitThenLeave());
         player.GetComponent<PlayerMovement>().FixAnimationBug();
-        startEndRideshareConvo.EndConversation();
+        //startEndRideshareConvo.EndConversation();
         player = null;
         isUber = false;
         currentTarget = 0;
@@ -282,8 +283,8 @@ public class Car : MonoBehaviour
     {
         switch(convo)
         {
-            case "RideshareEnd":
-                DropPlayer();
+            case "Rideshare":
+                //DropPlayer();
                 break;
         }
     }

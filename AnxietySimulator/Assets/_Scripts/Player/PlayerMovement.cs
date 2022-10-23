@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
 
-        if (inConvo == "DarkSelfConfrontation")
+        if (inConvo == "DarkSelfConfrontation" || inConvo == "MomCall")
         {
             _inConvo = false;
         }

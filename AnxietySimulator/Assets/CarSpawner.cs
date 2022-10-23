@@ -54,7 +54,7 @@ public class CarSpawner : MonoBehaviour
         {
             
             Car spawn = Instantiate(CarPrefab, CarPooler).GetComponent<Car>();
-            
+            spawn.transform.position = SpawnLocation.position;
             spawn.Path = ListOfpaths[Random.Range(0,ListOfpaths.Length)];
             spawn.Initialize();
 

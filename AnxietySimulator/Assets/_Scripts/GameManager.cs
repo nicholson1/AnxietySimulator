@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     private GameObject Player;
     private GameObject DarkSelf;
 
+    public DialogueRunner DialogueRunner;
+
     private void Awake()
     {
         Car.Honk += HonkedAt;
@@ -81,6 +83,7 @@ public class GameManager : MonoBehaviour
         {
             AnxietyLevel = 100;
         }
+        DialogueRunner.VariableStorage.SetValue("$globalAnxiety", AnxietyLevel);
         
         AnxietyChanged(AnxietyLevel);
     }
@@ -135,7 +138,9 @@ public class GameManager : MonoBehaviour
 
                 break;
             case "Rideshare":
-                thingsToActive[4].SetActive(true);
+                //thingsToActive[4].SetActive(true);
+                thingsToActive[6].SetActive(true);
+                pointer.SetTarget(thingsToActive[6]);
                 break;
             case "RideshareEnd":
                 thingsToActive[6].SetActive(true);
