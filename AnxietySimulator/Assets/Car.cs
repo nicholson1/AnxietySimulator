@@ -266,6 +266,7 @@ public class Car : MonoBehaviour
         waitingForConvoEnd = false;
         navAgent.SetDestination(Waypoints[currentTarget]);
         player.GetComponent<PlayerMovement>().FixAnimationBug();
+        //this line keeps throwing a nullreference
 
 
     }

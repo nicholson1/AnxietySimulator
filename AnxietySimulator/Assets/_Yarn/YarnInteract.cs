@@ -14,8 +14,8 @@ public class YarnInteract : MonoBehaviour
     private bool interactable = true;
     private bool isCurrentConversation = false;
 
-    private Transform playerProximity;
-    public float activationDist = 2f;
+    //private Transform playerProximity;
+    //public float activationDist = 2f;
 
     public bool AllowPlayerToWalk = false;
     public static event Action<bool> InConvo;
@@ -28,16 +28,16 @@ public class YarnInteract : MonoBehaviour
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         dialogueRunner.onDialogueComplete.AddListener(EndConversation);
 
-        playerProximity = GameObject.FindGameObjectWithTag("Player").transform;
+        //playerProximity = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ActivateConvo();
+        //ActivateConvo();
     }
 
-    private void ActivateConvo() 
+    /*private void ActivateConvo() 
     {
         float dist = Vector3.Distance(playerProximity.position, transform.position);
         if (dist <= activationDist && Input.GetKeyUp(KeyCode.E))
@@ -47,7 +47,7 @@ public class YarnInteract : MonoBehaviour
                 StartConversation();
             }
         }
-    }
+    }*/
 
 
     private void OnTriggerEnter(Collider other)
