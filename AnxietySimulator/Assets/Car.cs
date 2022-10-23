@@ -261,6 +261,7 @@ public class Car : MonoBehaviour
         player.SetActive(true);
         StartCoroutine(waitThenLeave());
         player.GetComponent<PlayerMovement>().FixAnimationBug();
+        startEndRideshareConvo.EndConversation();
         player = null;
         isUber = false;
         currentTarget = 0;

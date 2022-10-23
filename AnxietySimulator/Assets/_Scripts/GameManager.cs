@@ -140,6 +140,9 @@ public class GameManager : MonoBehaviour
             case "RideshareEnd":
                 thingsToActive[6].SetActive(true);
                 pointer.SetTarget(thingsToActive[6]);
+                
+                Debug.Log("Activate mom Call");
+                Debug.Log(thingsToActive[6].name);
 
                 break;
 

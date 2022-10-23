@@ -76,7 +76,7 @@ public class YarnInteract : MonoBehaviour
         
     }
 
-    private void EndConversation()
+    public void EndConversation()
     {
         if (isCurrentConversation)
         {
