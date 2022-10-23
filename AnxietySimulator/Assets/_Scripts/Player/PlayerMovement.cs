@@ -84,9 +84,22 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _inConvo;
 
-    private void Convo(bool inConvo)
+    private void Convo(string inConvo)
     {
-        _inConvo = inConvo;
+        if (inConvo != null)
+        {
+            _inConvo = true;
+        }
+        else
+        {
+            _inConvo = false;
+        }
+        
+
+        if (inConvo == "DarkSelfConfrontation")
+        {
+            _inConvo = false;
+        }
     }
     
     public void FixAnimationBug()

@@ -260,12 +260,12 @@ public class Car : MonoBehaviour
         player.transform.position = transform.localPosition + Vector3.right * 3;
         player.SetActive(true);
         StartCoroutine(waitThenLeave());
+        player.GetComponent<PlayerMovement>().FixAnimationBug();
         player = null;
         isUber = false;
         currentTarget = 0;
         waitingForConvoEnd = false;
         navAgent.SetDestination(Waypoints[currentTarget]);
-        player.GetComponent<PlayerMovement>().FixAnimationBug();
 
 
     }
