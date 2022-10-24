@@ -44,6 +44,11 @@ public class fadeToBlack : MonoBehaviour
             {
                 ct.ChangeTheText(GameObject.FindObjectOfType<GameManager>().AnxietyLevel);
             }
+            else
+            {
+                FindObjectOfType<SoundManager>().PingPhone();
+
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioSource MusicPlayer;
     [SerializeField] private AudioSource AmbientPlayer;
-
+    [SerializeField] private AudioSource SoundEffectPlayer;
 
     [SerializeField] private AudioClip[] Honks;
     [SerializeField] private AudioClip[] WalkingMusic;
@@ -21,6 +21,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip AmbientGroceryStore;
     [SerializeField] private AudioClip AmbientFood;
 
+    [SerializeField] private AudioClip PhonePing;
 
 
     private void Awake()
@@ -67,6 +68,11 @@ public class SoundManager : MonoBehaviour
             
             
         }
+    }
+
+    public void PingPhone()
+    {
+        SoundEffectPlayer.PlayOneShot(PhonePing, 1f);
     }
 
     private void SetSoundStartConvo(string scene)

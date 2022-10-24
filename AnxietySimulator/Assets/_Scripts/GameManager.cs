@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
     IEnumerator WaitThenActivatePhone()
     {
         yield return new WaitForSeconds(20);
+        this.GetComponentInChildren<SoundManager>().PingPhone();
         thingsToActive[7].SetActive(true);
     }
 
