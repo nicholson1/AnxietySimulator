@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
 
 public class GameManager : MonoBehaviour
@@ -20,6 +21,10 @@ public class GameManager : MonoBehaviour
 
     public DialogueRunner DialogueRunner;
 
+    public fadeToBlack fade1;
+    public fadeToBlack fade2;
+
+    
     private void Awake()
     {
         Car.Honk += HonkedAt;
@@ -150,6 +155,13 @@ public class GameManager : MonoBehaviour
                 Debug.Log(thingsToActive[6].name);
 
                 break;
+            
+            case  "MomCall":
+                fade1.gameObject.SetActive(true);
+                fade1.waitThenFadeToBlack(0);
+                fade2.gameObject.SetActive(true);
+                fade2.waitThenFadeToBlack(15);
+                break;
 
 
 
@@ -183,5 +195,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
 }

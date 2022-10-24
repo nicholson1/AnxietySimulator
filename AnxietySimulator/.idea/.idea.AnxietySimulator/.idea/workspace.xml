@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b458d42c-1dcb-4cf8-91fc-d048c43a4d8f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AnxietySimulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AnxietySimulator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Car.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Car.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CarSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CarSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SyntyStudios/PolygonCity/Scenes/Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SyntyStudios/PolygonCity/Scenes/Demo.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/PopupComments/urban_anxiety SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/PopupComments/urban_anxiety SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +15,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/CarEater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/CarSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ChangeText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ComentsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DisableSelf.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FogParticleControl.cs" root0="FORCE_HIGHLIGHTING" />
@@ -26,6 +26,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/SoundManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/TheDarkOne/TheDarkOneMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/TheDarkOne/TheDarkOneSizeController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/fadeToBlack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Pacman/Assets/SoundObserver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Programming-Patterns-master/Programming-Patterns-master/Programming Patterns/Assets/State Pattern/Scripts/FSM/NPCSearch.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Programming-Patterns-master/Programming-Patterns-master/Programming Patterns/Assets/State Pattern/Scripts/FSM/NPCSearch_No_FSM_ExtraState.cs" root0="SKIP_HIGHLIGHTING" />
@@ -97,7 +98,7 @@
       <workItem from="1666199099961" duration="846000" />
       <workItem from="1666363624888" duration="21600000" />
       <workItem from="1666540533207" duration="9943000" />
-      <workItem from="1666552343128" duration="6381000" />
+      <workItem from="1666552343128" duration="11066000" />
     </task>
     <servers />
   </component>
